@@ -1,3 +1,4 @@
+Licence.txt
 README.txt
 setup.py
 explainable_ai/__init__.py
