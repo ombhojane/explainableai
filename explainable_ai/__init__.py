@@ -1,3 +1,3 @@
-def second_example_function(number):
-    print("This is an example function.")
-    return number
+from .core import xai_wrapper
+
+__all__ = ['xai_wrapper']
