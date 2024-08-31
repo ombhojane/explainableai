@@ -1,0 +1,1001 @@
+age,sex,chest_pain_type,resting_blood_pressure,cholesterol,fasting_blood_sugar,rest_ecg,max_heart_rate,exercise_induced_angina,st_depression,st_slope,num_major_vessels,thalassemia,heart_disease
+68,M,typical angina,111,154,0,left ventricular hypertrophy,172,1,1.5764067981313694,flat,1,reversible defect,False
+58,M,atypical angina,132,335,1,normal,157,1,3.912506238275368,upsloping,0,normal,False
+44,M,non-anginal pain,104,184,1,normal,152,1,0.1549013101474666,flat,3,reversible defect,False
+72,F,non-anginal pain,175,127,0,ST-T wave abnormality,81,0,4.4684956945654095,flat,0,fixed defect,False
+37,M,atypical angina,149,195,1,normal,186,0,3.1869448932343607,downsloping,0,reversible defect,False
+50,F,asymptomatic,190,293,0,normal,193,1,3.7556731292297933,flat,0,normal,False
+68,F,atypical angina,195,166,0,left ventricular hypertrophy,84,1,3.917656987330688,upsloping,2,normal,True
+48,M,atypical angina,101,134,0,ST-T wave abnormality,144,0,3.267710970253895,flat,0,fixed defect,False
+52,F,typical angina,138,266,1,normal,114,1,3.6117094201325632,flat,1,fixed defect,False
+40,F,typical angina,131,145,1,left ventricular hypertrophy,203,0,4.239486845517223,flat,0,fixed defect,True
+40,F,asymptomatic,127,212,0,ST-T wave abnormality,154,1,4.66933685251398,downsloping,1,normal,False
+53,M,non-anginal pain,171,351,1,ST-T wave abnormality,201,1,4.510204825973947,flat,0,reversible defect,False
+65,F,atypical angina,134,140,0,left ventricular hypertrophy,215,1,5.391622037940023,flat,2,reversible defect,False
+69,F,asymptomatic,124,157,0,left ventricular hypertrophy,178,0,1.1745492856378972,downsloping,3,fixed defect,True
+53,F,typical angina,119,395,0,left ventricular hypertrophy,68,0,2.487117410849145,downsloping,0,reversible defect,False
+32,M,atypical angina,177,276,0,left ventricular hypertrophy,209,0,5.876335609289634,downsloping,0,reversible defect,False
+51,F,non-anginal pain,195,298,1,left ventricular hypertrophy,219,0,2.4588615611952442,downsloping,2,fixed defect,False
+31,M,typical angina,119,251,0,normal,101,1,0.7741944768167206,upsloping,0,fixed defect,False
+53,M,typical angina,167,147,0,normal,112,1,3.2577597834455134,upsloping,1,normal,False
+73,M,typical angina,95,379,1,ST-T wave abnormality,133,0,0.6788440298376655,flat,0,normal,False
+59,M,asymptomatic,156,195,0,normal,98,1,1.2576900801127644,upsloping,0,normal,False
+67,M,non-anginal pain,169,186,0,normal,181,1,6.189576290739931,flat,3,normal,False
+31,M,atypical angina,96,313,1,normal,74,0,3.3564483580560185,upsloping,3,reversible defect,False
+50,F,asymptomatic,141,281,1,left ventricular hypertrophy,216,1,1.76116201205066,downsloping,0,reversible defect,False
+62,M,asymptomatic,103,376,1,ST-T wave abnormality,182,1,6.167604718358218,downsloping,2,normal,False
+41,F,asymptomatic,162,191,0,ST-T wave abnormality,170,0,5.992665295041888,upsloping,3,normal,False
+51,F,typical angina,104,206,1,ST-T wave abnormality,190,1,2.732582054722434,upsloping,0,fixed defect,False
+73,M,non-anginal pain,110,381,1,ST-T wave abnormality,142,1,1.6144992744850322,flat,3,reversible defect,True
+54,F,asymptomatic,124,333,0,normal,69,1,5.198077756171578,flat,0,reversible defect,False
+78,F,atypical angina,155,272,0,normal,151,0,4.436848445225071,flat,3,normal,False
+56,F,non-anginal pain,180,329,0,left ventricular hypertrophy,88,0,4.2590368970217645,downsloping,3,reversible defect,False
+71,F,atypical angina,91,180,0,ST-T wave abnormality,94,1,5.5373051961993305,downsloping,1,fixed defect,False
+57,M,non-anginal pain,124,387,0,normal,65,1,4.274386230002213,downsloping,0,fixed defect,False
+45,F,atypical angina,171,381,1,normal,199,1,1.7595472468576048,downsloping,0,reversible defect,False
+44,M,typical angina,167,337,1,left ventricular hypertrophy,170,0,4.30195160362954,flat,0,normal,True
+76,F,asymptomatic,109,255,1,left ventricular hypertrophy,97,0,1.8960437699587167,downsloping,0,reversible defect,False
+73,F,atypical angina,171,212,0,left ventricular hypertrophy,136,0,4.70728167387337,downsloping,3,fixed defect,False
+32,M,non-anginal pain,99,228,0,normal,152,1,3.842436697847709,downsloping,1,normal,False
+66,F,asymptomatic,114,360,0,normal,206,1,0.47995162230545363,downsloping,1,reversible defect,True
+36,F,asymptomatic,155,261,1,left ventricular hypertrophy,126,1,3.1795792470978808,upsloping,2,normal,False
+50,F,non-anginal pain,114,356,1,ST-T wave abnormality,195,1,2.128466009013594,flat,0,normal,False
+38,M,atypical angina,143,296,0,left ventricular hypertrophy,67,1,2.037137922940224,flat,2,fixed defect,False
+68,F,typical angina,122,260,1,left ventricular hypertrophy,181,0,3.733989074738995,downsloping,3,normal,False
+47,M,typical angina,125,308,0,left ventricular hypertrophy,143,1,1.9984139117104345,upsloping,2,reversible defect,False
+33,F,atypical angina,184,168,1,left ventricular hypertrophy,191,1,4.816741238870211,flat,0,normal,True
+54,M,asymptomatic,103,309,1,normal,144,1,0.4389069032692815,flat,1,normal,False
+43,M,asymptomatic,154,255,1,ST-T wave abnormality,104,0,4.094407164854118,downsloping,1,reversible defect,False
+79,F,asymptomatic,199,162,0,left ventricular hypertrophy,195,1,5.017007782671795,downsloping,0,fixed defect,False
+38,F,asymptomatic,169,209,1,ST-T wave abnormality,146,0,4.171556477506667,flat,3,fixed defect,False
+55,M,atypical angina,143,364,1,ST-T wave abnormality,75,0,3.0828210091239736,flat,0,reversible defect,True
+31,M,asymptomatic,199,311,0,ST-T wave abnormality,136,0,5.891903485164324,upsloping,3,reversible defect,False
+49,F,non-anginal pain,141,225,1,left ventricular hypertrophy,68,0,1.8596186367479943,flat,1,fixed defect,False
+57,M,asymptomatic,92,352,0,normal,119,0,0.11884090265486223,flat,3,normal,False
+76,F,typical angina,188,384,0,left ventricular hypertrophy,137,1,2.6783341030733334,downsloping,0,reversible defect,False
+36,F,asymptomatic,130,156,0,ST-T wave abnormality,136,1,0.20467400258202895,flat,0,normal,False
+73,F,atypical angina,95,160,0,ST-T wave abnormality,130,0,5.914407865663734,downsloping,0,reversible defect,False
+37,F,typical angina,114,136,0,normal,74,0,1.3014918836379195,flat,3,fixed defect,False
+76,M,atypical angina,102,396,1,left ventricular hypertrophy,130,0,4.891347548483053,flat,3,normal,False
+64,F,atypical angina,187,178,0,ST-T wave abnormality,161,1,4.8023469156810625,flat,3,normal,False
+43,M,typical angina,97,302,0,normal,81,1,1.349919178034188,upsloping,1,reversible defect,False
+46,F,atypical angina,110,160,0,ST-T wave abnormality,211,0,3.851604488977037,downsloping,2,normal,False
+65,M,atypical angina,187,158,0,normal,172,1,0.2980896046159913,upsloping,2,reversible defect,False
+79,F,asymptomatic,157,311,1,normal,60,1,2.9981624313639785,flat,0,fixed defect,False
+69,M,non-anginal pain,114,386,0,left ventricular hypertrophy,69,0,0.09081218908941778,upsloping,1,normal,False
+33,M,atypical angina,168,266,1,ST-T wave abnormality,169,0,5.71109205712122,downsloping,3,reversible defect,True
+31,F,atypical angina,157,246,0,left ventricular hypertrophy,172,1,6.0517333500373445,flat,0,normal,False
+35,F,atypical angina,134,165,1,ST-T wave abnormality,109,1,1.3781531531592286,upsloping,1,reversible defect,False
+71,F,asymptomatic,149,164,0,left ventricular hypertrophy,71,1,1.2902574144975112,upsloping,0,reversible defect,False
+33,F,non-anginal pain,101,120,0,ST-T wave abnormality,148,0,4.673065094685204,downsloping,1,reversible defect,False
+58,M,typical angina,121,287,1,left ventricular hypertrophy,213,0,1.5709522727418737,upsloping,1,fixed defect,False
+47,F,asymptomatic,185,227,0,normal,171,0,5.549474666803439,downsloping,2,normal,False
+55,M,asymptomatic,181,138,1,ST-T wave abnormality,137,1,3.55836064396249,flat,0,fixed defect,False
+73,M,non-anginal pain,102,191,0,ST-T wave abnormality,180,1,2.174821262663935,flat,3,reversible defect,False
+63,F,non-anginal pain,120,228,1,normal,82,0,5.162701227366404,upsloping,2,reversible defect,False
+39,M,asymptomatic,167,387,0,left ventricular hypertrophy,193,1,3.0591215425630502,flat,2,fixed defect,False
+65,M,typical angina,109,359,0,ST-T wave abnormality,84,0,5.652124064992549,flat,3,fixed defect,False
+43,M,asymptomatic,107,209,1,ST-T wave abnormality,77,1,5.753688267722162,upsloping,1,normal,False
+60,M,non-anginal pain,182,222,0,left ventricular hypertrophy,200,0,1.0256049431961378,flat,3,reversible defect,False
+77,F,typical angina,149,369,0,normal,102,1,0.01440511801796769,upsloping,0,fixed defect,False
+44,F,non-anginal pain,152,127,0,left ventricular hypertrophy,137,1,6.100371828882894,downsloping,3,reversible defect,False
+37,F,typical angina,95,272,0,left ventricular hypertrophy,87,0,5.618052723990372,downsloping,1,reversible defect,False
+43,F,atypical angina,121,293,0,left ventricular hypertrophy,205,0,0.34376046136381677,downsloping,3,normal,False
+52,M,non-anginal pain,182,277,0,ST-T wave abnormality,118,0,5.164812436434634,upsloping,1,normal,False
+69,M,non-anginal pain,132,334,1,normal,122,0,2.838390581867081,upsloping,1,normal,True
+50,F,asymptomatic,91,296,1,normal,151,0,1.6055619511548465,flat,0,fixed defect,False
+45,F,non-anginal pain,149,294,1,left ventricular hypertrophy,115,1,5.448228446796965,flat,3,reversible defect,False
+74,F,non-anginal pain,112,265,0,ST-T wave abnormality,214,0,1.219336840819905,flat,3,fixed defect,False
+47,M,atypical angina,172,280,1,left ventricular hypertrophy,219,0,5.873259996404415,flat,0,fixed defect,False
+76,F,non-anginal pain,120,246,0,ST-T wave abnormality,170,0,1.2748532237359147,flat,1,normal,False
+53,F,atypical angina,94,201,0,ST-T wave abnormality,196,0,3.8048357639182098,upsloping,3,reversible defect,True
+55,F,atypical angina,172,266,0,ST-T wave abnormality,127,0,1.383135274079644,upsloping,0,reversible defect,False
+54,M,atypical angina,123,358,0,ST-T wave abnormality,105,1,3.3831457228055357,downsloping,1,normal,False
+74,M,atypical angina,99,203,1,normal,126,0,4.240645805473876,downsloping,0,reversible defect,False
+70,M,typical angina,178,232,0,ST-T wave abnormality,213,0,1.179413171084853,downsloping,3,normal,False
+58,M,asymptomatic,91,344,1,ST-T wave abnormality,195,0,3.229491852744211,downsloping,0,fixed defect,True
+44,M,typical angina,100,362,0,left ventricular hypertrophy,65,1,2.9081704152187378,upsloping,2,fixed defect,False
+74,M,non-anginal pain,139,262,1,left ventricular hypertrophy,83,1,0.4404320127007157,upsloping,1,normal,False
+30,M,typical angina,120,160,1,normal,153,0,5.073508469586878,upsloping,2,fixed defect,False
+54,M,typical angina,145,377,1,left ventricular hypertrophy,72,0,2.0812308839856186,flat,2,fixed defect,False
+36,F,non-anginal pain,168,224,1,ST-T wave abnormality,84,1,3.5624096248216532,flat,1,normal,False
+38,F,non-anginal pain,162,321,1,left ventricular hypertrophy,207,1,3.1916622565854333,downsloping,1,fixed defect,False
+53,M,non-anginal pain,176,385,1,normal,177,1,3.182215128336742,flat,0,reversible defect,False
+30,M,typical angina,172,329,0,left ventricular hypertrophy,141,0,0.6647788440926222,upsloping,1,fixed defect,False
+73,F,typical angina,98,170,1,left ventricular hypertrophy,170,0,2.6255884573458634,downsloping,2,normal,False
+37,M,non-anginal pain,188,237,0,normal,141,1,2.8046739070807356,downsloping,2,reversible defect,False
+53,M,asymptomatic,110,320,1,normal,125,0,4.548585610259581,flat,3,reversible defect,False
+40,M,asymptomatic,162,158,0,ST-T wave abnormality,104,1,5.208116757908331,downsloping,1,fixed defect,False
+46,F,atypical angina,117,147,1,left ventricular hypertrophy,173,1,3.3788901242201117,flat,2,reversible defect,True
+37,F,non-anginal pain,151,378,1,ST-T wave abnormality,122,1,0.538054315202941,flat,3,normal,False
+64,F,atypical angina,199,203,0,left ventricular hypertrophy,135,0,1.4684667176985868,downsloping,3,reversible defect,True
+64,F,asymptomatic,96,274,1,left ventricular hypertrophy,173,1,1.0225909664869326,flat,0,fixed defect,False
+62,F,atypical angina,169,236,1,ST-T wave abnormality,170,1,0.7726133917725734,flat,2,fixed defect,False
+34,M,non-anginal pain,105,121,1,left ventricular hypertrophy,206,0,2.268575651430407,flat,0,reversible defect,False
+71,F,non-anginal pain,186,212,0,left ventricular hypertrophy,94,1,1.4222397133571687,flat,2,normal,False
+68,M,non-anginal pain,93,285,1,left ventricular hypertrophy,112,0,1.3534792932313762,downsloping,0,normal,True
+70,M,typical angina,93,377,0,normal,85,1,0.3390976823728595,upsloping,0,fixed defect,False
+57,F,atypical angina,192,200,1,ST-T wave abnormality,73,0,0.10955427773169006,upsloping,1,fixed defect,False
+36,F,asymptomatic,129,387,1,normal,177,1,0.6371631044286471,flat,0,normal,False
+38,M,asymptomatic,106,354,0,ST-T wave abnormality,104,1,1.067624372426525,flat,1,reversible defect,False
+37,M,asymptomatic,190,332,1,ST-T wave abnormality,110,1,2.6720991188588594,flat,3,reversible defect,False
+41,M,typical angina,192,181,1,left ventricular hypertrophy,178,1,3.165225620052837,upsloping,2,reversible defect,False
+63,F,typical angina,141,168,0,ST-T wave abnormality,210,1,0.8716698926748666,flat,3,reversible defect,False
+62,F,non-anginal pain,182,246,1,normal,78,0,2.633656717449955,downsloping,2,normal,False
+77,F,asymptomatic,141,342,0,normal,141,0,2.118842822420749,downsloping,3,fixed defect,False
+52,F,typical angina,125,398,0,normal,135,1,1.1372265896873275,downsloping,2,fixed defect,False
+53,F,non-anginal pain,127,396,0,ST-T wave abnormality,151,1,0.042412638519854017,upsloping,0,reversible defect,False
+66,M,asymptomatic,192,226,1,normal,92,1,2.8955107724347986,flat,2,normal,False
+64,F,atypical angina,139,265,0,ST-T wave abnormality,206,0,4.251040845444236,flat,2,normal,False
+73,M,non-anginal pain,152,218,0,normal,87,0,1.4029194716916036,flat,3,reversible defect,False
+69,M,typical angina,190,192,1,normal,182,1,0.817202345359412,upsloping,3,reversible defect,False
+51,M,typical angina,152,241,0,ST-T wave abnormality,185,0,5.499665015571163,upsloping,3,reversible defect,False
+56,F,non-anginal pain,151,149,1,normal,96,1,1.7051535894243464,upsloping,1,fixed defect,False
+64,F,non-anginal pain,188,307,1,left ventricular hypertrophy,213,1,1.3863982427145216,upsloping,1,reversible defect,False
+30,F,typical angina,96,314,1,ST-T wave abnormality,158,1,5.3140010255814785,downsloping,2,fixed defect,True
+64,M,atypical angina,116,275,1,ST-T wave abnormality,157,0,5.06606401483392,upsloping,2,normal,False
+66,M,asymptomatic,181,291,0,ST-T wave abnormality,186,1,2.7797481172527285,upsloping,0,normal,False
+76,M,atypical angina,175,160,0,left ventricular hypertrophy,139,1,3.033280940852202,upsloping,0,fixed defect,False
+43,M,non-anginal pain,103,182,0,ST-T wave abnormality,97,1,1.3500419699709363,flat,2,fixed defect,True
+32,M,atypical angina,160,142,0,normal,136,0,0.48547035697325647,flat,1,fixed defect,False
+30,M,typical angina,190,194,0,normal,185,0,3.555277317205099,flat,2,fixed defect,False
+34,F,non-anginal pain,175,167,1,normal,146,0,0.6097385138593214,downsloping,0,reversible defect,False
+55,F,asymptomatic,94,279,0,ST-T wave abnormality,113,1,2.7855021911312288,downsloping,1,normal,False
+43,F,typical angina,144,237,0,normal,209,0,5.831082630780666,upsloping,1,reversible defect,False
+68,F,typical angina,91,219,0,ST-T wave abnormality,75,1,5.907573212857623,flat,0,fixed defect,False
+56,M,asymptomatic,151,286,1,normal,87,0,1.4838601765936235,downsloping,2,reversible defect,False
+38,M,asymptomatic,180,275,1,left ventricular hypertrophy,105,1,3.8695032042830575,flat,3,reversible defect,False
+44,F,atypical angina,110,126,0,left ventricular hypertrophy,131,0,2.9392728374687174,downsloping,2,normal,False
+44,M,non-anginal pain,191,315,1,left ventricular hypertrophy,144,1,5.429247791033857,downsloping,2,reversible defect,False
+55,F,asymptomatic,168,175,0,left ventricular hypertrophy,85,0,1.68287135851153,upsloping,0,normal,False
+71,F,asymptomatic,110,312,0,ST-T wave abnormality,144,0,0.022954922360984464,upsloping,1,fixed defect,True
+42,F,non-anginal pain,99,166,1,normal,212,0,1.0078794767747736,downsloping,0,reversible defect,False
+61,M,asymptomatic,176,267,1,left ventricular hypertrophy,124,1,2.1670413672502677,upsloping,2,fixed defect,True
+68,F,asymptomatic,147,394,0,ST-T wave abnormality,193,0,1.9574710045770294,downsloping,3,normal,False
+78,F,atypical angina,128,276,0,left ventricular hypertrophy,210,0,4.906450098561893,downsloping,3,fixed defect,False
+61,F,typical angina,94,321,1,left ventricular hypertrophy,174,0,4.219476130060794,flat,3,fixed defect,False
+33,M,typical angina,154,245,0,ST-T wave abnormality,123,0,1.857249181612363,upsloping,0,normal,False
+59,M,typical angina,102,183,1,ST-T wave abnormality,146,1,2.838011666430523,upsloping,1,fixed defect,False
+66,F,typical angina,174,295,0,normal,166,0,0.5924664445416784,upsloping,0,fixed defect,False
+52,M,asymptomatic,179,235,1,normal,210,1,5.568507957884625,flat,3,fixed defect,False
+68,M,non-anginal pain,198,323,0,left ventricular hypertrophy,155,1,5.799633911580912,flat,2,reversible defect,False
+74,M,non-anginal pain,174,150,0,left ventricular hypertrophy,217,1,6.074781919361817,flat,1,fixed defect,False
+44,M,atypical angina,142,232,1,normal,136,1,5.385027550872194,upsloping,0,normal,False
+72,M,atypical angina,171,186,0,normal,205,0,1.0785575037165984,upsloping,0,reversible defect,False
+58,M,asymptomatic,190,194,0,ST-T wave abnormality,146,1,0.2864181958500988,upsloping,1,reversible defect,False
+65,M,non-anginal pain,134,164,1,normal,208,1,3.5934997099585786,flat,1,normal,False
+42,M,non-anginal pain,121,379,0,normal,116,1,5.658151166675284,flat,2,fixed defect,False
+61,M,typical angina,125,273,0,left ventricular hypertrophy,162,1,1.0995784422904058,downsloping,1,reversible defect,False
+36,M,asymptomatic,170,274,0,normal,210,0,0.043666070669679535,flat,2,reversible defect,False
+51,F,asymptomatic,188,353,1,left ventricular hypertrophy,150,0,4.994075485399915,downsloping,3,reversible defect,False
+57,F,typical angina,149,170,1,normal,104,1,0.4761332425777508,upsloping,3,fixed defect,False
+31,M,asymptomatic,100,381,1,ST-T wave abnormality,147,1,2.564977397842189,flat,0,reversible defect,False
+71,F,asymptomatic,152,244,0,normal,174,1,4.209101490570467,upsloping,3,normal,True
+74,F,atypical angina,110,364,0,normal,106,0,1.4681450298283167,upsloping,3,fixed defect,False
+35,M,non-anginal pain,141,149,0,normal,194,0,0.5205678933697055,upsloping,2,normal,False
+57,M,asymptomatic,144,241,0,left ventricular hypertrophy,109,0,4.774131616426137,upsloping,0,normal,False
+57,M,atypical angina,115,244,1,ST-T wave abnormality,143,0,3.907085526299657,flat,1,reversible defect,True
+73,F,non-anginal pain,157,156,0,normal,150,0,6.128641003818189,upsloping,0,reversible defect,True
+73,F,typical angina,123,289,0,left ventricular hypertrophy,193,1,2.1347098065837478,downsloping,3,reversible defect,False
+49,M,atypical angina,141,243,0,ST-T wave abnormality,150,0,0.38292679499923815,flat,1,normal,False
+59,M,atypical angina,171,154,1,left ventricular hypertrophy,196,0,4.5529702190788335,upsloping,0,fixed defect,False
+40,M,non-anginal pain,193,206,0,left ventricular hypertrophy,168,1,3.234747196890123,flat,0,reversible defect,False
+57,F,typical angina,188,253,0,ST-T wave abnormality,116,0,1.3218643746126375,downsloping,0,reversible defect,False
+54,F,atypical angina,194,315,0,normal,90,0,4.846719731829508,upsloping,0,normal,True
+68,F,asymptomatic,182,393,0,left ventricular hypertrophy,80,0,1.2632840122696511,downsloping,2,fixed defect,False
+62,F,asymptomatic,141,320,0,left ventricular hypertrophy,149,1,1.6161022599642068,upsloping,0,normal,False
+30,M,asymptomatic,118,196,1,normal,99,0,0.5736770370736587,downsloping,3,reversible defect,False
+56,M,typical angina,127,178,0,normal,171,1,2.4764801299912977,upsloping,3,normal,False
+42,M,atypical angina,131,245,0,ST-T wave abnormality,104,1,2.5973611884119974,flat,2,reversible defect,False
+70,M,asymptomatic,110,228,0,ST-T wave abnormality,136,0,3.19028310015945,upsloping,1,fixed defect,False
+32,F,typical angina,131,343,0,ST-T wave abnormality,146,0,4.395578456167421,flat,1,normal,False
+68,F,asymptomatic,102,397,0,normal,207,0,5.61782575781864,upsloping,3,reversible defect,True
+35,M,non-anginal pain,194,187,0,left ventricular hypertrophy,160,0,0.8539514131044136,upsloping,3,reversible defect,False
+37,M,atypical angina,153,188,0,left ventricular hypertrophy,176,1,0.3369582097616738,downsloping,2,reversible defect,False
+56,F,atypical angina,106,284,0,ST-T wave abnormality,151,0,0.11489364828486637,downsloping,1,reversible defect,False
+38,M,typical angina,98,281,0,normal,204,1,0.8904525440266607,downsloping,1,normal,False
+66,F,typical angina,130,161,0,left ventricular hypertrophy,87,1,4.079286811846081,upsloping,0,reversible defect,False
+62,M,atypical angina,90,228,1,ST-T wave abnormality,84,1,4.510357883578279,upsloping,0,normal,False
+71,M,asymptomatic,91,170,1,left ventricular hypertrophy,117,1,4.876335423874358,upsloping,0,reversible defect,False
+73,M,asymptomatic,149,369,1,left ventricular hypertrophy,100,1,1.5109909138069246,flat,2,normal,False
+53,M,non-anginal pain,137,140,1,normal,193,0,1.8965478422214235,flat,3,normal,False
+44,M,asymptomatic,118,258,0,normal,134,1,2.9954348025060966,upsloping,2,reversible defect,False
+61,M,typical angina,186,211,1,left ventricular hypertrophy,97,1,0.39173520053340427,downsloping,1,reversible defect,False
+61,M,typical angina,99,399,1,ST-T wave abnormality,193,0,3.789077443909726,downsloping,3,reversible defect,False
+53,F,asymptomatic,147,244,0,normal,134,0,6.099157208789698,downsloping,0,reversible defect,False
+70,F,typical angina,149,230,1,left ventricular hypertrophy,201,1,2.236999130543616,upsloping,2,fixed defect,False
+78,F,atypical angina,193,258,1,normal,125,1,4.66765434556658,downsloping,2,reversible defect,False
+78,F,atypical angina,110,392,0,normal,62,0,3.1002102765315693,upsloping,0,reversible defect,False
+41,F,asymptomatic,117,218,0,normal,176,1,0.7924334350343729,flat,2,reversible defect,False
+68,M,atypical angina,164,371,0,left ventricular hypertrophy,158,0,3.6098721825760354,downsloping,0,normal,False
+31,M,atypical angina,123,223,1,ST-T wave abnormality,211,0,1.8592204643532027,flat,1,reversible defect,False
+32,F,non-anginal pain,97,333,1,ST-T wave abnormality,78,1,0.21329989241144107,downsloping,3,normal,False
+78,M,non-anginal pain,148,368,0,ST-T wave abnormality,205,0,3.9365643267300117,upsloping,1,normal,False
+66,F,atypical angina,175,271,0,normal,175,1,5.325380565813312,upsloping,1,normal,False
+78,F,asymptomatic,161,369,1,left ventricular hypertrophy,184,1,2.13757255477922,upsloping,0,normal,False
+46,M,non-anginal pain,138,394,0,normal,147,1,2.419832392719177,upsloping,2,fixed defect,False
+78,M,typical angina,168,284,1,ST-T wave abnormality,94,0,5.524334434396711,downsloping,1,reversible defect,False
+31,M,typical angina,106,127,0,ST-T wave abnormality,60,1,5.044374642877607,flat,1,normal,False
+31,F,typical angina,149,124,0,left ventricular hypertrophy,212,0,4.432707506021019,upsloping,1,reversible defect,False
+57,M,asymptomatic,176,264,1,normal,185,1,1.542541795269517,downsloping,2,normal,False
+52,F,atypical angina,177,220,0,ST-T wave abnormality,148,1,5.643343260793196,flat,2,fixed defect,False
+66,F,typical angina,134,283,0,left ventricular hypertrophy,203,0,0.9573776967431206,upsloping,0,normal,True
+61,F,asymptomatic,172,266,0,normal,206,1,3.8859772203867755,flat,1,reversible defect,False
+62,M,non-anginal pain,158,183,1,normal,210,1,0.17856731938841594,upsloping,3,reversible defect,False
+30,M,atypical angina,121,210,0,ST-T wave abnormality,84,0,3.9910627992146646,flat,2,fixed defect,False
+48,F,non-anginal pain,133,236,0,ST-T wave abnormality,75,0,1.718294981614831,flat,0,reversible defect,False
+31,M,asymptomatic,154,386,0,normal,132,0,2.787997258539064,upsloping,1,reversible defect,False
+73,M,typical angina,176,292,0,normal,188,1,2.140640222753729,downsloping,3,normal,False
+55,M,typical angina,190,166,0,ST-T wave abnormality,101,0,1.0710918887265013,flat,2,reversible defect,False
+61,F,asymptomatic,97,259,0,normal,206,0,3.8562808985820194,upsloping,3,normal,False
+35,F,typical angina,166,365,1,ST-T wave abnormality,139,1,5.468248441871766,flat,2,fixed defect,True
+61,M,atypical angina,161,268,1,normal,163,0,5.946322302150901,flat,0,reversible defect,False
+33,F,asymptomatic,176,365,0,ST-T wave abnormality,205,1,1.1925474515542736,downsloping,3,normal,False
+40,M,non-anginal pain,132,124,1,left ventricular hypertrophy,93,1,4.447711199190435,flat,1,reversible defect,True
+46,M,asymptomatic,90,303,1,ST-T wave abnormality,148,0,4.11890407295523,flat,1,normal,False
+67,M,atypical angina,198,139,0,ST-T wave abnormality,184,1,2.12894229536235,upsloping,2,fixed defect,True
+53,M,atypical angina,140,165,1,left ventricular hypertrophy,104,0,0.1184150359931002,upsloping,1,normal,False
+34,F,asymptomatic,113,131,1,normal,193,0,4.27670573333977,downsloping,3,reversible defect,False
+63,F,asymptomatic,188,189,1,left ventricular hypertrophy,80,0,5.862068135468901,flat,0,normal,True
+35,F,typical angina,113,136,1,ST-T wave abnormality,181,0,3.9191447558770385,flat,2,reversible defect,True
+51,M,atypical angina,106,266,1,normal,129,1,2.6988148899633315,flat,3,fixed defect,False
+40,M,asymptomatic,94,273,1,left ventricular hypertrophy,155,1,3.255954143492096,downsloping,2,normal,False
+77,M,asymptomatic,109,227,1,normal,164,0,1.2376986074914886,flat,0,reversible defect,False
+45,F,atypical angina,110,355,1,normal,107,0,4.653373815273173,upsloping,2,reversible defect,False
+62,M,asymptomatic,193,189,0,left ventricular hypertrophy,98,1,4.627802946061064,downsloping,1,reversible defect,False
+38,F,typical angina,147,302,0,normal,90,0,0.9022072624020346,upsloping,1,normal,False
+35,F,atypical angina,120,369,1,left ventricular hypertrophy,69,1,5.443465971497886,upsloping,2,normal,True
+45,F,typical angina,199,347,1,ST-T wave abnormality,89,0,1.6689763847344927,downsloping,0,normal,False
+58,F,typical angina,189,221,0,normal,77,1,6.089987577807013,upsloping,0,fixed defect,False
+32,F,typical angina,100,194,1,ST-T wave abnormality,147,1,2.373998687030924,flat,1,reversible defect,False
+49,F,typical angina,141,335,1,ST-T wave abnormality,184,1,1.1028811641538978,downsloping,0,reversible defect,False
+65,M,atypical angina,104,322,0,normal,132,0,2.180664690343044,upsloping,2,fixed defect,False
+48,M,typical angina,172,311,0,left ventricular hypertrophy,74,0,2.7291180379225977,flat,3,fixed defect,True
+55,F,typical angina,96,368,0,normal,63,0,0.42970819283742795,flat,2,normal,False
+32,F,asymptomatic,117,361,1,ST-T wave abnormality,68,0,3.584953963584395,upsloping,1,normal,False
+48,M,atypical angina,140,298,1,ST-T wave abnormality,168,0,3.705321127187182,flat,1,normal,False
+49,F,atypical angina,196,338,0,left ventricular hypertrophy,196,1,4.581368823166728,downsloping,1,normal,False
+61,F,non-anginal pain,147,201,0,normal,213,1,0.18085333220260844,upsloping,0,normal,False
+36,M,atypical angina,94,211,1,ST-T wave abnormality,191,1,3.355676929489747,flat,2,normal,False
+70,F,atypical angina,94,294,0,ST-T wave abnormality,75,1,0.3280260862781192,flat,3,fixed defect,False
+62,F,non-anginal pain,183,358,1,ST-T wave abnormality,202,1,4.347094163793251,upsloping,2,fixed defect,False
+69,F,atypical angina,185,379,1,left ventricular hypertrophy,158,1,0.34551351134610375,upsloping,3,fixed defect,False
+68,M,atypical angina,97,282,0,ST-T wave abnormality,180,1,5.652712659718123,upsloping,2,reversible defect,False
+47,M,atypical angina,153,167,0,ST-T wave abnormality,111,0,4.352911914683879,upsloping,1,reversible defect,False
+69,M,atypical angina,99,235,1,normal,128,1,3.145816543527974,downsloping,3,normal,False
+30,F,non-anginal pain,127,344,0,normal,64,0,2.7373243243432848,upsloping,2,fixed defect,False
+40,F,atypical angina,185,266,0,ST-T wave abnormality,79,1,0.8101703085622268,downsloping,0,reversible defect,False
+57,M,atypical angina,181,182,0,ST-T wave abnormality,138,1,1.8041962153009112,downsloping,0,reversible defect,True
+54,F,non-anginal pain,170,132,0,normal,205,0,5.387546451129557,upsloping,2,fixed defect,False
+79,F,asymptomatic,184,308,1,left ventricular hypertrophy,170,1,5.6076074316874625,downsloping,1,reversible defect,False
+52,F,typical angina,97,327,1,left ventricular hypertrophy,61,0,0.004635791897292596,upsloping,3,reversible defect,False
+60,F,asymptomatic,193,233,1,left ventricular hypertrophy,152,1,3.683645627160818,upsloping,2,fixed defect,False
+59,F,non-anginal pain,114,141,1,left ventricular hypertrophy,72,0,4.459663775955705,flat,0,reversible defect,False
+71,M,typical angina,162,333,0,left ventricular hypertrophy,63,1,3.836231291237159,upsloping,3,fixed defect,True
+64,F,non-anginal pain,155,290,0,left ventricular hypertrophy,168,0,0.5064145421713947,flat,0,reversible defect,False
+36,M,non-anginal pain,168,173,1,left ventricular hypertrophy,133,0,1.3498943725531938,downsloping,0,fixed defect,False
+45,F,atypical angina,139,245,1,left ventricular hypertrophy,154,1,1.5521096577645934,flat,2,reversible defect,False
+55,M,typical angina,156,396,0,normal,164,1,5.156692714091556,downsloping,0,reversible defect,False
+77,F,atypical angina,138,323,1,left ventricular hypertrophy,67,0,2.871836505115307,upsloping,3,fixed defect,False
+78,M,typical angina,125,313,1,left ventricular hypertrophy,126,1,3.0183349140356683,downsloping,1,reversible defect,True
+31,F,non-anginal pain,157,288,0,left ventricular hypertrophy,169,0,5.796336888637954,downsloping,2,fixed defect,False
+30,M,non-anginal pain,167,271,1,ST-T wave abnormality,68,1,3.9499325108992362,upsloping,3,fixed defect,False
+77,F,asymptomatic,194,154,0,normal,176,0,5.571739749626516,downsloping,2,reversible defect,False
+41,M,typical angina,130,303,0,normal,70,1,2.8303549031175046,upsloping,0,normal,False
+34,F,atypical angina,178,176,1,normal,158,0,0.9265048028134243,flat,0,reversible defect,False
+66,M,asymptomatic,151,341,0,left ventricular hypertrophy,101,1,5.765600683259331,upsloping,3,normal,True
+61,M,asymptomatic,99,282,1,left ventricular hypertrophy,200,0,2.843971717138737,upsloping,3,normal,False
+38,F,asymptomatic,110,138,0,ST-T wave abnormality,179,0,1.1261148156486955,downsloping,1,reversible defect,False
+70,F,atypical angina,125,383,1,normal,200,1,1.874853589884318,flat,3,normal,False
+64,M,asymptomatic,101,232,1,left ventricular hypertrophy,71,1,0.3149760560714419,upsloping,3,fixed defect,False
+48,F,atypical angina,180,149,1,normal,96,0,2.903463667029588,flat,2,fixed defect,False
+77,M,asymptomatic,193,254,0,ST-T wave abnormality,133,0,5.289394665843467,flat,0,normal,False
+45,M,atypical angina,91,186,0,ST-T wave abnormality,132,0,5.788198827241474,downsloping,3,fixed defect,False
+32,M,non-anginal pain,102,184,1,ST-T wave abnormality,111,0,5.782133686522592,upsloping,1,reversible defect,False
+49,F,non-anginal pain,142,144,0,normal,189,1,0.7764261588982299,downsloping,3,fixed defect,False
+53,M,non-anginal pain,121,156,1,left ventricular hypertrophy,115,0,2.368734071568553,upsloping,0,normal,False
+62,M,non-anginal pain,184,120,1,left ventricular hypertrophy,119,0,0.1750183098343795,flat,3,reversible defect,True
+53,F,non-anginal pain,105,156,0,ST-T wave abnormality,82,0,5.302025138823131,upsloping,2,fixed defect,True
+40,F,asymptomatic,121,260,1,left ventricular hypertrophy,162,1,2.2242857245318977,upsloping,0,reversible defect,False
+78,F,asymptomatic,121,351,0,ST-T wave abnormality,99,0,3.9129255729318557,flat,3,normal,False
+37,F,asymptomatic,187,255,1,normal,123,1,4.432370316079189,flat,2,fixed defect,False
+65,M,atypical angina,100,307,0,ST-T wave abnormality,144,1,2.6650369524075637,upsloping,0,reversible defect,False
+67,M,atypical angina,99,247,1,normal,210,1,1.8999424866115067,downsloping,3,reversible defect,True
+69,M,atypical angina,104,320,1,ST-T wave abnormality,216,1,5.965720042718857,upsloping,2,fixed defect,False
+49,M,atypical angina,106,246,0,left ventricular hypertrophy,148,1,5.979826995147897,flat,1,reversible defect,False
+64,F,non-anginal pain,129,376,1,left ventricular hypertrophy,90,1,1.7945054817861361,downsloping,2,reversible defect,True
+77,M,non-anginal pain,107,283,1,ST-T wave abnormality,79,1,2.9736755998156403,flat,1,normal,False
+54,M,non-anginal pain,144,154,0,left ventricular hypertrophy,189,0,6.031633783692139,flat,3,normal,True
+64,F,typical angina,162,313,1,left ventricular hypertrophy,212,0,0.030184127464120004,downsloping,2,normal,True
+54,M,asymptomatic,114,310,0,left ventricular hypertrophy,72,1,2.5586051399507252,flat,1,normal,False
+58,M,atypical angina,193,223,1,normal,181,0,0.6228368080220043,flat,0,normal,False
+47,M,atypical angina,148,142,0,left ventricular hypertrophy,162,0,3.1567793864881364,flat,2,normal,False
+75,M,non-anginal pain,167,384,1,normal,165,1,0.15295371815102032,flat,3,fixed defect,False
+47,M,atypical angina,178,379,1,ST-T wave abnormality,178,0,2.5227702746218927,flat,0,normal,False
+31,M,atypical angina,111,194,1,left ventricular hypertrophy,129,1,1.3683342636690778,flat,1,reversible defect,False
+64,F,asymptomatic,119,191,0,left ventricular hypertrophy,158,0,3.306511847244193,flat,2,fixed defect,False
+45,F,non-anginal pain,173,378,0,left ventricular hypertrophy,141,1,6.175160624424338,flat,2,reversible defect,False
+70,M,asymptomatic,174,307,0,ST-T wave abnormality,134,1,4.963323851785836,flat,3,normal,True
+65,M,typical angina,133,292,0,normal,177,0,5.242980968071413,upsloping,0,normal,False
+62,F,typical angina,121,164,1,normal,143,0,3.9386429216263017,upsloping,2,reversible defect,True
+33,M,typical angina,140,180,1,left ventricular hypertrophy,128,1,0.2576710592880031,flat,2,reversible defect,False
+62,M,non-anginal pain,135,202,0,ST-T wave abnormality,118,1,1.2821455914736937,upsloping,0,reversible defect,False
+43,M,atypical angina,110,242,0,ST-T wave abnormality,185,1,5.735400249971741,downsloping,2,fixed defect,False
+50,F,non-anginal pain,188,135,0,ST-T wave abnormality,170,0,2.2699013311582577,upsloping,0,normal,False
+77,M,non-anginal pain,121,185,1,ST-T wave abnormality,121,0,0.6425477041809327,flat,0,reversible defect,False
+49,F,atypical angina,183,264,0,ST-T wave abnormality,203,0,4.354913268370452,flat,0,normal,False
+37,M,asymptomatic,128,281,0,normal,187,0,1.8566378883923786,upsloping,3,reversible defect,True
+36,F,typical angina,101,353,1,normal,164,1,1.6669128600058645,flat,0,normal,False
+32,F,asymptomatic,194,263,1,normal,127,1,6.187460224461215,downsloping,0,fixed defect,False
+46,M,typical angina,136,307,0,left ventricular hypertrophy,74,1,5.320461335165257,downsloping,1,normal,False
+62,F,non-anginal pain,107,132,1,ST-T wave abnormality,94,1,2.5292144738806144,flat,1,reversible defect,False
+77,M,typical angina,110,303,0,left ventricular hypertrophy,73,0,6.077619488462294,downsloping,3,normal,False
+41,F,non-anginal pain,102,230,1,ST-T wave abnormality,161,1,4.030701985199125,downsloping,0,fixed defect,False
+51,M,asymptomatic,110,334,0,normal,159,1,4.600539201654514,upsloping,1,fixed defect,False
+51,M,non-anginal pain,97,239,0,left ventricular hypertrophy,66,0,0.19538086710971186,downsloping,1,normal,True
+75,F,asymptomatic,135,174,0,normal,89,0,0.753952607957954,upsloping,2,reversible defect,False
+59,M,atypical angina,193,146,0,ST-T wave abnormality,108,1,3.925127784276678,flat,0,fixed defect,False
+67,M,atypical angina,199,237,1,ST-T wave abnormality,203,0,5.5739486924268,upsloping,1,fixed defect,False
+67,F,atypical angina,96,340,1,ST-T wave abnormality,170,1,3.8672111017430932,flat,3,normal,False
+74,M,non-anginal pain,112,350,1,normal,131,0,0.8309543447777491,flat,2,fixed defect,True
+37,M,atypical angina,197,172,1,ST-T wave abnormality,139,0,0.7177122867272128,flat,2,fixed defect,False
+56,F,typical angina,185,352,0,normal,142,1,5.233952554109306,flat,0,reversible defect,False
+56,F,asymptomatic,164,277,0,left ventricular hypertrophy,101,0,0.8636744999890688,flat,0,reversible defect,False
+63,M,asymptomatic,175,388,1,ST-T wave abnormality,76,1,3.225438155124958,upsloping,2,reversible defect,True
+50,M,typical angina,111,140,1,ST-T wave abnormality,66,0,0.2301025837662741,flat,3,normal,False
+59,F,non-anginal pain,196,172,1,ST-T wave abnormality,214,0,0.5001525578252998,downsloping,0,fixed defect,False
+62,F,non-anginal pain,178,394,1,left ventricular hypertrophy,69,0,4.168559259385762,downsloping,0,normal,False
+57,M,asymptomatic,111,333,1,ST-T wave abnormality,93,0,4.272924744650603,flat,2,fixed defect,True
+76,F,atypical angina,181,150,0,normal,95,0,2.1171103209723428,downsloping,2,fixed defect,False
+62,M,non-anginal pain,118,302,0,normal,212,1,1.3367805445068774,upsloping,0,fixed defect,False
+34,M,non-anginal pain,102,142,0,ST-T wave abnormality,65,0,5.045003678695309,upsloping,1,reversible defect,True
+77,M,typical angina,171,151,1,ST-T wave abnormality,211,1,1.3460400227133202,flat,0,normal,True
+48,M,typical angina,91,193,1,left ventricular hypertrophy,205,0,3.3605678319315544,flat,1,normal,False
+33,M,atypical angina,118,129,1,left ventricular hypertrophy,193,1,6.002894813350014,flat,2,fixed defect,False
+64,F,non-anginal pain,174,173,1,left ventricular hypertrophy,88,0,0.9166851147467795,downsloping,1,normal,False
+78,F,non-anginal pain,168,171,0,ST-T wave abnormality,185,1,5.833432858467195,downsloping,3,reversible defect,True
+46,F,typical angina,141,267,0,left ventricular hypertrophy,212,1,1.1339369290257457,upsloping,2,normal,False
+73,F,non-anginal pain,116,279,1,left ventricular hypertrophy,140,0,3.5181478897440233,downsloping,0,fixed defect,True
+57,M,asymptomatic,139,133,0,normal,211,0,2.3374478141442165,upsloping,0,reversible defect,False
+59,M,typical angina,184,297,0,left ventricular hypertrophy,134,0,5.982557329311321,downsloping,2,reversible defect,False
+58,M,atypical angina,168,172,1,normal,85,1,1.695960579812009,upsloping,2,fixed defect,False
+75,M,typical angina,112,141,1,normal,186,1,2.4778796129316727,flat,3,normal,False
+35,F,non-anginal pain,177,149,1,left ventricular hypertrophy,174,0,6.093732730703607,downsloping,2,fixed defect,False
+64,M,atypical angina,133,310,1,normal,185,0,3.3261164253685336,upsloping,0,normal,False
+70,M,typical angina,166,379,1,ST-T wave abnormality,87,1,3.1163067168517715,downsloping,3,normal,True
+66,F,asymptomatic,111,324,1,ST-T wave abnormality,190,1,1.598226626864746,flat,0,reversible defect,False
+53,F,asymptomatic,132,178,0,left ventricular hypertrophy,134,0,4.348454073924737,upsloping,1,fixed defect,False
+58,F,typical angina,126,383,0,ST-T wave abnormality,137,1,0.08911230102222138,downsloping,2,reversible defect,True
+78,F,asymptomatic,150,131,1,normal,149,0,0.3069783041542199,downsloping,1,fixed defect,True
+75,M,asymptomatic,186,238,0,ST-T wave abnormality,80,0,3.716023240241977,flat,0,fixed defect,False
+60,M,asymptomatic,145,367,1,left ventricular hypertrophy,113,0,2.1183823576744154,flat,1,reversible defect,False
+64,F,atypical angina,92,246,1,left ventricular hypertrophy,162,1,5.910561507645956,upsloping,1,fixed defect,False
+62,M,asymptomatic,152,194,1,normal,118,1,5.5997822824812715,downsloping,0,fixed defect,False
+50,M,asymptomatic,108,323,1,left ventricular hypertrophy,131,1,4.424978803795585,downsloping,0,normal,False
+61,M,asymptomatic,112,168,0,ST-T wave abnormality,79,1,5.072502602992368,flat,2,fixed defect,False
+52,F,atypical angina,118,198,1,left ventricular hypertrophy,171,0,4.137457467939699,flat,1,fixed defect,False
+62,M,typical angina,119,360,0,normal,118,1,0.7786090368029962,upsloping,3,reversible defect,False
+32,F,non-anginal pain,128,273,1,left ventricular hypertrophy,130,0,4.746368892073057,downsloping,3,reversible defect,False
+47,M,asymptomatic,197,393,1,ST-T wave abnormality,196,0,1.3031902060568477,downsloping,0,fixed defect,False
+54,M,typical angina,114,215,1,normal,168,0,2.00534570162122,upsloping,0,normal,True
+71,M,asymptomatic,190,333,0,ST-T wave abnormality,188,1,5.079252115035005,upsloping,1,normal,False
+60,F,atypical angina,97,328,1,normal,216,0,3.326458772039379,flat,0,reversible defect,True
+32,M,typical angina,195,207,1,left ventricular hypertrophy,115,0,5.331632427937137,flat,3,fixed defect,True
+69,F,atypical angina,147,383,1,normal,94,1,1.320818983028238,upsloping,2,fixed defect,False
+75,F,asymptomatic,105,276,0,normal,182,0,3.7682263193627006,upsloping,2,normal,False
+53,F,asymptomatic,161,275,0,left ventricular hypertrophy,190,1,0.5195040297992221,downsloping,1,normal,False
+79,M,atypical angina,90,258,0,ST-T wave abnormality,163,1,3.986978159948184,upsloping,2,normal,False
+61,M,non-anginal pain,197,240,1,left ventricular hypertrophy,66,1,4.7277110342083155,upsloping,0,reversible defect,False
+76,M,atypical angina,94,184,0,normal,86,0,3.6265715426680742,downsloping,0,fixed defect,False
+51,M,asymptomatic,92,226,1,left ventricular hypertrophy,60,1,1.6506353092926236,upsloping,0,reversible defect,False
+52,F,atypical angina,154,266,0,normal,146,1,0.19432454692497367,flat,0,fixed defect,False
+31,F,non-anginal pain,93,256,0,left ventricular hypertrophy,100,1,0.7405830805785718,flat,1,reversible defect,False
+56,F,atypical angina,193,281,1,left ventricular hypertrophy,182,1,3.8582784702589628,downsloping,2,fixed defect,False
+71,M,non-anginal pain,188,219,0,ST-T wave abnormality,134,0,5.793405344423586,upsloping,3,normal,False
+31,F,non-anginal pain,185,260,1,normal,101,1,1.2805133046264396,flat,2,normal,True
+55,M,atypical angina,153,202,1,ST-T wave abnormality,176,0,4.5571621244516125,flat,0,normal,False
+46,F,atypical angina,195,296,0,normal,122,1,5.371996592144058,flat,3,reversible defect,False
+69,M,typical angina,187,317,1,left ventricular hypertrophy,186,0,3.229469506374569,flat,1,normal,False
+62,M,asymptomatic,196,231,1,normal,192,1,4.149447934230678,upsloping,0,fixed defect,True
+38,F,non-anginal pain,178,175,0,ST-T wave abnormality,107,0,5.053094963392119,upsloping,0,reversible defect,False
+72,F,typical angina,99,298,0,ST-T wave abnormality,62,1,1.6161859779916803,upsloping,3,fixed defect,False
+77,F,atypical angina,110,305,1,ST-T wave abnormality,175,0,1.8407531804618664,upsloping,1,reversible defect,False
+68,F,asymptomatic,135,337,0,normal,158,0,0.003890603096428258,flat,3,fixed defect,False
+58,M,typical angina,192,336,1,ST-T wave abnormality,175,0,5.971183611566375,downsloping,1,fixed defect,True
+71,F,non-anginal pain,180,239,1,ST-T wave abnormality,73,1,5.688778346497338,downsloping,0,reversible defect,False
+55,F,typical angina,116,294,0,ST-T wave abnormality,171,0,4.740323235308468,flat,2,reversible defect,False
+64,F,non-anginal pain,155,142,0,left ventricular hypertrophy,120,0,0.49027133005521834,flat,0,normal,False
+79,M,atypical angina,130,332,0,left ventricular hypertrophy,218,0,2.7745179161369506,downsloping,2,normal,False
+54,M,asymptomatic,102,354,0,normal,154,0,0.6317288746236275,downsloping,2,fixed defect,True
+53,F,asymptomatic,98,132,1,normal,76,1,0.09870565702935134,flat,1,fixed defect,False
+42,M,asymptomatic,125,220,1,ST-T wave abnormality,183,0,3.8203343843181035,flat,3,fixed defect,False
+36,F,atypical angina,175,143,0,left ventricular hypertrophy,83,0,5.957142385897169,upsloping,1,reversible defect,True
+65,M,non-anginal pain,195,130,0,ST-T wave abnormality,175,0,5.597781745279331,upsloping,0,reversible defect,False
+74,M,atypical angina,179,392,1,ST-T wave abnormality,210,1,4.319879852599507,downsloping,3,normal,False
+49,M,asymptomatic,147,213,1,left ventricular hypertrophy,141,0,0.5991716218222028,flat,2,fixed defect,True
+30,M,atypical angina,143,320,1,left ventricular hypertrophy,109,0,1.699817033568261,downsloping,2,normal,False
+37,F,atypical angina,101,140,1,left ventricular hypertrophy,138,0,1.9843517066888041,upsloping,0,reversible defect,True
+75,F,atypical angina,170,330,0,normal,138,0,4.7315303580224795,upsloping,3,reversible defect,False
+45,F,non-anginal pain,167,259,1,normal,129,1,4.973944911257707,downsloping,0,reversible defect,False
+43,M,typical angina,103,220,1,ST-T wave abnormality,86,0,2.3876579625375065,upsloping,0,normal,False
+41,F,typical angina,123,147,0,normal,74,0,2.59088077902918,flat,1,reversible defect,False
+52,F,atypical angina,142,160,1,left ventricular hypertrophy,109,1,0.2759560435122623,downsloping,0,fixed defect,False
+44,F,typical angina,109,265,1,left ventricular hypertrophy,95,1,1.792647654196318,flat,3,normal,False
+57,M,typical angina,164,375,0,normal,67,1,2.7979680985013675,flat,0,reversible defect,True
+63,M,atypical angina,105,346,0,ST-T wave abnormality,138,0,0.7252948875885971,upsloping,3,normal,False
+31,M,atypical angina,184,355,0,ST-T wave abnormality,190,1,2.8102582566811325,flat,2,normal,False
+61,F,asymptomatic,159,132,1,normal,106,0,5.289690035998363,downsloping,0,reversible defect,False
+52,F,typical angina,145,329,1,ST-T wave abnormality,164,1,3.604190322295331,flat,3,reversible defect,False
+51,F,non-anginal pain,172,348,0,ST-T wave abnormality,157,0,0.4893651012381564,flat,2,normal,False
+54,M,atypical angina,190,219,0,ST-T wave abnormality,155,1,1.1883621767477008,flat,3,normal,False
+51,M,asymptomatic,147,150,1,left ventricular hypertrophy,219,0,2.9421749709830487,flat,2,reversible defect,True
+51,F,non-anginal pain,93,135,0,left ventricular hypertrophy,175,1,2.241220328895235,flat,1,fixed defect,False
+78,M,typical angina,93,256,0,normal,72,0,2.2241075211858123,upsloping,0,normal,True
+71,M,asymptomatic,109,285,0,left ventricular hypertrophy,60,0,3.2814581784902592,downsloping,0,normal,False
+35,M,atypical angina,99,219,1,ST-T wave abnormality,93,0,3.623254713854636,upsloping,2,fixed defect,True
+44,M,non-anginal pain,113,228,1,left ventricular hypertrophy,138,0,4.940541735712385,downsloping,1,reversible defect,True
+72,F,atypical angina,188,292,1,normal,137,0,2.113992693467405,downsloping,3,reversible defect,False
+66,M,typical angina,115,356,1,left ventricular hypertrophy,180,0,4.993890954851638,downsloping,1,fixed defect,False
+62,M,non-anginal pain,126,281,1,ST-T wave abnormality,152,0,2.0993896204983216,downsloping,3,reversible defect,False
+37,M,typical angina,191,335,1,ST-T wave abnormality,157,0,0.34368453143564975,downsloping,3,reversible defect,False
+73,M,typical angina,174,383,0,normal,141,1,3.4359634362297053,flat,0,normal,False
+73,F,asymptomatic,143,382,1,left ventricular hypertrophy,218,0,3.6449944143478503,upsloping,2,normal,True
+34,F,atypical angina,193,393,1,left ventricular hypertrophy,212,0,5.794149522855533,upsloping,0,normal,False
+68,M,non-anginal pain,192,122,0,left ventricular hypertrophy,97,1,4.501580221587342,flat,0,fixed defect,False
+33,M,typical angina,110,147,1,ST-T wave abnormality,73,0,5.690190445465525,downsloping,0,reversible defect,False
+35,M,typical angina,163,268,1,normal,195,1,5.63175270350666,upsloping,3,reversible defect,False
+74,M,non-anginal pain,127,147,0,left ventricular hypertrophy,150,0,3.7483594836011016,flat,0,normal,False
+61,M,typical angina,135,184,0,ST-T wave abnormality,113,1,3.272124805085975,flat,3,normal,False
+59,M,asymptomatic,93,140,0,ST-T wave abnormality,189,1,3.4561339964143194,upsloping,2,fixed defect,True
+76,F,asymptomatic,149,371,1,ST-T wave abnormality,160,0,6.0656510075989365,upsloping,3,reversible defect,False
+64,M,asymptomatic,146,354,0,left ventricular hypertrophy,148,1,4.793639688831145,downsloping,3,fixed defect,True
+69,F,asymptomatic,134,346,1,left ventricular hypertrophy,115,0,0.6588486097128542,downsloping,1,reversible defect,False
+45,F,typical angina,109,132,1,left ventricular hypertrophy,153,0,4.826256122044679,upsloping,0,fixed defect,False
+42,M,non-anginal pain,106,168,1,left ventricular hypertrophy,152,0,1.0573359031690004,downsloping,0,normal,True
+79,F,non-anginal pain,160,237,1,left ventricular hypertrophy,143,0,2.773573403834879,flat,0,fixed defect,True
+71,F,non-anginal pain,93,173,0,left ventricular hypertrophy,144,1,1.3048499674945124,downsloping,0,fixed defect,False
+59,F,non-anginal pain,182,257,0,left ventricular hypertrophy,81,0,4.275415006306025,downsloping,1,normal,False
+48,F,atypical angina,103,172,1,left ventricular hypertrophy,94,1,5.4393203643968215,flat,1,reversible defect,True
+46,F,non-anginal pain,92,163,0,left ventricular hypertrophy,75,1,1.800243689273422,downsloping,1,reversible defect,False
+48,F,atypical angina,177,172,1,ST-T wave abnormality,109,0,0.5084665954907633,flat,1,normal,False
+57,M,atypical angina,190,193,1,left ventricular hypertrophy,181,0,1.8506572080647723,downsloping,0,fixed defect,False
+55,F,asymptomatic,169,165,1,normal,187,0,4.168643519179605,upsloping,3,fixed defect,False
+66,F,atypical angina,147,132,0,ST-T wave abnormality,172,0,2.0383127908375895,downsloping,2,fixed defect,False
+55,F,typical angina,144,284,1,left ventricular hypertrophy,76,1,1.7242954388335812,upsloping,1,reversible defect,False
+52,M,atypical angina,93,221,1,normal,139,0,1.1434981816224428,upsloping,3,fixed defect,False
+38,F,asymptomatic,113,399,0,left ventricular hypertrophy,189,1,3.084601846621488,upsloping,1,reversible defect,False
+41,M,atypical angina,123,377,0,normal,191,0,1.710882734574563,upsloping,0,fixed defect,False
+30,F,typical angina,119,257,0,normal,144,0,4.532264164664796,upsloping,0,normal,False
+30,M,typical angina,171,282,0,normal,153,0,0.4750588923516568,flat,3,normal,False
+76,M,typical angina,108,230,1,normal,193,0,4.117004805290169,flat,3,reversible defect,False
+63,F,asymptomatic,120,221,0,ST-T wave abnormality,140,1,1.4728720903201733,flat,3,reversible defect,False
+61,F,asymptomatic,149,136,1,ST-T wave abnormality,128,1,3.0335314185199396,upsloping,0,normal,False
+77,M,non-anginal pain,149,387,0,normal,128,0,1.7737575165938158,downsloping,0,normal,False
+54,F,asymptomatic,108,301,0,left ventricular hypertrophy,207,1,4.481165791266933,flat,2,fixed defect,True
+69,M,typical angina,138,143,0,normal,75,1,5.860903649560147,downsloping,3,normal,False
+74,M,typical angina,152,148,0,ST-T wave abnormality,110,0,5.685876032712843,downsloping,2,reversible defect,False
+30,M,asymptomatic,199,290,0,left ventricular hypertrophy,164,0,3.6172425338933647,upsloping,1,normal,False
+45,M,atypical angina,172,347,0,ST-T wave abnormality,125,1,2.868183880193266,upsloping,2,reversible defect,False
+68,M,asymptomatic,111,307,1,ST-T wave abnormality,68,1,5.073463158524167,upsloping,1,reversible defect,True
+34,F,asymptomatic,113,349,0,left ventricular hypertrophy,166,1,4.236623448291926,flat,1,fixed defect,False
+51,M,typical angina,198,238,0,normal,159,1,1.1380975081449838,upsloping,2,fixed defect,True
+58,M,non-anginal pain,165,275,0,normal,145,0,5.089699124400601,flat,3,fixed defect,False
+32,F,typical angina,119,391,0,normal,123,0,2.6590832142472034,flat,1,fixed defect,False
+41,M,non-anginal pain,147,294,1,normal,81,1,1.1717110918212856,flat,3,normal,False
+55,F,typical angina,191,223,0,left ventricular hypertrophy,216,0,1.7471435724582534,flat,0,fixed defect,False
+45,F,asymptomatic,120,211,0,left ventricular hypertrophy,169,1,1.6586675875397225,upsloping,1,normal,False
+66,F,typical angina,189,305,0,left ventricular hypertrophy,156,1,3.2190832425414526,flat,0,fixed defect,False
+51,M,typical angina,153,300,0,ST-T wave abnormality,77,0,1.4530945622028282,upsloping,2,fixed defect,True
+58,M,typical angina,108,289,1,left ventricular hypertrophy,130,1,0.7661122218897722,upsloping,3,reversible defect,False
+43,M,asymptomatic,137,306,0,normal,186,1,0.7668832738053165,flat,2,normal,False
+57,F,asymptomatic,134,294,1,ST-T wave abnormality,156,0,3.616312422262399,upsloping,1,reversible defect,False
+34,M,asymptomatic,189,341,0,normal,60,0,4.5555075908661475,downsloping,0,fixed defect,False
+76,F,asymptomatic,183,352,1,normal,191,1,1.9935046547977129,upsloping,1,normal,False
+78,M,non-anginal pain,144,281,1,left ventricular hypertrophy,63,1,0.2148344008469059,upsloping,2,fixed defect,False
+59,F,non-anginal pain,144,253,0,left ventricular hypertrophy,184,0,0.7887942990094665,flat,3,reversible defect,False
+75,M,atypical angina,186,343,0,normal,141,1,5.671106274089754,flat,3,normal,False
+34,M,asymptomatic,107,272,1,normal,86,1,3.059970689454609,upsloping,1,reversible defect,False
+41,M,non-anginal pain,152,152,1,ST-T wave abnormality,118,0,2.8121514196140835,flat,1,fixed defect,False
+45,F,typical angina,181,174,0,left ventricular hypertrophy,91,0,0.23590490552256368,downsloping,0,fixed defect,False
+55,F,asymptomatic,136,126,1,ST-T wave abnormality,87,0,4.517549538364775,downsloping,2,fixed defect,False
+55,M,atypical angina,164,363,1,ST-T wave abnormality,165,0,3.2740221017788893,flat,1,normal,False
+77,M,atypical angina,146,245,1,ST-T wave abnormality,164,0,1.2529018037364288,upsloping,0,reversible defect,False
+50,F,atypical angina,134,131,0,normal,129,0,0.6824573131225546,downsloping,1,reversible defect,False
+68,F,typical angina,122,135,1,ST-T wave abnormality,121,1,2.3770047545183908,downsloping,3,fixed defect,False
+65,F,non-anginal pain,106,327,1,ST-T wave abnormality,93,1,5.190404178009159,upsloping,0,reversible defect,False
+62,M,typical angina,159,162,1,normal,146,0,5.364826267046352,flat,0,normal,False
+59,F,asymptomatic,93,254,0,left ventricular hypertrophy,173,0,3.737647558452946,downsloping,1,fixed defect,False
+66,M,atypical angina,109,347,0,left ventricular hypertrophy,165,1,4.510725848826885,upsloping,2,fixed defect,False
+52,F,typical angina,136,230,1,ST-T wave abnormality,115,1,0.7139658818977962,upsloping,3,fixed defect,False
+39,M,typical angina,180,279,0,normal,172,1,3.6463816059007,downsloping,2,normal,False
+34,F,non-anginal pain,104,383,1,left ventricular hypertrophy,72,0,4.1351873616205275,flat,0,fixed defect,False
+65,F,non-anginal pain,159,344,0,ST-T wave abnormality,77,0,1.2444196260655118,downsloping,2,fixed defect,True
+63,F,atypical angina,136,336,0,ST-T wave abnormality,172,1,5.4569593440436055,upsloping,0,fixed defect,False
+60,F,typical angina,167,164,1,normal,98,0,1.2089797726303226,downsloping,2,fixed defect,False
+39,F,typical angina,164,333,0,ST-T wave abnormality,138,0,1.9435596310479926,flat,1,reversible defect,False
+48,M,non-anginal pain,192,178,0,left ventricular hypertrophy,205,0,3.8474524515454434,upsloping,2,fixed defect,False
+61,F,typical angina,98,251,0,normal,210,1,3.957770403810531,flat,0,normal,False
+30,F,typical angina,179,223,1,left ventricular hypertrophy,89,1,4.336185394121677,downsloping,3,fixed defect,False
+34,F,typical angina,105,314,0,left ventricular hypertrophy,157,0,0.6944726210228752,downsloping,3,fixed defect,False
+74,M,non-anginal pain,158,276,0,left ventricular hypertrophy,117,0,5.2666794655570435,flat,3,reversible defect,False
+33,F,atypical angina,150,217,1,ST-T wave abnormality,126,0,3.303652220156211,downsloping,0,fixed defect,False
+45,M,asymptomatic,99,345,0,ST-T wave abnormality,130,0,2.922195123451424,flat,2,reversible defect,False
+53,F,atypical angina,139,324,0,left ventricular hypertrophy,205,0,6.0828052719837595,downsloping,3,normal,True
+45,F,asymptomatic,92,198,0,left ventricular hypertrophy,165,1,4.590345441034323,flat,3,reversible defect,False
+31,M,typical angina,166,243,0,normal,66,0,0.7316373650401242,flat,3,fixed defect,False
+78,F,atypical angina,196,337,0,normal,99,0,4.690542836802693,upsloping,1,normal,False
+57,M,asymptomatic,183,123,1,ST-T wave abnormality,129,0,0.5905433906317908,upsloping,0,fixed defect,False
+61,M,non-anginal pain,198,209,1,ST-T wave abnormality,127,1,0.1703174875805061,flat,0,reversible defect,False
+56,F,non-anginal pain,159,223,0,normal,108,1,2.5024805506733623,downsloping,0,normal,True
+49,M,atypical angina,170,238,0,left ventricular hypertrophy,111,0,6.160184671479156,downsloping,0,normal,True
+53,F,atypical angina,198,252,0,ST-T wave abnormality,173,1,1.0842804044081484,downsloping,0,reversible defect,False
+41,F,typical angina,140,215,1,left ventricular hypertrophy,166,1,4.170394929866099,flat,1,reversible defect,False
+79,M,atypical angina,108,262,1,normal,88,1,1.07505561047794,flat,2,normal,True
+64,M,typical angina,131,147,0,ST-T wave abnormality,208,1,4.493679244741994,flat,1,normal,False
+62,M,typical angina,124,397,0,ST-T wave abnormality,137,1,3.133192743074522,flat,3,reversible defect,True
+62,M,non-anginal pain,135,352,1,normal,68,1,4.215824602554133,upsloping,1,fixed defect,True
+72,F,non-anginal pain,115,136,0,ST-T wave abnormality,135,0,1.2578136906682544,flat,0,normal,False
+66,F,asymptomatic,158,178,1,normal,101,1,4.622895661627112,downsloping,1,reversible defect,False
+41,M,non-anginal pain,182,209,1,ST-T wave abnormality,187,1,6.172838169660782,upsloping,0,fixed defect,False
+32,F,non-anginal pain,153,318,0,normal,79,0,4.127033103880951,downsloping,1,normal,False
+30,F,atypical angina,126,145,1,ST-T wave abnormality,214,0,3.059575988051842,flat,0,normal,False
+62,F,non-anginal pain,173,144,0,left ventricular hypertrophy,131,0,5.723678729439442,upsloping,3,reversible defect,False
+69,F,asymptomatic,138,386,0,left ventricular hypertrophy,124,0,0.09828142183763307,flat,0,fixed defect,False
+39,M,atypical angina,110,300,0,left ventricular hypertrophy,172,1,4.525525819572091,upsloping,1,normal,True
+72,M,asymptomatic,163,187,0,ST-T wave abnormality,83,1,5.51022840424564,downsloping,3,fixed defect,False
+73,F,non-anginal pain,153,168,0,ST-T wave abnormality,187,1,0.38238241844993626,flat,1,fixed defect,False
+58,M,asymptomatic,94,294,0,left ventricular hypertrophy,142,1,2.790397856577701,flat,3,normal,True
+42,M,atypical angina,189,171,1,left ventricular hypertrophy,122,0,1.2692606144899932,upsloping,2,fixed defect,False
+41,M,typical angina,159,221,1,normal,119,1,3.512412626644547,upsloping,2,normal,False
+60,F,asymptomatic,179,335,1,normal,158,1,4.027166343342695,flat,2,fixed defect,False
+75,F,asymptomatic,93,307,1,normal,121,0,1.876263734158281,upsloping,1,normal,False
+31,F,atypical angina,192,176,0,left ventricular hypertrophy,89,1,2.8518863520042252,flat,1,reversible defect,False
+79,M,atypical angina,128,166,1,left ventricular hypertrophy,81,1,1.731904808714669,upsloping,3,normal,False
+64,F,asymptomatic,124,278,1,left ventricular hypertrophy,185,1,2.2902252196217057,downsloping,3,normal,False
+52,F,non-anginal pain,90,293,1,normal,216,1,0.9891477314682262,upsloping,3,normal,False
+46,M,asymptomatic,113,361,0,ST-T wave abnormality,101,0,5.490468550230915,downsloping,3,fixed defect,False
+55,F,atypical angina,146,360,1,left ventricular hypertrophy,157,0,0.06206454546664586,upsloping,0,reversible defect,False
+37,F,typical angina,189,124,0,ST-T wave abnormality,90,0,5.470936955951489,upsloping,2,fixed defect,True
+58,M,typical angina,159,203,1,ST-T wave abnormality,217,0,3.544409045768379,flat,0,fixed defect,False
+55,M,non-anginal pain,130,367,0,ST-T wave abnormality,171,0,2.0562786338975085,upsloping,0,normal,False
+39,M,asymptomatic,143,173,0,normal,205,1,4.482954177854045,upsloping,0,fixed defect,False
+55,F,typical angina,135,280,1,ST-T wave abnormality,181,1,3.148063341548519,downsloping,0,normal,False
+63,F,asymptomatic,149,345,0,left ventricular hypertrophy,76,0,3.0944736802671606,upsloping,2,reversible defect,False
+70,F,atypical angina,197,134,0,normal,97,0,0.6828821540975919,flat,0,fixed defect,False
+36,M,typical angina,149,343,1,left ventricular hypertrophy,201,0,2.414999360861534,downsloping,3,fixed defect,False
+33,M,non-anginal pain,146,180,1,left ventricular hypertrophy,169,1,1.494598944311767,flat,1,fixed defect,False
+79,F,atypical angina,120,241,1,normal,81,0,0.09731461469693381,flat,3,normal,False
+74,F,non-anginal pain,173,396,0,left ventricular hypertrophy,115,1,2.232617710849102,flat,1,normal,True
+40,M,atypical angina,113,165,0,left ventricular hypertrophy,178,1,0.5568972024387494,flat,3,fixed defect,False
+58,M,typical angina,178,181,0,normal,206,1,1.5923462338961483,downsloping,3,fixed defect,False
+65,M,non-anginal pain,125,205,1,left ventricular hypertrophy,116,1,0.5736030513351856,upsloping,1,reversible defect,False
+54,M,non-anginal pain,174,329,0,ST-T wave abnormality,94,0,0.6258380784496729,flat,2,reversible defect,True
+50,F,atypical angina,119,197,0,left ventricular hypertrophy,173,1,1.2338700253741675,downsloping,0,reversible defect,True
+65,M,non-anginal pain,113,321,0,ST-T wave abnormality,184,1,6.199065315815681,flat,3,reversible defect,False
+39,F,atypical angina,197,342,0,left ventricular hypertrophy,188,0,0.013541685714942386,upsloping,2,reversible defect,True
+66,F,atypical angina,195,341,0,normal,111,1,3.959770343946513,downsloping,0,normal,True
+38,F,atypical angina,119,122,0,normal,144,1,0.8757109277646555,downsloping,2,reversible defect,False
+53,M,atypical angina,175,125,0,left ventricular hypertrophy,124,1,5.70789444760681,upsloping,2,reversible defect,True
+64,M,typical angina,181,212,1,normal,188,0,0.5805239386685013,downsloping,0,fixed defect,False
+78,M,atypical angina,96,127,1,left ventricular hypertrophy,80,1,5.921391760182667,upsloping,3,normal,False
+64,M,asymptomatic,124,354,1,normal,75,1,3.7877436023975632,downsloping,2,reversible defect,True
+77,F,non-anginal pain,144,227,0,ST-T wave abnormality,182,0,0.007862076876039526,downsloping,3,reversible defect,False
+65,M,asymptomatic,181,280,0,left ventricular hypertrophy,120,0,5.542844627084198,upsloping,3,reversible defect,False
+47,M,typical angina,103,328,1,ST-T wave abnormality,113,1,3.2346131684748936,upsloping,3,fixed defect,False
+78,F,asymptomatic,99,359,0,ST-T wave abnormality,85,1,1.6285523590490043,downsloping,0,fixed defect,False
+68,M,non-anginal pain,169,169,1,left ventricular hypertrophy,139,0,4.757130900596907,downsloping,1,fixed defect,False
+61,F,asymptomatic,105,130,0,ST-T wave abnormality,124,1,5.745326434098594,upsloping,3,reversible defect,True
+53,F,typical angina,143,275,0,left ventricular hypertrophy,159,0,2.9988831035101224,upsloping,1,fixed defect,False
+52,F,atypical angina,184,189,1,ST-T wave abnormality,133,1,1.9564315415472875,downsloping,1,reversible defect,False
+61,F,asymptomatic,195,288,1,left ventricular hypertrophy,76,0,4.891459768396546,downsloping,2,normal,False
+66,F,typical angina,178,391,1,left ventricular hypertrophy,180,1,4.227070086288419,downsloping,3,reversible defect,False
+41,F,typical angina,166,187,1,normal,82,0,5.510265399251689,upsloping,3,fixed defect,False
+78,F,non-anginal pain,159,371,1,left ventricular hypertrophy,194,0,4.293586879119396,downsloping,3,normal,False
+42,F,non-anginal pain,133,167,0,left ventricular hypertrophy,130,0,1.509875701177125,flat,1,reversible defect,False
+52,M,asymptomatic,162,303,0,ST-T wave abnormality,167,0,5.776287348505918,upsloping,0,normal,False
+54,M,atypical angina,134,306,0,left ventricular hypertrophy,138,0,0.6499816326771461,downsloping,1,normal,True
+64,M,typical angina,189,209,1,normal,105,1,1.6612450506624568,upsloping,3,normal,False
+70,M,asymptomatic,145,258,1,ST-T wave abnormality,137,1,3.225206567888091,flat,3,reversible defect,True
+59,F,typical angina,196,208,1,ST-T wave abnormality,75,0,3.5076005616395887,upsloping,3,fixed defect,False
+46,M,typical angina,173,393,1,normal,130,1,0.09492563708681367,downsloping,1,reversible defect,True
+78,F,atypical angina,171,138,1,ST-T wave abnormality,155,1,4.839550900089828,flat,3,fixed defect,False
+49,M,atypical angina,196,273,1,ST-T wave abnormality,206,1,2.241965374237415,flat,2,reversible defect,False
+77,M,asymptomatic,146,379,0,ST-T wave abnormality,61,1,2.5197949542132547,downsloping,3,reversible defect,True
+54,M,atypical angina,110,227,0,ST-T wave abnormality,69,1,5.018091175509064,downsloping,0,reversible defect,False
+51,F,atypical angina,157,178,0,normal,184,1,2.351557028710776,downsloping,2,fixed defect,True
+42,M,asymptomatic,139,244,0,normal,140,0,0.2927942342674799,upsloping,3,reversible defect,False
+48,F,atypical angina,122,392,0,ST-T wave abnormality,199,1,1.093926576916172,upsloping,2,normal,False
+78,F,non-anginal pain,180,226,1,ST-T wave abnormality,129,1,5.92659966880673,upsloping,3,reversible defect,False
+65,M,typical angina,96,364,1,normal,209,1,0.4365132468955878,downsloping,0,normal,False
+41,M,typical angina,159,366,1,normal,91,0,2.200573446001701,downsloping,3,fixed defect,False
+70,M,typical angina,104,127,1,normal,164,1,3.1197108357183363,upsloping,2,fixed defect,False
+48,F,typical angina,171,260,1,ST-T wave abnormality,143,1,3.0583411294990723,flat,0,reversible defect,True
+41,M,asymptomatic,121,127,1,ST-T wave abnormality,188,1,0.024551646675285067,upsloping,1,reversible defect,False
+38,F,typical angina,164,213,0,left ventricular hypertrophy,117,0,3.1072089350364402,flat,0,reversible defect,False
+36,F,typical angina,109,158,1,normal,205,1,2.3793892394599374,downsloping,0,normal,False
+57,M,typical angina,177,200,1,ST-T wave abnormality,193,0,6.026891879942254,downsloping,0,fixed defect,False
+43,M,typical angina,104,306,1,normal,104,1,0.986786320761745,upsloping,2,normal,False
+60,F,non-anginal pain,137,203,1,ST-T wave abnormality,156,0,2.195756019908869,upsloping,0,normal,False
+48,F,typical angina,160,207,0,normal,82,0,2.6007852075568825,downsloping,3,reversible defect,False
+76,F,non-anginal pain,110,361,0,ST-T wave abnormality,82,0,2.4222999300258827,upsloping,0,reversible defect,False
+45,M,asymptomatic,131,212,1,left ventricular hypertrophy,213,1,4.128151131441547,downsloping,0,normal,False
+34,F,atypical angina,115,205,0,left ventricular hypertrophy,194,0,1.3361797167961669,downsloping,3,normal,False
+64,M,typical angina,197,163,0,normal,138,0,1.3706436274467493,flat,3,reversible defect,False
+41,F,atypical angina,103,256,1,ST-T wave abnormality,103,0,4.52110788070529,upsloping,1,reversible defect,False
+54,F,atypical angina,146,193,1,ST-T wave abnormality,86,0,3.1018012158047137,downsloping,0,normal,False
+50,M,asymptomatic,126,155,1,normal,85,1,2.5739651915553248,upsloping,2,reversible defect,False
+65,F,atypical angina,147,220,1,ST-T wave abnormality,156,1,1.0490589203989613,flat,0,reversible defect,False
+52,M,non-anginal pain,110,275,1,normal,95,1,1.1626687820554331,flat,0,normal,True
+45,M,atypical angina,171,374,0,ST-T wave abnormality,168,1,0.06542014825858337,upsloping,3,normal,True
+68,F,atypical angina,158,290,1,normal,114,0,0.5668428669425973,upsloping,1,fixed defect,False
+74,M,atypical angina,92,335,1,ST-T wave abnormality,128,1,3.452399907079495,downsloping,0,normal,False
+71,M,typical angina,176,289,1,normal,120,0,5.529613406052142,flat,2,reversible defect,False
+68,F,typical angina,179,371,0,ST-T wave abnormality,189,1,1.7804215438094562,flat,0,normal,False
+43,M,non-anginal pain,126,174,1,left ventricular hypertrophy,114,1,2.0320328005559944,flat,2,normal,False
+60,M,non-anginal pain,177,210,1,ST-T wave abnormality,181,1,0.7167547857913756,upsloping,3,normal,False
+34,M,typical angina,138,397,1,normal,156,0,2.4095118627640373,downsloping,1,fixed defect,False
+64,F,non-anginal pain,108,220,0,left ventricular hypertrophy,139,1,0.2307745683298408,upsloping,0,fixed defect,False
+52,M,typical angina,178,274,1,ST-T wave abnormality,146,1,5.689124316823782,upsloping,1,reversible defect,False
+58,F,asymptomatic,174,260,1,left ventricular hypertrophy,97,1,4.1732903583720775,upsloping,0,fixed defect,False
+72,F,atypical angina,101,292,1,ST-T wave abnormality,178,0,6.142642618237957,downsloping,2,normal,False
+40,M,atypical angina,150,129,0,left ventricular hypertrophy,137,1,5.473503608606661,upsloping,1,fixed defect,False
+47,M,non-anginal pain,130,347,1,normal,216,1,2.9325416809285465,flat,0,normal,False
+76,M,typical angina,122,384,1,ST-T wave abnormality,213,0,3.2220471931323367,flat,3,fixed defect,False
+41,F,typical angina,139,367,1,ST-T wave abnormality,94,0,1.1815714884066018,flat,2,fixed defect,False
+38,M,non-anginal pain,157,366,0,normal,138,1,2.864643925605245,downsloping,1,fixed defect,True
+39,M,typical angina,195,274,1,left ventricular hypertrophy,126,1,5.598772815655432,upsloping,0,normal,False
+73,M,asymptomatic,160,153,1,normal,146,1,0.315291226542091,downsloping,1,fixed defect,False
+46,M,atypical angina,175,248,1,normal,216,0,5.35405217858952,upsloping,0,normal,False
+67,M,non-anginal pain,122,279,0,left ventricular hypertrophy,93,0,2.1138763701841805,flat,2,normal,False
+36,F,non-anginal pain,170,208,0,normal,156,0,5.576979143597121,upsloping,3,reversible defect,False
+75,F,typical angina,113,212,1,ST-T wave abnormality,210,1,5.833455419317205,upsloping,2,fixed defect,True
+42,M,non-anginal pain,150,360,0,ST-T wave abnormality,130,0,4.159362299411817,upsloping,1,reversible defect,False
+69,M,asymptomatic,150,236,0,ST-T wave abnormality,62,1,4.119427476874603,downsloping,1,reversible defect,False
+71,M,typical angina,187,213,0,normal,117,0,2.8070768937941883,upsloping,0,normal,False
+38,M,typical angina,117,282,1,ST-T wave abnormality,91,0,5.180349392170986,upsloping,2,fixed defect,False
+79,F,typical angina,147,218,1,ST-T wave abnormality,90,0,5.961999102286356,upsloping,0,normal,False
+56,M,typical angina,132,232,0,ST-T wave abnormality,141,1,4.805507162102539,downsloping,2,normal,True
+31,F,asymptomatic,130,210,0,ST-T wave abnormality,102,1,3.856007749291597,downsloping,1,fixed defect,False
+34,F,typical angina,128,325,0,ST-T wave abnormality,194,1,3.762115954092288,downsloping,0,normal,False
+58,M,non-anginal pain,175,136,1,ST-T wave abnormality,164,1,5.266713389818706,upsloping,0,fixed defect,False
+66,F,asymptomatic,138,393,1,normal,60,0,3.35546334778205,flat,2,fixed defect,False
+67,F,atypical angina,106,292,0,ST-T wave abnormality,120,1,4.983931294742701,flat,3,normal,True
+48,F,atypical angina,187,235,0,ST-T wave abnormality,73,0,3.155088582080324,flat,2,normal,False
+37,F,non-anginal pain,159,300,0,left ventricular hypertrophy,65,1,0.38715450483832964,upsloping,3,reversible defect,True
+77,M,non-anginal pain,199,210,0,normal,162,1,2.3804714552057624,flat,2,normal,False
+74,M,asymptomatic,159,201,1,normal,69,0,2.755533937563292,flat,1,fixed defect,True
+30,F,atypical angina,187,233,0,normal,130,0,0.8780269189170267,flat,0,reversible defect,False
+51,M,atypical angina,154,376,1,normal,149,1,0.6354772409731194,upsloping,2,fixed defect,False
+46,M,atypical angina,163,177,0,ST-T wave abnormality,217,1,3.3198826878731156,flat,1,reversible defect,False
+36,M,atypical angina,174,273,0,ST-T wave abnormality,208,0,0.5278905466477093,flat,2,normal,False
+54,M,atypical angina,94,235,0,left ventricular hypertrophy,185,0,1.8782600409185206,upsloping,0,normal,False
+74,M,typical angina,91,385,0,left ventricular hypertrophy,156,0,4.616501250971071,downsloping,2,normal,False
+33,F,non-anginal pain,111,322,0,normal,133,0,5.979479513321481,flat,3,fixed defect,False
+65,M,typical angina,146,160,1,left ventricular hypertrophy,174,0,4.450797599421957,downsloping,0,reversible defect,False
+35,M,atypical angina,155,224,0,left ventricular hypertrophy,110,1,6.1542784004077955,flat,3,fixed defect,False
+60,M,asymptomatic,163,312,0,normal,115,1,4.329695421932296,upsloping,1,reversible defect,True
+48,M,asymptomatic,187,397,0,normal,100,1,1.8215257180568307,downsloping,1,normal,False
+73,F,atypical angina,105,356,1,left ventricular hypertrophy,91,1,4.166725751133244,downsloping,2,fixed defect,True
+68,F,atypical angina,140,340,1,ST-T wave abnormality,74,0,4.353371944220804,downsloping,3,normal,False
+56,F,asymptomatic,128,187,1,left ventricular hypertrophy,121,0,2.3047073046220556,downsloping,3,fixed defect,False
+39,F,typical angina,175,316,1,left ventricular hypertrophy,214,0,0.10982587377821189,flat,0,normal,False
+55,M,typical angina,165,375,0,ST-T wave abnormality,87,1,4.359838665608019,flat,3,fixed defect,False
+48,F,atypical angina,177,258,0,ST-T wave abnormality,123,0,0.13454059070835805,downsloping,3,fixed defect,False
+68,M,typical angina,129,268,0,normal,189,0,3.9133660839724413,flat,0,reversible defect,False
+32,M,asymptomatic,127,218,1,normal,186,1,1.0144222302038415,downsloping,0,normal,False
+74,M,typical angina,149,195,0,left ventricular hypertrophy,95,1,3.506741872037869,downsloping,3,reversible defect,False
+42,M,atypical angina,148,228,0,ST-T wave abnormality,173,1,3.1242607573597203,upsloping,2,reversible defect,False
+79,M,asymptomatic,99,307,1,normal,72,0,0.08378458229833195,downsloping,0,normal,False
+57,F,typical angina,188,318,1,left ventricular hypertrophy,74,0,2.2497680653696412,flat,0,fixed defect,False
+49,F,non-anginal pain,153,273,1,ST-T wave abnormality,148,1,3.726765237857077,downsloping,3,reversible defect,False
+57,F,asymptomatic,152,159,0,left ventricular hypertrophy,81,1,5.261360621772434,upsloping,3,normal,False
+37,F,asymptomatic,138,252,0,normal,133,0,5.509581105786407,flat,0,fixed defect,False
+70,M,non-anginal pain,153,251,1,normal,84,1,2.9998698142059843,upsloping,3,reversible defect,True
+68,F,non-anginal pain,121,398,0,ST-T wave abnormality,160,0,4.516219421256516,upsloping,0,reversible defect,False
+30,M,asymptomatic,96,203,1,left ventricular hypertrophy,176,1,1.9620183745074375,downsloping,2,reversible defect,False
+32,F,non-anginal pain,110,361,1,ST-T wave abnormality,100,1,2.121555715703676,upsloping,2,fixed defect,False
+42,M,atypical angina,109,235,0,normal,147,1,1.2056738189303453,upsloping,0,reversible defect,False
+57,M,atypical angina,115,228,1,normal,169,0,3.484078281958084,flat,0,fixed defect,False
+78,F,atypical angina,157,340,1,left ventricular hypertrophy,179,0,1.9502977357496645,upsloping,1,reversible defect,False
+54,M,asymptomatic,199,160,1,left ventricular hypertrophy,156,1,0.5230995579187313,downsloping,1,normal,False
+62,M,non-anginal pain,175,266,0,left ventricular hypertrophy,204,0,4.247037737311708,downsloping,3,reversible defect,False
+67,F,non-anginal pain,104,231,1,ST-T wave abnormality,116,1,4.388069887153469,downsloping,3,normal,False
+35,M,typical angina,193,222,1,left ventricular hypertrophy,189,1,2.2319529964301585,upsloping,0,normal,False
+73,F,typical angina,174,165,1,left ventricular hypertrophy,155,0,0.4756850766273414,flat,0,normal,False
+74,F,non-anginal pain,168,390,1,normal,180,0,2.6430458479012406,downsloping,1,fixed defect,False
+61,F,non-anginal pain,175,314,1,normal,121,0,2.742479839911336,upsloping,1,normal,False
+74,M,non-anginal pain,181,399,1,left ventricular hypertrophy,196,0,4.145759486366936,downsloping,0,reversible defect,False
+76,M,asymptomatic,103,159,1,left ventricular hypertrophy,127,1,1.9555816258038377,downsloping,2,fixed defect,False
+50,M,non-anginal pain,116,308,0,normal,140,0,4.232115534644094,flat,2,normal,False
+45,F,typical angina,194,283,0,left ventricular hypertrophy,76,0,5.403228958895808,downsloping,3,fixed defect,False
+50,M,asymptomatic,129,143,1,ST-T wave abnormality,176,1,1.472413462645639,flat,0,fixed defect,False
+40,F,non-anginal pain,147,143,0,ST-T wave abnormality,109,1,6.069301247943379,upsloping,0,fixed defect,True
+66,F,typical angina,117,123,0,ST-T wave abnormality,171,1,2.395482450248203,downsloping,3,reversible defect,False
+65,M,asymptomatic,115,300,1,left ventricular hypertrophy,153,1,1.6570038479117828,upsloping,1,normal,False
+64,F,non-anginal pain,152,367,0,normal,144,0,2.6133693315638014,upsloping,1,fixed defect,True
+48,M,non-anginal pain,155,235,1,left ventricular hypertrophy,208,0,0.5852643506039268,upsloping,2,fixed defect,False
+49,M,non-anginal pain,114,398,1,left ventricular hypertrophy,205,1,0.7793766203751171,downsloping,0,fixed defect,False
+47,M,asymptomatic,92,188,1,normal,216,1,2.569491091203655,flat,1,normal,False
+76,M,typical angina,161,373,1,normal,211,0,4.7271560360224205,downsloping,2,fixed defect,False
+70,M,typical angina,133,300,1,normal,133,0,5.581935885361844,upsloping,2,fixed defect,False
+78,F,atypical angina,186,288,0,ST-T wave abnormality,168,0,4.121871542440879,flat,2,reversible defect,False
+43,F,non-anginal pain,131,368,1,left ventricular hypertrophy,204,0,0.6523612424766523,upsloping,1,normal,False
+44,F,atypical angina,188,307,0,normal,77,0,4.1665225255193175,flat,1,reversible defect,False
+60,M,atypical angina,95,173,1,left ventricular hypertrophy,101,1,3.939653108358426,downsloping,0,normal,False
+30,M,typical angina,128,257,1,ST-T wave abnormality,160,1,4.995736293418654,flat,0,normal,False
+32,M,asymptomatic,141,287,1,ST-T wave abnormality,104,1,5.116541733243522,downsloping,2,normal,False
+45,F,asymptomatic,112,222,0,normal,141,1,5.38285906982967,upsloping,2,reversible defect,False
+52,M,typical angina,178,204,1,normal,76,0,2.5676153903904098,flat,1,reversible defect,False
+40,F,asymptomatic,139,331,1,left ventricular hypertrophy,132,1,4.326759251183295,upsloping,1,reversible defect,False
+41,F,atypical angina,132,122,1,normal,73,0,1.6631522253183266,flat,0,reversible defect,False
+39,M,non-anginal pain,108,298,1,left ventricular hypertrophy,216,0,6.195884935897727,downsloping,0,fixed defect,False
+61,M,typical angina,158,157,0,normal,191,0,1.0870722965365316,flat,3,fixed defect,True
+45,F,non-anginal pain,140,358,1,left ventricular hypertrophy,141,0,0.06270947629718203,flat,0,fixed defect,True
+37,M,asymptomatic,100,288,0,left ventricular hypertrophy,207,0,0.9226140300126913,downsloping,1,normal,False
+67,F,non-anginal pain,101,149,1,left ventricular hypertrophy,179,0,4.8104081951735855,downsloping,2,fixed defect,False
+41,M,asymptomatic,163,309,0,left ventricular hypertrophy,179,0,2.7700587943509114,downsloping,3,normal,False
+53,M,asymptomatic,97,144,0,ST-T wave abnormality,106,1,2.7745015364246557,flat,0,reversible defect,False
+57,F,atypical angina,113,231,1,left ventricular hypertrophy,166,0,5.921142101592345,upsloping,0,normal,False
+37,M,asymptomatic,181,325,1,normal,167,1,5.70173642977406,flat,1,normal,True
+57,F,atypical angina,130,304,0,ST-T wave abnormality,68,1,1.929407374384857,flat,3,fixed defect,False
+65,M,atypical angina,125,166,1,ST-T wave abnormality,138,0,1.2961603984413703,upsloping,0,reversible defect,False
+55,F,atypical angina,190,347,1,left ventricular hypertrophy,214,0,5.260589701589186,downsloping,2,reversible defect,True
+37,F,typical angina,174,158,1,ST-T wave abnormality,74,1,5.617318240475052,flat,1,fixed defect,False
+79,M,typical angina,161,135,0,left ventricular hypertrophy,78,1,3.3579009213506192,upsloping,3,reversible defect,False
+57,F,asymptomatic,144,141,1,normal,149,1,3.9024270089260233,downsloping,0,reversible defect,False
+57,M,atypical angina,98,332,1,left ventricular hypertrophy,85,1,1.592868565092219,downsloping,0,reversible defect,False
+66,M,typical angina,136,268,1,ST-T wave abnormality,213,0,4.964976665466852,flat,3,fixed defect,True
+70,M,atypical angina,104,360,0,normal,213,0,3.9191590563839434,downsloping,1,reversible defect,False
+65,F,non-anginal pain,137,391,1,left ventricular hypertrophy,151,0,3.121783770047579,downsloping,3,normal,False
+56,F,non-anginal pain,199,178,0,normal,141,1,0.37267304768605414,upsloping,3,normal,False
+46,M,non-anginal pain,193,321,1,normal,190,0,5.678796767569153,upsloping,1,reversible defect,True
+38,M,asymptomatic,171,151,0,ST-T wave abnormality,101,1,3.8157988063833175,downsloping,0,fixed defect,False
+62,F,atypical angina,131,281,1,normal,78,0,1.1946847870964015,upsloping,2,fixed defect,False
+49,M,non-anginal pain,149,374,1,ST-T wave abnormality,76,1,3.7595939252949275,downsloping,1,fixed defect,False
+42,M,typical angina,173,373,0,normal,135,0,4.200272796287835,flat,2,reversible defect,True
+57,F,non-anginal pain,159,128,0,left ventricular hypertrophy,122,0,3.259776087435998,upsloping,0,reversible defect,False
+77,M,non-anginal pain,101,258,0,normal,190,1,4.452230775327339,downsloping,3,normal,False
+58,F,non-anginal pain,91,129,1,left ventricular hypertrophy,166,1,3.6050144771574706,downsloping,2,fixed defect,False
+42,M,asymptomatic,96,333,1,left ventricular hypertrophy,108,1,5.876171408599319,upsloping,0,normal,False
+75,F,typical angina,169,392,1,normal,114,1,0.3329218873157024,upsloping,0,normal,False
+64,M,atypical angina,92,167,1,left ventricular hypertrophy,213,1,0.6587233925112751,flat,3,fixed defect,False
+35,M,typical angina,198,230,0,normal,158,0,1.076764149116907,downsloping,3,reversible defect,False
+47,F,atypical angina,92,272,1,normal,111,1,4.279060637746859,flat,0,reversible defect,False
+34,M,asymptomatic,116,242,1,left ventricular hypertrophy,159,0,4.002694411048814,flat,0,normal,False
+76,F,asymptomatic,196,221,1,left ventricular hypertrophy,176,0,5.530764933300103,flat,2,normal,True
+54,M,asymptomatic,129,360,1,ST-T wave abnormality,177,0,4.54384020788017,upsloping,0,normal,False
+31,F,asymptomatic,191,310,1,left ventricular hypertrophy,66,0,3.151804022900472,flat,0,normal,False
+39,F,atypical angina,122,336,1,ST-T wave abnormality,105,0,6.149357113274508,upsloping,2,fixed defect,False
+59,F,non-anginal pain,181,170,1,left ventricular hypertrophy,105,1,1.6498693282496548,upsloping,1,normal,False
+79,F,atypical angina,90,200,0,normal,159,1,5.1657882906698145,flat,2,normal,False
+74,M,typical angina,97,207,1,left ventricular hypertrophy,203,0,2.6461003076023,flat,2,reversible defect,False
+34,M,asymptomatic,190,313,1,normal,211,0,4.0221578610295525,downsloping,3,reversible defect,True
+62,F,asymptomatic,121,223,1,normal,113,1,4.509064516805092,flat,2,reversible defect,False
+30,F,typical angina,137,390,1,normal,121,1,3.9292753405800855,downsloping,0,fixed defect,True
+47,F,atypical angina,196,215,0,ST-T wave abnormality,188,0,0.8711452792732783,flat,0,fixed defect,False
+61,M,non-anginal pain,190,317,0,left ventricular hypertrophy,108,1,2.746296266637183,flat,0,reversible defect,False
+76,M,non-anginal pain,93,120,0,normal,84,1,3.480917943185371,flat,1,reversible defect,False
+78,M,typical angina,183,286,0,normal,69,1,5.2640713069073,flat,0,normal,False
+40,M,non-anginal pain,159,245,0,ST-T wave abnormality,177,0,2.7506036425511486,downsloping,1,normal,True
+50,F,atypical angina,199,200,0,left ventricular hypertrophy,203,1,5.69623328978636,downsloping,0,fixed defect,True
+55,F,atypical angina,108,370,1,left ventricular hypertrophy,216,0,2.7303201827563064,flat,2,fixed defect,False
+54,F,typical angina,121,288,0,ST-T wave abnormality,151,0,3.4024351274306723,flat,3,normal,False
+51,M,atypical angina,98,192,0,ST-T wave abnormality,193,0,4.936971234245366,downsloping,0,reversible defect,False
+56,M,asymptomatic,101,260,1,left ventricular hypertrophy,203,0,3.6150196434172908,upsloping,1,normal,False
+78,M,typical angina,100,189,0,ST-T wave abnormality,207,0,5.953352048773513,upsloping,1,fixed defect,False
+42,F,atypical angina,135,381,1,left ventricular hypertrophy,139,1,4.094082149187591,upsloping,3,fixed defect,False
+62,F,typical angina,105,364,1,left ventricular hypertrophy,130,0,3.2407986152191266,downsloping,0,normal,False
+63,M,non-anginal pain,90,122,0,normal,137,0,0.14627020024093437,downsloping,2,normal,False
+70,F,atypical angina,152,182,1,normal,102,0,2.565143964998045,upsloping,0,normal,False
+64,M,asymptomatic,198,168,0,left ventricular hypertrophy,213,1,1.8553401994129948,upsloping,0,fixed defect,False
+30,M,atypical angina,110,195,0,left ventricular hypertrophy,149,1,4.638255140902434,flat,3,reversible defect,True
+50,F,typical angina,119,294,1,left ventricular hypertrophy,137,1,1.291321585951984,downsloping,0,normal,False
+77,M,typical angina,102,228,1,left ventricular hypertrophy,85,1,1.2723645412232454,downsloping,2,fixed defect,False
+35,F,atypical angina,123,302,0,left ventricular hypertrophy,180,1,1.1750180680717361,upsloping,1,fixed defect,False
+57,M,asymptomatic,93,311,1,left ventricular hypertrophy,104,1,0.7788168015686627,upsloping,3,fixed defect,False
+46,F,asymptomatic,117,184,1,ST-T wave abnormality,122,1,1.928243422759502,downsloping,2,normal,True
+34,F,asymptomatic,191,390,0,left ventricular hypertrophy,127,0,5.492717109549235,flat,1,normal,True
+60,F,typical angina,184,219,0,ST-T wave abnormality,213,0,4.804556528296921,upsloping,3,reversible defect,False
+34,M,atypical angina,148,151,1,ST-T wave abnormality,61,1,4.55855754110212,downsloping,3,fixed defect,False
+67,M,non-anginal pain,116,247,0,left ventricular hypertrophy,201,0,4.943488195029769,downsloping,1,normal,False
+32,F,typical angina,158,162,0,left ventricular hypertrophy,167,0,1.6703909138433444,flat,1,fixed defect,False
+52,F,asymptomatic,114,197,0,ST-T wave abnormality,89,1,5.5021384826654245,flat,2,fixed defect,False
+66,M,atypical angina,92,389,0,ST-T wave abnormality,108,0,0.8512809258779473,upsloping,0,reversible defect,False
+66,M,asymptomatic,186,281,0,left ventricular hypertrophy,199,0,2.085343505636608,upsloping,0,normal,False
+39,M,non-anginal pain,157,308,0,left ventricular hypertrophy,103,1,3.6378383375975263,upsloping,0,normal,False
+39,F,asymptomatic,114,366,0,ST-T wave abnormality,72,0,0.6380115477204039,downsloping,0,fixed defect,False
+48,M,asymptomatic,109,335,1,ST-T wave abnormality,137,1,4.526807164213834,upsloping,0,fixed defect,False
+46,M,non-anginal pain,123,287,0,ST-T wave abnormality,185,1,2.400925498861545,downsloping,2,reversible defect,False
+50,F,atypical angina,115,312,1,normal,157,0,4.863315126772081,upsloping,3,reversible defect,False
+43,M,typical angina,94,132,1,ST-T wave abnormality,85,0,3.0559569706245373,flat,2,reversible defect,True
+38,M,atypical angina,188,359,1,normal,208,0,1.1214220514370854,flat,2,reversible defect,False
+75,M,non-anginal pain,150,266,0,left ventricular hypertrophy,215,1,4.555523230403135,downsloping,2,reversible defect,False
+30,F,asymptomatic,181,323,0,left ventricular hypertrophy,107,1,1.56329252620145,flat,3,reversible defect,False
+74,F,atypical angina,182,199,1,ST-T wave abnormality,125,1,3.0430238678618657,downsloping,2,fixed defect,False
+42,F,typical angina,98,162,0,left ventricular hypertrophy,146,0,0.4683062687728272,downsloping,2,reversible defect,False
+33,F,non-anginal pain,191,208,1,left ventricular hypertrophy,138,0,3.8307732573546276,flat,3,fixed defect,False
+30,F,atypical angina,139,267,0,left ventricular hypertrophy,82,1,4.1283181505409186,downsloping,2,fixed defect,False
+78,F,typical angina,95,214,0,left ventricular hypertrophy,140,0,2.3477801018312583,flat,0,normal,False
+69,F,non-anginal pain,172,270,1,normal,107,0,5.917421237990658,upsloping,1,fixed defect,True
+61,M,typical angina,149,121,1,normal,183,1,5.419847313188824,upsloping,2,fixed defect,False
+63,M,non-anginal pain,133,141,1,ST-T wave abnormality,189,1,4.389233677587968,flat,1,reversible defect,False
+57,F,asymptomatic,100,126,0,ST-T wave abnormality,143,0,4.424642861861205,flat,2,fixed defect,False
+60,M,atypical angina,155,325,1,ST-T wave abnormality,79,1,1.5648906326413379,flat,2,reversible defect,False
+37,M,typical angina,136,233,0,left ventricular hypertrophy,105,0,4.072254432748384,flat,0,reversible defect,False
+68,F,non-anginal pain,197,391,0,left ventricular hypertrophy,190,1,1.2288788444602219,upsloping,3,reversible defect,True
+55,M,typical angina,197,202,0,normal,71,1,0.8928199883028972,downsloping,1,normal,False
+63,M,typical angina,162,298,1,normal,99,1,6.196700944055998,downsloping,3,reversible defect,True
+32,M,atypical angina,174,329,1,ST-T wave abnormality,125,0,3.85873077513368,upsloping,0,fixed defect,True
+79,M,asymptomatic,177,243,1,normal,159,0,2.6721248104745814,downsloping,0,reversible defect,False
+41,M,typical angina,187,232,0,normal,137,1,1.7866200418804983,upsloping,1,reversible defect,False
+30,F,non-anginal pain,175,131,0,normal,75,1,3.74430675070581,downsloping,3,reversible defect,False
+73,F,non-anginal pain,92,245,1,normal,142,1,0.307479750964534,flat,0,normal,False
+34,F,asymptomatic,165,172,0,normal,103,0,0.5870221411297294,flat,2,fixed defect,False
+59,M,non-anginal pain,181,259,0,ST-T wave abnormality,193,1,0.20371152599045736,flat,2,normal,False
+59,F,asymptomatic,119,216,1,ST-T wave abnormality,159,1,3.094852966228503,upsloping,2,fixed defect,False
+46,M,non-anginal pain,179,124,1,normal,81,1,3.723761100960532,upsloping,3,normal,False
+77,M,atypical angina,110,176,1,ST-T wave abnormality,77,1,0.3873745204184893,downsloping,2,fixed defect,False
+76,M,typical angina,117,188,0,left ventricular hypertrophy,71,0,4.471591698493283,downsloping,2,normal,True
+52,M,atypical angina,179,237,0,normal,182,0,1.4284494433902992,downsloping,0,reversible defect,True
+44,F,typical angina,151,178,0,left ventricular hypertrophy,176,1,4.24824901337317,upsloping,0,normal,False
+66,F,typical angina,122,152,0,ST-T wave abnormality,110,0,6.0877622682185235,downsloping,2,normal,False
+50,M,typical angina,174,169,0,ST-T wave abnormality,130,0,4.284856394333877,flat,2,reversible defect,False
+43,F,atypical angina,124,138,1,left ventricular hypertrophy,107,0,5.475796928126373,downsloping,0,reversible defect,True
+31,M,typical angina,141,333,0,ST-T wave abnormality,78,1,5.878830741807018,flat,1,fixed defect,False
+40,F,atypical angina,123,316,0,normal,65,0,3.017856499784356,upsloping,3,fixed defect,False
+68,F,asymptomatic,130,166,0,left ventricular hypertrophy,143,0,4.354414872402183,flat,3,fixed defect,False
+67,M,non-anginal pain,140,286,1,normal,214,0,5.282209372046219,flat,0,normal,False
+63,F,non-anginal pain,136,260,1,left ventricular hypertrophy,112,1,2.210975259821194,flat,3,fixed defect,True
+67,M,typical angina,171,203,1,ST-T wave abnormality,166,1,1.6206633626744484,upsloping,0,normal,False
+79,F,atypical angina,147,301,0,left ventricular hypertrophy,160,0,5.8689111512257,upsloping,0,normal,False
+63,M,non-anginal pain,164,198,1,left ventricular hypertrophy,107,0,4.503081702286671,upsloping,0,fixed defect,False
+47,M,atypical angina,146,334,1,normal,194,1,1.3620292269301233,upsloping,0,fixed defect,False
+59,F,atypical angina,112,133,1,ST-T wave abnormality,128,1,2.7843170345919033,downsloping,1,normal,False
+44,F,typical angina,137,334,0,normal,70,0,4.938000971134418,upsloping,2,reversible defect,False
+56,M,non-anginal pain,111,247,1,ST-T wave abnormality,202,0,3.3917905436943414,flat,2,reversible defect,False
+63,F,typical angina,106,367,0,normal,190,1,4.029703008628513,upsloping,1,normal,False
+67,F,typical angina,158,148,0,left ventricular hypertrophy,181,1,4.6733628526793245,downsloping,3,fixed defect,False
+62,M,non-anginal pain,197,399,1,normal,128,0,3.85645697061568,downsloping,3,normal,False
+53,M,non-anginal pain,100,321,0,ST-T wave abnormality,82,1,3.3484917959176137,downsloping,2,normal,True
+44,F,asymptomatic,183,176,1,ST-T wave abnormality,96,0,4.647608563204195,flat,3,fixed defect,False
+59,M,asymptomatic,104,337,0,left ventricular hypertrophy,68,0,4.510890819679644,upsloping,2,reversible defect,False
+71,M,atypical angina,180,181,1,ST-T wave abnormality,74,0,3.9052088811357093,upsloping,2,normal,False
+46,M,non-anginal pain,124,276,1,normal,190,1,2.2306943629679634,upsloping,1,reversible defect,False
+34,F,asymptomatic,122,321,1,left ventricular hypertrophy,152,0,2.516034971641684,flat,3,reversible defect,False
+58,F,atypical angina,173,136,0,ST-T wave abnormality,76,0,6.016719003081404,flat,1,fixed defect,True
+33,M,atypical angina,105,125,1,ST-T wave abnormality,213,1,0.6967927802074602,downsloping,2,normal,False
+39,F,atypical angina,123,177,0,normal,208,1,1.664730486967579,downsloping,2,normal,False
+46,M,asymptomatic,155,288,1,normal,131,0,3.0528909070668813,upsloping,2,reversible defect,False
+39,F,non-anginal pain,188,201,0,left ventricular hypertrophy,208,0,5.187724054091472,flat,0,reversible defect,False
+46,M,typical angina,129,338,0,ST-T wave abnormality,180,1,1.0147891151243127,flat,0,fixed defect,False
+49,M,atypical angina,117,296,1,normal,70,1,1.717118632372581,upsloping,0,reversible defect,False
+53,F,asymptomatic,136,323,1,left ventricular hypertrophy,131,1,0.4079489503304817,upsloping,1,fixed defect,False
+34,M,asymptomatic,128,190,1,ST-T wave abnormality,165,0,4.377108649515074,downsloping,2,normal,False
+63,F,typical angina,159,385,1,ST-T wave abnormality,184,0,1.47689849994882,downsloping,3,fixed defect,False
+35,F,typical angina,162,217,1,left ventricular hypertrophy,94,0,2.409783454159893,downsloping,1,reversible defect,True
+31,M,asymptomatic,109,327,0,left ventricular hypertrophy,178,1,2.7509489715839406,upsloping,1,normal,False
+42,M,non-anginal pain,90,121,1,normal,73,0,5.526146400760025,upsloping,1,fixed defect,False
+72,F,typical angina,161,243,1,ST-T wave abnormality,73,1,2.5502478000536684,downsloping,3,normal,True
+72,M,asymptomatic,176,399,0,ST-T wave abnormality,69,0,0.9003951234745442,downsloping,2,fixed defect,False
+77,M,typical angina,152,193,1,ST-T wave abnormality,199,1,3.2507526177087502,flat,0,reversible defect,False
+40,M,non-anginal pain,156,285,1,left ventricular hypertrophy,97,0,5.970339566821504,flat,2,reversible defect,False
+76,M,atypical angina,93,141,0,normal,167,0,3.7676509745150284,downsloping,2,normal,False
+52,M,typical angina,147,273,1,ST-T wave abnormality,178,1,6.09700076685555,downsloping,1,normal,False
+45,F,non-anginal pain,114,338,1,left ventricular hypertrophy,93,1,5.214865315420995,flat,1,normal,False
+60,F,asymptomatic,136,276,1,ST-T wave abnormality,69,0,0.2229876885231594,downsloping,1,fixed defect,False
+40,M,typical angina,127,349,0,normal,181,1,4.082077491337659,flat,0,reversible defect,False
+45,M,typical angina,104,139,1,ST-T wave abnormality,204,1,1.7779546408588787,flat,0,normal,False
+37,M,asymptomatic,152,160,0,normal,204,0,3.469624504997288,flat,0,normal,False
+33,F,atypical angina,110,267,1,normal,174,1,1.7319401837736048,upsloping,2,normal,False
+69,M,asymptomatic,188,227,0,ST-T wave abnormality,60,0,2.1629965829528004,upsloping,1,fixed defect,False
+33,F,typical angina,146,203,1,ST-T wave abnormality,71,0,5.723646012875912,downsloping,3,normal,False
+54,F,asymptomatic,142,253,0,normal,162,1,1.2811877463285728,flat,2,normal,False
+32,F,non-anginal pain,135,326,0,left ventricular hypertrophy,63,1,5.419476531760149,upsloping,0,fixed defect,False
+61,M,asymptomatic,103,385,0,normal,200,0,0.1888384100370802,downsloping,3,fixed defect,False
+32,F,typical angina,189,192,0,ST-T wave abnormality,157,0,0.56343453789182,downsloping,3,normal,False
+56,M,asymptomatic,165,167,0,ST-T wave abnormality,165,0,5.2989852565824345,downsloping,1,normal,False
+58,F,atypical angina,106,352,0,left ventricular hypertrophy,144,0,3.909447391637011,downsloping,3,fixed defect,False
+61,M,asymptomatic,128,219,1,normal,180,0,4.632864055845212,downsloping,0,reversible defect,False
+79,F,atypical angina,98,178,1,normal,191,0,1.2983895590954964,flat,1,fixed defect,False
+48,M,non-anginal pain,188,377,0,normal,141,1,3.329917424658642,downsloping,3,reversible defect,False
+50,F,atypical angina,166,184,0,ST-T wave abnormality,78,1,4.57075918614209,flat,1,normal,False
+34,M,asymptomatic,168,202,0,normal,189,1,3.8893476494636277,upsloping,3,normal,False
+47,M,typical angina,171,273,0,left ventricular hypertrophy,71,0,2.924532354725499,downsloping,2,reversible defect,False
+57,M,atypical angina,186,385,1,ST-T wave abnormality,140,1,5.950659475913832,upsloping,2,fixed defect,False
+71,M,non-anginal pain,95,198,0,ST-T wave abnormality,133,0,4.192175467411361,flat,0,normal,False
+51,F,atypical angina,180,269,1,normal,157,0,5.628054961495675,flat,2,reversible defect,False
+50,F,atypical angina,112,167,1,left ventricular hypertrophy,65,1,4.524577171756824,upsloping,2,fixed defect,False
+35,M,atypical angina,148,367,0,ST-T wave abnormality,195,0,4.559873877305636,downsloping,2,reversible defect,False
+30,F,non-anginal pain,180,397,0,ST-T wave abnormality,184,0,0.4961132724976119,downsloping,3,fixed defect,False
+34,M,asymptomatic,187,217,1,normal,110,0,2.22868065549445,upsloping,3,fixed defect,True
+70,M,atypical angina,135,144,1,normal,70,0,5.321890321661883,upsloping,1,fixed defect,False
+41,F,atypical angina,127,187,0,left ventricular hypertrophy,186,0,1.4421439453222868,upsloping,3,fixed defect,False
+55,M,typical angina,103,126,0,normal,199,0,0.7161363701700904,downsloping,2,reversible defect,False
+75,M,non-anginal pain,189,256,0,left ventricular hypertrophy,132,1,2.0218575511605192,downsloping,3,reversible defect,False
+63,F,atypical angina,161,283,1,ST-T wave abnormality,61,0,1.3667148863342065,downsloping,0,reversible defect,False
+78,M,non-anginal pain,151,202,1,left ventricular hypertrophy,67,0,5.7367868077175626,upsloping,1,reversible defect,False
+43,M,atypical angina,124,257,0,left ventricular hypertrophy,198,0,5.381393180413213,downsloping,1,reversible defect,False
+55,M,asymptomatic,108,192,1,left ventricular hypertrophy,183,0,3.0980360277540058,flat,3,fixed defect,False
+74,M,asymptomatic,119,356,1,ST-T wave abnormality,112,1,0.38033202179998177,upsloping,2,normal,False
+56,F,atypical angina,167,165,0,normal,69,1,4.430286545777569,downsloping,1,normal,False
+38,F,asymptomatic,173,225,0,ST-T wave abnormality,171,0,3.8651527342848406,upsloping,0,reversible defect,False
+55,F,atypical angina,114,381,1,normal,67,0,6.017438958516674,flat,0,reversible defect,False
+76,M,asymptomatic,129,295,1,left ventricular hypertrophy,95,0,3.465510089676337,flat,1,normal,False
+51,M,typical angina,177,285,0,left ventricular hypertrophy,165,1,2.0856410850980382,upsloping,2,fixed defect,False
+76,F,typical angina,103,264,0,left ventricular hypertrophy,73,1,3.2179345001870456,upsloping,2,reversible defect,True
+59,M,typical angina,115,173,0,left ventricular hypertrophy,145,1,6.071432406708001,flat,3,fixed defect,False
+72,M,non-anginal pain,191,297,0,left ventricular hypertrophy,208,1,4.317447081704789,upsloping,3,normal,False
+77,M,non-anginal pain,176,363,0,normal,109,0,4.166252055147718,flat,1,normal,False
+46,M,typical angina,111,246,1,normal,79,1,1.4922258563004893,flat,3,reversible defect,False
+55,F,non-anginal pain,137,390,1,left ventricular hypertrophy,146,1,4.61033560887583,downsloping,3,fixed defect,False
+65,F,asymptomatic,172,251,1,ST-T wave abnormality,194,0,4.651685342724985,upsloping,3,reversible defect,False
+30,F,atypical angina,199,212,1,ST-T wave abnormality,196,0,1.967191699410613,upsloping,0,normal,True
+37,M,atypical angina,140,192,0,left ventricular hypertrophy,188,1,2.999025760822422,downsloping,3,fixed defect,False
+78,F,atypical angina,92,367,0,normal,213,1,1.8265406642308275,flat,1,reversible defect,True
+64,F,typical angina,131,392,0,ST-T wave abnormality,97,1,1.6039714360105775,upsloping,2,reversible defect,False
+44,M,non-anginal pain,108,162,1,ST-T wave abnormality,103,1,0.16055563554680793,downsloping,3,reversible defect,False
+76,M,asymptomatic,162,160,1,ST-T wave abnormality,145,0,1.768312816850659,downsloping,2,normal,False
+51,F,asymptomatic,117,289,1,left ventricular hypertrophy,103,0,3.434613689245304,upsloping,3,reversible defect,False
+43,F,typical angina,173,331,0,ST-T wave abnormality,133,1,0.009927362803978724,downsloping,1,fixed defect,False
+55,F,asymptomatic,134,287,1,ST-T wave abnormality,178,1,1.7559583196199382,flat,0,reversible defect,True
+57,F,asymptomatic,160,158,0,ST-T wave abnormality,181,1,5.464744060404151,downsloping,1,normal,False
+52,M,asymptomatic,167,364,0,ST-T wave abnormality,193,1,3.6806212276656374,flat,0,reversible defect,False
+43,F,asymptomatic,152,270,0,normal,204,1,3.768749509302079,flat,3,normal,False
+53,F,non-anginal pain,162,230,0,left ventricular hypertrophy,110,0,2.50085869116339,upsloping,3,normal,False
+31,M,asymptomatic,108,166,0,left ventricular hypertrophy,97,0,4.194127289652949,downsloping,0,fixed defect,False
+74,F,atypical angina,136,182,0,normal,211,0,1.1775831506282268,flat,1,fixed defect,False
+55,M,typical angina,103,344,1,normal,110,1,5.076230224381988,flat,1,reversible defect,False
+43,M,non-anginal pain,127,188,0,left ventricular hypertrophy,69,1,0.7234725436025788,downsloping,0,normal,False
+36,M,asymptomatic,142,322,0,ST-T wave abnormality,179,0,4.067208398849278,flat,3,normal,False
+32,F,non-anginal pain,150,180,1,ST-T wave abnormality,208,0,2.115125820082035,downsloping,0,fixed defect,False
+76,F,asymptomatic,125,280,0,left ventricular hypertrophy,129,1,4.634580417611356,upsloping,3,fixed defect,True
+52,M,atypical angina,129,135,1,ST-T wave abnormality,144,0,3.408540217849324,flat,0,reversible defect,False
+75,F,typical angina,170,213,1,normal,116,1,2.8045888385680406,flat,3,normal,False
+72,F,asymptomatic,119,257,1,ST-T wave abnormality,185,1,1.0504188929781313,downsloping,0,fixed defect,False
+76,M,asymptomatic,98,157,0,ST-T wave abnormality,98,0,3.9482930785629877,downsloping,2,reversible defect,True
+74,M,asymptomatic,153,246,0,ST-T wave abnormality,92,0,6.043573029206561,downsloping,3,normal,True
+47,F,asymptomatic,122,394,1,left ventricular hypertrophy,77,0,5.118741234423493,downsloping,1,normal,False
+67,M,typical angina,141,283,0,normal,116,1,0.3720507940518732,flat,0,fixed defect,False
+64,F,typical angina,178,196,0,ST-T wave abnormality,155,1,2.3326221458393848,upsloping,1,reversible defect,True
+44,F,atypical angina,103,293,1,left ventricular hypertrophy,107,0,5.738614656979685,upsloping,0,fixed defect,False
+54,F,typical angina,164,210,1,ST-T wave abnormality,101,1,3.118871234853533,upsloping,1,reversible defect,False
+66,F,asymptomatic,142,357,0,normal,86,1,4.105093320010711,upsloping,1,normal,True
+57,M,atypical angina,188,383,1,ST-T wave abnormality,133,1,5.658115942666621,downsloping,0,reversible defect,False
+39,M,atypical angina,194,298,1,normal,169,0,5.417527080603261,flat,0,reversible defect,False
+68,M,atypical angina,148,328,1,ST-T wave abnormality,91,1,3.111286328351168,flat,1,reversible defect,True
+46,M,asymptomatic,167,192,0,normal,85,0,2.7134070764771328,flat,1,reversible defect,False
+68,F,non-anginal pain,183,226,0,ST-T wave abnormality,84,0,2.10609423457344,downsloping,1,reversible defect,False
+51,F,asymptomatic,130,301,0,normal,134,1,4.457920547609925,flat,3,fixed defect,False
+55,M,typical angina,157,156,1,ST-T wave abnormality,82,0,1.7793181567235683,downsloping,3,reversible defect,False
+73,F,typical angina,157,256,0,ST-T wave abnormality,116,1,1.549303159871581,flat,2,reversible defect,False
+54,F,asymptomatic,181,175,1,left ventricular hypertrophy,185,0,2.2087493465434367,upsloping,3,normal,False
+46,F,asymptomatic,97,306,0,left ventricular hypertrophy,146,0,1.0987333526485106,downsloping,3,reversible defect,False
+42,M,atypical angina,91,377,0,normal,90,1,4.309742858863758,flat,0,normal,True
+49,M,asymptomatic,194,177,1,ST-T wave abnormality,123,0,3.8206920258497963,upsloping,2,fixed defect,False
+54,M,atypical angina,199,242,0,normal,92,0,2.9938469115182302,upsloping,2,fixed defect,True
+33,F,typical angina,175,307,1,left ventricular hypertrophy,61,0,2.420019831421639,upsloping,3,reversible defect,False
+39,M,atypical angina,130,349,0,normal,77,1,5.636187765959735,downsloping,0,fixed defect,False
+32,M,asymptomatic,144,287,0,normal,143,1,0.18056746693245276,downsloping,0,reversible defect,False
+70,M,typical angina,105,233,1,left ventricular hypertrophy,94,0,4.768468009745255,flat,2,fixed defect,False
+74,M,non-anginal pain,182,371,1,ST-T wave abnormality,173,0,5.591839344843111,upsloping,0,reversible defect,False
+47,M,atypical angina,151,226,1,normal,205,0,2.767398392465541,flat,1,reversible defect,False
+76,M,typical angina,137,156,0,left ventricular hypertrophy,169,1,3.41428104711801,flat,3,normal,False
+65,F,atypical angina,119,211,0,ST-T wave abnormality,147,1,5.855674864868635,upsloping,1,normal,False
+76,F,typical angina,101,137,0,left ventricular hypertrophy,131,0,1.3161205947701895,flat,2,normal,False
+51,M,typical angina,124,182,1,normal,184,1,3.224836056265046,downsloping,2,normal,False
+63,M,atypical angina,100,269,1,ST-T wave abnormality,89,1,2.94327098819492,flat,0,reversible defect,False
+76,F,non-anginal pain,153,258,1,ST-T wave abnormality,112,1,1.6020344167962945,upsloping,0,fixed defect,False
+37,F,typical angina,199,305,0,left ventricular hypertrophy,197,1,5.075278028313269,downsloping,2,reversible defect,False
+69,M,typical angina,139,304,0,left ventricular hypertrophy,146,0,5.577523687532063,downsloping,2,normal,False
+78,M,typical angina,174,324,1,left ventricular hypertrophy,198,1,4.847981994686895,flat,1,normal,False
+73,M,non-anginal pain,110,379,0,ST-T wave abnormality,72,1,1.211225557261372,flat,1,fixed defect,False
+48,M,non-anginal pain,158,333,1,ST-T wave abnormality,99,0,0.5378415401085658,downsloping,0,normal,False
+71,F,asymptomatic,137,375,0,normal,148,0,3.7537558088931227,flat,1,reversible defect,False
+70,M,atypical angina,109,254,0,ST-T wave abnormality,127,1,0.3539875151612804,upsloping,0,reversible defect,False
+66,M,non-anginal pain,190,180,1,normal,101,1,4.171520509060122,flat,0,reversible defect,False
+35,M,atypical angina,156,207,0,left ventricular hypertrophy,206,0,3.288630166028905,flat,3,reversible defect,False
+55,M,asymptomatic,133,326,0,left ventricular hypertrophy,153,0,4.109271543010714,downsloping,0,reversible defect,False
+63,F,atypical angina,122,248,1,ST-T wave abnormality,78,0,3.659058796628413,flat,1,fixed defect,True
+74,F,non-anginal pain,162,122,1,left ventricular hypertrophy,82,1,2.620755931068471,flat,2,reversible defect,False
+35,F,atypical angina,150,361,0,left ventricular hypertrophy,113,1,1.2454385168694153,flat,2,normal,False
+66,M,non-anginal pain,98,240,1,ST-T wave abnormality,124,0,1.895353242025029,upsloping,1,normal,True
