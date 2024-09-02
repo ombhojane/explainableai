@@ -1,7 +1,8 @@
+# visualizations.py
 import matplotlib.pyplot as plt
+import seaborn as sns
 from sklearn.inspection import PartialDependenceDisplay
 import plotly.graph_objs as go
-import numpy as np
 from plotly.subplots import make_subplots
 
 def plot_feature_importance(feature_importance):
@@ -15,6 +16,7 @@ def plot_feature_importance(feature_importance):
     plt.xticks(rotation=90)
     plt.tight_layout()
     plt.show()
+    plt.close()
 
 def plot_partial_dependence(model, X, feature_importance, feature_names):
     top_features = sorted(feature_importance.items(), key=lambda x: abs(x[1]), reverse=True)[:3]
@@ -37,7 +39,9 @@ def plot_partial_dependence(model, X, feature_importance, feature_names):
     plt.suptitle('Partial Dependence of Top 3 Features')
     plt.tight_layout()
     plt.show()
-        
+    plt.close()
+
+
 def plot_interactive_feature_importance(feature_importance):
     sorted_features = sorted(feature_importance.items(), key=lambda x: x[1], reverse=True)
     features, importance = zip(*sorted_features)
@@ -51,4 +55,13 @@ def plot_interactive_feature_importance(feature_importance):
         height=600
     )
     fig.update_xaxes(tickangle=45)
-    fig.show()
+    fig.write_html('interactive_feature_importance.html')
+
+def plot_correlation_heatmap(X):
+    corr = X.corr()
+    plt.figure(figsize=(12, 10))
+    sns.heatmap(corr, annot=True, cmap='coolwarm', linewidths=0.5)
+    plt.title('Correlation Heatmap of Features')
+    plt.tight_layout()
+    plt.show()
+    plt.close()
