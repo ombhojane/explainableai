@@ -1,3 +1,4 @@
-from .core import xai_wrapper, analyze_dataset, preprocess_data
+# explainable_ai/__init__.py
+from .core import XAIWrapper
 
-__all__ = ['xai_wrapper', 'analyze_dataset']
+__all__ = ['XAIWrapper']
