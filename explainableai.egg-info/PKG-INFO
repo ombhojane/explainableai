@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: explainableai
+Version: 0.1
+Summary: A package for Explainable AI
+Home-page: https://github.com/ombhojane/explainableai
+Author: ['Om Bhojane', 'Palak Boricha']
+Author-email: ombhojane05@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: Licence.txt
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: scikit-learn
+Requires-Dist: shap
+Requires-Dist: matplotlib
+Requires-Dist: seaborn
+Requires-Dist: plotly
+Requires-Dist: ipywidgets
+
+# explainable_ai
+
+A Python package for Explainable AI.
