@@ -8,7 +8,7 @@ explainableai/feature_analysis.py
 explainableai/feature_engineering.py
 explainableai/feature_interaction.py
 explainableai/feature_selection.py
-explainableai/main.py
+explainableai/llm_explanations.py
 explainableai/model_evaluation.py
 explainableai/model_selection.py
 explainableai/utils.py

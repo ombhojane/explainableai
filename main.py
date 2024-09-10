@@ -2,24 +2,23 @@
 
 import pandas as pd
 from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
-from sklearn.ensemble import RandomForestClassifier  # or any other model
-from explainable_ai import XAIWrapper
+from sklearn.ensemble import RandomForestClassifier
+from explainableai import XAIWrapper
 import argparse
 
 def main(file_path, target_column):
-    # Import and preprocess the dataset
-    print("Importing and preprocessing dataset...")
+    # Import the dataset
+    print("Importing dataset...")
     df = pd.read_csv(file_path)
+    
+    # Perform EDA
+    XAIWrapper.perform_eda(df)
+    
     X = df.drop(columns=[target_column])
     y = df[target_column]
 
-    # Perform any necessary preprocessing
-    scaler = StandardScaler()
-    X_scaled = scaler.fit_transform(X)
-
     # Split the data
-    X_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=0.2, random_state=42)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
     # Create and initialize your model
     model = RandomForestClassifier(n_estimators=100, random_state=42)
@@ -31,9 +30,8 @@ def main(file_path, target_column):
     xai.fit(model, X_train, y_train, feature_names=X.columns.tolist())
     results = xai.analyze()
 
-    # Make predictions on test set
-    test_predictions, test_probabilities = xai.predict(X_test)
-
+    print("\nLLM Explanation of Results:")
+    print(results['llm_explanation'])
 
     # Example of using the trained model for new predictions
     while True:
@@ -50,12 +48,12 @@ def main(file_path, target_column):
                 break
         else:
             try:
-                input_data = pd.DataFrame([user_input])
-                input_scaled = scaler.transform(input_data)
-                prediction, probabilities = xai.predict(input_scaled)
+                prediction, probabilities, explanation = xai.explain_prediction(user_input)
                 print("\nPrediction Results:")
-                print(f"Prediction: {prediction[0]}")
-                print(f"Probabilities: {probabilities[0]}")
+                print(f"Prediction: {prediction}")
+                print(f"Probabilities: {probabilities}")
+                print("\nLLM Explanation of Prediction:")
+                print(explanation)
             except Exception as e:
                 print(f"An error occurred: {str(e)}")
 
