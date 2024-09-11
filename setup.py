@@ -22,6 +22,8 @@ setup(
         'reportlab',
         'google-generativeai',
         'python-dotenv',
+        'scipy',
+        'pillow'
     ],
     entry_points={
         'console_scripts': [
