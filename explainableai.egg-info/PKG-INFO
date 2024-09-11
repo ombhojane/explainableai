@@ -1,14 +1,26 @@
 Metadata-Version: 2.1
 Name: explainableai
-Version: 0.1.2
-Summary: A package for Explainable AI
+Version: 0.1.4
+Summary: A comprehensive package for Explainable AI and model interpretation
 Home-page: https://github.com/ombhojane/explainableai
-Author: ['Om Bhojane', 'Palak Boricha']
+Author: Om Bhojane, Palak Boricha
 Author-email: ombhojane05@gmail.com
-Classifier: Programming Language :: Python :: 3
+Project-URL: Bug Tracker, https://github.com/ombhojane/explainableai/issues
+Project-URL: Source Code, https://github.com/ombhojane/explainableai
+Keywords: explainable ai,machine learning,model interpretation,data science
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
 Classifier: License :: OSI Approved :: MIT License
 Classifier: Operating System :: OS Independent
-Requires-Python: >=3.6
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.7
 Description-Content-Type: text/markdown
 License-File: Licence.txt
 Requires-Dist: numpy
@@ -19,7 +31,114 @@ Requires-Dist: matplotlib
 Requires-Dist: seaborn
 Requires-Dist: plotly
 Requires-Dist: ipywidgets
+Requires-Dist: lime
+Requires-Dist: reportlab
+Requires-Dist: google-generativeai
+Requires-Dist: python-dotenv
 
-# explainable_ai
+# ExplainableAI
 
-A Python package for Explainable AI.
+ExplainableAI is a Python package that provides tools for creating interpretable machine learning models. It combines various explainable AI techniques with LLM-powered explanations to make model predictions more understandable for both technical and non-technical users.
+## Features
+
+- Automated Exploratory Data Analysis (EDA)
+- Model performance evaluation
+- Feature importance calculation
+- Feature interaction analysis
+- SHAP (SHapley Additive exPlanations) value calculation
+- Visualization of model insights
+- LLM-powered explanations of model results and individual predictions
+- Cross-validation
+- Easy-to-use interface for model fitting, analysis, and prediction
+
+## Installation
+
+You can install explainableai using pip:
+
+```bash
+  pip install explainableai
+```
+
+## Environment Variables
+
+To run this project, you will need to add the following environment variables to your .env file
+
+`GEMINI_API_KEY`
+## Usage/Examples
+
+
+Here's a basic example of how to use ExplainableAI:
+
+```python
+from explainableai import XAIWrapper
+from sklearn.ensemble import RandomForestClassifier
+import pandas as pd
+
+# Load your dataset
+df = pd.read_csv('your_dataset.csv')
+X = df.drop(columns=['target_column'])
+y = df['target_column']
+
+# Perform EDA
+XAIWrapper.perform_eda(df)
+
+# Create and initialize your model
+model = RandomForestClassifier(n_estimators=100, random_state=42)
+
+# Create XAIWrapper instance
+xai = XAIWrapper()
+
+# Fit the model and run XAI analysis
+xai.fit(model, X, y, feature_names=X.columns.tolist())
+results = xai.analyze()
+
+# Print LLM explanation of results
+print(results['llm_explanation'])
+
+# Make a prediction with explanation
+new_data = {...}  # Dictionary of feature values
+prediction, probabilities, explanation = xai.explain_prediction(new_data)
+print(f"Prediction: {prediction}")
+print(f"Probabilities: {probabilities}")
+print(f"Explanation: {explanation}")
+```
+## Contributing
+
+Contributions are always welcome!
+
+See `contributing.md` for ways to get started.
+
+Please adhere to this project's `code of conduct`.
+
+
+## Run Locally
+
+Clone the project
+
+```bash
+  git clone https://github.com/ombhojane/explainableai
+```
+
+Go to the project directory
+
+```bash
+  cd explainableai
+```
+
+Install dependencies
+
+```bash
+  pip install -r requirements.txt
+```
+
+Get Started with data.csv dataset or you can have any dataset
+
+```bash
+  python main.py [dataset] [Target_column]
+```
+
+
+## Acknowledgements
+
+- This package uses various open-source libraries including scikit-learn, shap, and matplotlib.
+

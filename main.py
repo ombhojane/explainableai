@@ -1,6 +1,7 @@
 # main.py
 
 import pandas as pd
+import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from explainableai import XAIWrapper
@@ -27,11 +28,17 @@ def main(file_path, target_column):
     xai = XAIWrapper()
 
     # Fit the model and run XAI analysis
-    xai.fit(model, X_train, y_train, feature_names=X.columns.tolist())
+    xai.fit(model, X_train, y_train)
     results = xai.analyze()
 
     print("\nLLM Explanation of Results:")
     print(results['llm_explanation'])
+
+    # Generate the report
+    try:
+        xai.generate_report()
+    except Exception as e:
+        print(f"An error occurred while generating the report: {str(e)}")
 
     # Example of using the trained model for new predictions
     while True:
@@ -41,21 +48,21 @@ def main(file_path, target_column):
             value = input(f"{feature}: ")
             if value.lower() == 'q':
                 return
+            # Try to convert to float if possible, otherwise keep as string
             try:
                 user_input[feature] = float(value)
             except ValueError:
-                print(f"Invalid input for {feature}. Please enter a numeric value.")
-                break
-        else:
-            try:
-                prediction, probabilities, explanation = xai.explain_prediction(user_input)
-                print("\nPrediction Results:")
-                print(f"Prediction: {prediction}")
-                print(f"Probabilities: {probabilities}")
-                print("\nLLM Explanation of Prediction:")
-                print(explanation)
-            except Exception as e:
-                print(f"An error occurred: {str(e)}")
+                user_input[feature] = value
+        
+        try:
+            prediction, probabilities, explanation = xai.explain_prediction(user_input)
+            print("\nPrediction Results:")
+            print(f"Prediction: {prediction}")
+            print(f"Probabilities: {probabilities}")
+            print("\nLLM Explanation of Prediction:")
+            print(explanation)
+        except Exception as e:
+            print(f"An error occurred during prediction: {str(e)}")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Run XAI analysis on a dataset")
