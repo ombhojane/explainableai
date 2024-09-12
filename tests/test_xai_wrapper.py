@@ -3,6 +3,11 @@ from explainableai import XAIWrapper
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 
+# 1. create a fixture that loads the sample data
+# 2. test the initialization of the XAIWrapper class
+# 3. test the fit method of the XAIWrapper class
+# 4. test the analyze method of the XAIWrapper class
+
 @pytest.fixture
 def sample_data():
     df = pd.read_csv('datasets/cancer.csv')
