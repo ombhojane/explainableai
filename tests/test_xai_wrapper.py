@@ -1,19 +1,13 @@
 import pytest
 from explainableai import XAIWrapper
 import pandas as pd
-import numpy as np
 from sklearn.ensemble import RandomForestClassifier
 
 @pytest.fixture
 def sample_data():
-    # Create a simple dataset for testing
-    df = pd.DataFrame({
-        'feature1': np.random.rand(100),
-        'feature2': np.random.rand(100),
-        'target': np.random.randint(0, 2, 100)
-    })
-    X = df.drop('target', axis=1)
-    y = df['target']
+    df = pd.read_csv('datasets/cancer.csv')
+    X = df.drop('Cancer', axis=1)
+    y = df['Cancer']
     return X, y
 
 def test_xai_wrapper_initialization():
