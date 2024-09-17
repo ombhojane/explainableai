@@ -10,3 +10,5 @@ lime
 reportlab
 google-generativeai
 python-dotenv
+scipy
+pillow

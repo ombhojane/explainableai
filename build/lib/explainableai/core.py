@@ -62,7 +62,7 @@ class XAIWrapper:
 
         categorical_transformer = Pipeline(steps=[
             ('imputer', SimpleImputer(strategy='constant', fill_value='missing')),
-            ('onehot', OneHotEncoder(handle_unknown='ignore', sparse=False))
+            ('onehot', OneHotEncoder(handle_unknown='ignore', sparse_output=False))
         ])
 
         self.preprocessor = ColumnTransformer(
@@ -125,9 +125,9 @@ class XAIWrapper:
         report.add_heading("Model Performance", level=2)
         for metric, value in self.results['model_performance'].items():
             if isinstance(value, (int, float, np.float64)):
-                report.add_paragraph(f"{metric}: {value:.4f}")
+                report.add_paragraph(f"**{metric}:** {value:.4f}")
             else:
-                report.add_paragraph(f"{metric}:\n{value}")
+                report.add_paragraph(f"**{metric}:**\n{value}")
 
         # Feature Importance
         report.add_heading("Feature Importance", level=2)
@@ -137,7 +137,7 @@ class XAIWrapper:
         # Visualizations
         report.add_heading("Visualizations", level=2)
         report.add_image('feature_importance.png')
-        report.content.append(PageBreak())  # Add a page break after the first image
+        report.content.append(PageBreak())
         report.add_image('partial_dependence.png')
         report.content.append(PageBreak())
         report.add_image('learning_curve.png')
@@ -151,7 +151,7 @@ class XAIWrapper:
 
         # LLM Explanation
         report.add_heading("LLM Explanation", level=2)
-        report.add_paragraph(self.results['llm_explanation'])
+        report.add_llm_explanation(self.results['llm_explanation'])
 
         report.generate()
 

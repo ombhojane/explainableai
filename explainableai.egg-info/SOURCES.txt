@@ -1,4 +1,3 @@
-Licence.txt
 README.md
 setup.py
 explainableai/__init__.py
@@ -23,3 +22,4 @@ explainableai.egg-info/dependency_links.txt
 explainableai.egg-info/entry_points.txt
 explainableai.egg-info/requires.txt
 explainableai.egg-info/top_level.txt
+tests/test_xai_wrapper.py

@@ -2,11 +2,13 @@
 
 import google.generativeai as genai
 import os
+from dotenv import load_dotenv
 
-GEMINI_API_KEY = "AIzaSyC-gf1lYHe9OH3axLep5pi61h22HIKBDfg"
+load_dotenv()
 
+GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 def initialize_gemini():
-    genai.configure(api_key=GEMINI_API_KEY)
+    genai.configure(api_key=GOOGLE_API_KEY)
     generation_config = {
         "temperature": 0.7,
         "top_p": 0.95,
