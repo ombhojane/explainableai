@@ -1,9 +1,11 @@
 # main.py
-
 import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.linear_model import LogisticRegression
+from xgboost import XGBClassifier
+from sklearn.neural_network import MLPClassifier
 from explainableai import XAIWrapper
 import argparse
 
@@ -21,14 +23,19 @@ def main(file_path, target_column):
     # Split the data
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-    # Create and initialize your model
-    model = RandomForestClassifier(n_estimators=100, random_state=42)
+    # Create models
+    models = {
+        'Random Forest': RandomForestClassifier(n_estimators=100, random_state=42),
+        'Logistic Regression': LogisticRegression(max_iter=1000),
+        'XGBoost': XGBClassifier(n_estimators=100, random_state=42),
+        'Neural Network': MLPClassifier(hidden_layer_sizes=(100, 50), max_iter=1000, random_state=42)
+    }
 
     # Create XAIWrapper instance
     xai = XAIWrapper()
 
-    # Fit the model and run XAI analysis
-    xai.fit(model, X_train, y_train)
+    # Fit the models and run XAI analysis
+    xai.fit(models, X_train, y_train)
     results = xai.analyze()
 
     print("\nLLM Explanation of Results:")
