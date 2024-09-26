@@ -1,7 +1,6 @@
 # model_selection.py
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.svm import SVC
 from xgboost import XGBClassifier
 from sklearn.neural_network import MLPClassifier
 from sklearn.model_selection import cross_val_score
@@ -13,7 +12,6 @@ def get_default_models():
     return {
         'Logistic Regression': LogisticRegression(max_iter=1000),
         'Random Forest': RandomForestClassifier(n_estimators=100, random_state=42),
-        'SVM': SVC(probability=True, random_state=42),
         'XGBoost': XGBClassifier(n_estimators=100, random_state=42),
         'Neural Network': MLPClassifier(hidden_layer_sizes=(100, 50), max_iter=1000, random_state=42)
     }

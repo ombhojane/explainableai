@@ -5,7 +5,6 @@ from sklearn.datasets import make_classification
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
 from xgboost import XGBClassifier
-from sklearn.svm import SVC
 from sklearn.neural_network import MLPClassifier
 from explainableai import XAIWrapper
 import os
@@ -25,7 +24,6 @@ def sample_models():
         'Logistic Regression': LogisticRegression(max_iter=1000),
         'XGBoost': XGBClassifier(n_estimators=10, random_state=42),
         'Neural Network': MLPClassifier(hidden_layer_sizes=(10,), max_iter=1000, random_state=42),
-        'SVM': SVC(probability=True, random_state=42)
     }
 
 def test_xai_wrapper_initialization(sample_data, sample_models):
@@ -46,7 +44,7 @@ def test_xai_wrapper_fit(sample_data, sample_models):
     assert hasattr(xai.model, 'predict')
     assert hasattr(xai.model, 'predict_proba')
 
-@pytest.mark.parametrize("model_name", ['Random Forest', 'Logistic Regression', 'XGBoost', 'Neural Network', 'SVM'])
+@pytest.mark.parametrize("model_name", ['Random Forest', 'Logistic Regression', 'XGBoost', 'Neural Network'])
 def test_xai_wrapper_analyze_with_different_models(sample_data, sample_models, model_name):
     X, y = sample_data
     models = {model_name: sample_models[model_name]}
