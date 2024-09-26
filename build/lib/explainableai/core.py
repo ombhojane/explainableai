@@ -17,7 +17,9 @@ from .feature_analysis import calculate_shap_values
 from .feature_interaction import analyze_feature_interactions
 from .llm_explanations import initialize_gemini, get_llm_explanation, get_prediction_explanation
 from .report_generator import ReportGenerator
+from .model_selection import compare_models
 from reportlab.platypus import PageBreak
+
 
 
 class XAIWrapper:
@@ -35,19 +37,41 @@ class XAIWrapper:
         self.feature_importance = None
         self.results = None  # Add this line to store analysis results
 
-    def fit(self, model, X, y, feature_names=None):
-        self.model = model
+    def fit(self, models, X, y, feature_names=None):
+        if isinstance(models, dict):
+            self.models = models
+        else:
+            self.models = {'Model': models}
         self.X = X
         self.y = y
         self.feature_names = feature_names if feature_names is not None else X.columns.tolist()
-        self.is_classifier = hasattr(model, "predict_proba")
+        self.is_classifier = all(hasattr(model, "predict_proba") for model in self.models.values())
 
         print("Preprocessing data...")
         self._preprocess_data()
 
-        print("Fitting model and analyzing...")
+        print("Fitting models and analyzing...")
+        self.model_comparison_results = self._compare_models()
+        
+        # Select the best model based on cv_score
+        best_model_name = max(self.model_comparison_results, key=lambda x: self.model_comparison_results[x]['cv_score'])
+        self.model = self.models[best_model_name]
         self.model.fit(self.X, self.y)
+        
         return self
+    
+    def _compare_models(self):
+        from sklearn.model_selection import cross_val_score
+        results = {}
+        for name, model in self.models.items():
+            cv_scores = cross_val_score(model, self.X, self.y, cv=5, scoring='roc_auc' if self.is_classifier else 'r2')
+            model.fit(self.X, self.y)
+            test_score = model.score(self.X, self.y)
+            results[name] = {
+                'cv_score': cv_scores.mean(),
+                'test_score': test_score
+            }
+        return results
 
     def _preprocess_data(self):
         # Identify categorical and numerical columns
@@ -106,12 +130,15 @@ class XAIWrapper:
         mean_score, std_score = cross_validate(self.model, self.X, self.y)
         results['cv_scores'] = (mean_score, std_score)
 
+        print("Model comparison results:")
+        results['model_comparison'] = self.model_comparison_results
+
         self._print_results(results)
 
         print("Generating LLM explanation...")
         results['llm_explanation'] = get_llm_explanation(self.gemini_model, results)
 
-        self.results = results  # Store the results in the instance
+        self.results = results
         return results
     
     def generate_report(self, filename='xai_report.pdf'):
@@ -120,6 +147,13 @@ class XAIWrapper:
 
         report = ReportGenerator(filename)
         report.add_heading("Explainable AI Report")
+
+        report.add_heading("Model Comparison", level=2)
+        model_comparison_data = [["Model", "CV Score", "Test Score"]]
+        for model, scores in self.results['model_comparison'].items():
+            model_comparison_data.append([model, f"{scores['cv_score']:.4f}", f"{scores['test_score']:.4f}"])
+        report.add_table(model_comparison_data)
+
 
         # Model Performance
         report.add_heading("Model Performance", level=2)

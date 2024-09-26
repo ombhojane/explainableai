@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: explainableai
-Version: 0.1.5
+Version: 0.1.6
 Summary: A comprehensive package for Explainable AI and model interpretation
 Home-page: https://github.com/ombhojane/explainableai
 Author: Om Bhojane, Palak Boricha
@@ -22,6 +22,7 @@ Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
 Classifier: Topic :: Software Development :: Libraries :: Python Modules
 Requires-Python: >=3.7
 Description-Content-Type: text/markdown
+License-File: LICENSE.md
 Requires-Dist: numpy
 Requires-Dist: pandas
 Requires-Dist: scikit-learn

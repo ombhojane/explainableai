@@ -1,17 +1,24 @@
 # model_selection.py
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.svm import SVC
+from xgboost import XGBClassifier
+from sklearn.neural_network import MLPClassifier
 from sklearn.model_selection import cross_val_score
 from sklearn.metrics import roc_curve, auc
 import matplotlib.pyplot as plt
+import numpy as np
 
-def compare_models(X_train, y_train, X_test, y_test):
-    models = {
-        'Logistic Regression': LogisticRegression(),
-        'Random Forest': RandomForestClassifier(),
-        'SVM': SVC(probability=True)
+def get_default_models():
+    return {
+        'Logistic Regression': LogisticRegression(max_iter=1000),
+        'Random Forest': RandomForestClassifier(n_estimators=100, random_state=42),
+        'XGBoost': XGBClassifier(n_estimators=100, random_state=42),
+        'Neural Network': MLPClassifier(hidden_layer_sizes=(100, 50), max_iter=1000, random_state=42)
     }
+
+def compare_models(X_train, y_train, X_test, y_test, models=None):
+    if models is None:
+        models = get_default_models()
     
     results = {}
     for name, model in models.items():
@@ -42,5 +49,5 @@ def plot_roc_curves(models, X_test, y_test):
     plt.ylabel('True Positive Rate')
     plt.title('Receiver Operating Characteristic (ROC) Curve')
     plt.legend(loc="lower right")
-    plt.show()
+    plt.savefig('model_comparison_roc_curves.png')
     plt.close()

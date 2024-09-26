@@ -1,3 +1,4 @@
+LICENSE.md
 README.md
 setup.py
 explainableai/__init__.py
