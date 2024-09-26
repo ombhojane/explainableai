@@ -23,7 +23,7 @@ def sample_models():
         'Random Forest': RandomForestClassifier(n_estimators=10, random_state=42),
         'Logistic Regression': LogisticRegression(max_iter=1000),
         'XGBoost': XGBClassifier(n_estimators=10, random_state=42),
-        'Neural Network': MLPClassifier(hidden_layer_sizes=(10,), max_iter=1000, random_state=42),
+        'Neural Network': MLPClassifier(hidden_layer_sizes=(10,), max_iter=1000, random_state=42)
     }
 
 def test_xai_wrapper_initialization(sample_data, sample_models):
