@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: explainableai
-Version: 0.1.6
+Version: 0.1.7
 Summary: A comprehensive package for Explainable AI and model interpretation
 Home-page: https://github.com/ombhojane/explainableai
 Author: Om Bhojane, Palak Boricha
@@ -46,11 +46,10 @@ ExplainableAI is a Python package that provides tools for creating interpretable
 - Automated Exploratory Data Analysis (EDA)
 - Model performance evaluation
 - Feature importance calculation
-- Feature interaction analysis
 - SHAP (SHapley Additive exPlanations) value calculation
 - Visualization of model insights
 - LLM-powered explanations of model results and individual predictions
-- Cross-validation
+- Automated report generation
 - Easy-to-use interface for model fitting, analysis, and prediction
 
 ## Installation
@@ -74,6 +73,9 @@ Here's a basic example of how to use ExplainableAI:
 ```python
 from explainableai import XAIWrapper
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.linear_model import LogisticRegression
+from xgboost import XGBClassifier
+from sklearn.neural_network import MLPClassifier
 import pandas as pd
 
 # Load your dataset
@@ -84,18 +86,26 @@ y = df['target_column']
 # Perform EDA
 XAIWrapper.perform_eda(df)
 
-# Create and initialize your model
-model = RandomForestClassifier(n_estimators=100, random_state=42)
+# Create models
+models = {
+    'Random Forest': RandomForestClassifier(n_estimators=100, random_state=42),
+    'Logistic Regression': LogisticRegression(max_iter=1000),
+    'XGBoost': XGBClassifier(n_estimators=100, random_state=42),
+    'Neural Network': MLPClassifier(hidden_layer_sizes=(100, 50), max_iter=1000, random_state=42)
+}
 
 # Create XAIWrapper instance
 xai = XAIWrapper()
 
-# Fit the model and run XAI analysis
-xai.fit(model, X, y, feature_names=X.columns.tolist())
+# Fit the models and run XAI analysis
+xai.fit(models, X, y)
 results = xai.analyze()
 
 # Print LLM explanation of results
 print(results['llm_explanation'])
+
+# Generate a comprehensive report
+xai.generate_report('xai_report.pdf')
 
 # Make a prediction with explanation
 new_data = {...}  # Dictionary of feature values
@@ -104,14 +114,6 @@ print(f"Prediction: {prediction}")
 print(f"Probabilities: {probabilities}")
 print(f"Explanation: {explanation}")
 ```
-## Contributing
-
-Contributions are always welcome!
-
-See `contributing.md` for ways to get started.
-
-Please adhere to this project's `code of conduct`.
-
 
 ## Run Locally
 
@@ -132,15 +134,21 @@ Install dependencies
 ```bash
   pip install -r requirements.txt
 ```
+Environment Values: Add Google's Gemini API key in .env as `GOOGLE_API_KEY`
 
 Get Started with data.csv dataset or you can have any dataset
 
 ```bash
   python main.py [dataset] [Target_column]
 ```
+## Contributing
 
+Contributions are always welcome!
+
+See `contributing.md` for ways to get started.
+
+Please adhere to this project's `code of conduct`.
 
 ## Acknowledgements
 
 - This package uses various open-source libraries including scikit-learn, shap, and matplotlib.
-
