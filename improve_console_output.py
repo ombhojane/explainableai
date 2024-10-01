@@ -1,20 +1,27 @@
-from colorama import Fore, Style
+import colorama
+from custom_logger import setup_logger
+
+# Initialize colorama
+colorama.init()
+
+# Initialize logger
+logger = setup_logger('ModelAnalysis')
 
 def analyze_model(accuracy):
-    print(f"{Fore.BLUE}Analyzing model...{Style.RESET_ALL}")
-    print(f"{Fore.GREEN}Accuracy: {accuracy:.3f}{Style.RESET_ALL}")
+    logger.info("Analyzing model...")
+    logger.info(f"Accuracy: {accuracy:.3f}")
 
 def display_error(message):
-    print(f"{Fore.RED}Error: {message}{Style.RESET_ALL}")
+    logger.error(f"Error: {message}")
 
 def display_warning(message):
-    print(f"{Fore.YELLOW}Warning: {message}{Style.RESET_ALL}")
+    logger.warning(f"Warning: {message}")
 
 def main():
     accuracy = 0.91234  # Example accuracy value
     analyze_model(accuracy)
     
-    # Example usage of other print functions
+    # Example usage of other log functions
     display_error("An error occurred while loading the model.")
     display_warning("This model may take a long time to train.")
 
