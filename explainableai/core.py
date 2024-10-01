@@ -1,4 +1,8 @@
-# explainableai/core.py
+import colorama
+from colorama import Fore, Style
+
+# Initialize colorama
+colorama.init(autoreset=True)
 
 import pandas as pd
 import numpy as np
@@ -19,7 +23,6 @@ from .llm_explanations import initialize_gemini, get_llm_explanation, get_predic
 from .report_generator import ReportGenerator
 from .model_selection import compare_models
 from reportlab.platypus import PageBreak
-
 
 
 class XAIWrapper:
@@ -47,7 +50,7 @@ class XAIWrapper:
         self.feature_names = feature_names if feature_names is not None else X.columns.tolist()
         self.is_classifier = all(hasattr(model, "predict_proba") for model in self.models.values())
 
-        print("Preprocessing data...")
+        print(f"{Fore.BLUE}Preprocessing data...{Style.RESET_ALL}")
         self._preprocess_data()
 
         print("Fitting models and analyzing...")
@@ -264,46 +267,45 @@ class XAIWrapper:
             print("\nSHAP values calculation failed. Please check the console output for more details.") 
 
 
-    @staticmethod
     def perform_eda(df):
-        print("\nExploratory Data Analysis:")
-        print(f"Dataset shape: {df.shape}")
-        print("\nDataset info:")
+        print(f"{Fore.CYAN}Exploratory Data Analysis:{Style.RESET_ALL}")
+        print(f"{Fore.GREEN}Dataset shape: {df.shape}{Style.RESET_ALL}")
+        print(f"{Fore.CYAN}Dataset info:{Style.RESET_ALL}")
         df.info()
-        print("\nSummary statistics:")
+        print(f"{Fore.CYAN}Summary statistics:{Style.RESET_ALL}")
         print(df.describe())
-        print("\nMissing values:")
+        print(f"{Fore.CYAN}Missing values:{Style.RESET_ALL}")
         print(df.isnull().sum())
-        print("\nData types:")
+        print(f"{Fore.CYAN}Data types:{Style.RESET_ALL}")
         print(df.dtypes)
-        print("\nUnique values in each column:")
+        print(f"{Fore.CYAN}Unique values in each column:{Style.RESET_ALL}")
         for col in df.columns:
-            print(f"{col}: {df[col].nunique()}")
-        
+            print(f"{Fore.GREEN}{col}: {df[col].nunique()}{Style.RESET_ALL}")
+
         # Additional EDA steps
-        print("\nCorrelation matrix:")
+        print(f"{Fore.CYAN}Correlation matrix:{Style.RESET_ALL}")
         corr_matrix = df.select_dtypes(include=[np.number]).corr()
         print(corr_matrix)
-        
+
         # Identify highly correlated features
         high_corr = np.where(np.abs(corr_matrix) > 0.8)
         high_corr_list = [(corr_matrix.index[x], corr_matrix.columns[y]) for x, y in zip(*high_corr) if x != y and x < y]
         if high_corr_list:
-            print("\nHighly correlated features:")
+            print(f"{Fore.YELLOW}Highly correlated features:{Style.RESET_ALL}")
             for feat1, feat2 in high_corr_list:
-                print(f"{feat1} - {feat2}: {corr_matrix.loc[feat1, feat2]:.2f}")
-        
+                print(f"{Fore.GREEN}{feat1} - {feat2}: {corr_matrix.loc[feat1, feat2]:.2f}{Style.RESET_ALL}")
+
         # Identify potential outliers
-        print("\nPotential outliers (values beyond 3 standard deviations):")
+        print(f"{Fore.CYAN}Potential outliers (values beyond 3 standard deviations):{Style.RESET_ALL}")
         numeric_cols = df.select_dtypes(include=[np.number]).columns
         for col in numeric_cols:
             mean = df[col].mean()
             std = df[col].std()
-            outliers = df[(df[col] < mean - 3*std) | (df[col] > mean + 3*std)]
+            outliers = df[(df[col] < mean - 3 * std) | (df[col] > mean + 3 * std)]
             if not outliers.empty:
-                print(f"{col}: {len(outliers)} potential outliers")
-        
+                print(f"{Fore.GREEN}{col}: {len(outliers)} potential outliers{Style.RESET_ALL}")
+
         # Class distribution for the target variable (assuming last column is target)
         target_col = df.columns[-1]
-        print(f"\nClass distribution for target variable '{target_col}':")
+        print(f"{Fore.CYAN}Class distribution for target variable '{target_col}':{Style.RESET_ALL}")
         print(df[target_col].value_counts(normalize=True))
