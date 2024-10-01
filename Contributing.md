@@ -12,6 +12,19 @@ Please note we have a [code of conduct](Code_Of_Conduct.md)  please follow it in
 
 ## **Need some help regarding the basics?🤔**
 
+## **Contributing Process 🛠**
+
+### 1. Fork the Repository
+
+- Fork the repository by clicking the "Fork" button at the top right of the project page.
+- This will create a copy of the repository under your GitHub account.
+
+### 2. Setup the Project Locally
+
+- Clone your forked repository to your local machine:
+  ```bash
+  git clone https://github.com/your-username/explainableai.git
+  cd explainableai
 
 You can refer to the following articles on basics of Git and Github and also contact the Project Mentors,
 in case you are stuck:
