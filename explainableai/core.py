@@ -141,7 +141,7 @@ class XAIWrapper:
         self.results = results
         return results
     
-    def generate_report(self, filename='xai_report.pdf', section: List): #section=[] , includes _all , model_comparison , model_performance , etc
+    def generate_report(self, section: List = ["_all"] , filename='xai_report.pdf' ): #section=[] , includes _all , model_comparison , model_performance , etc
         if self.results is None:
             raise ValueError("No analysis results available. Please run analyze() first.")
 
