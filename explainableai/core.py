@@ -55,6 +55,13 @@ class XAIWrapper:
 
         print(f"{Fore.BLUE}Fitting models and analyzing...{Style.RESET_ALL}")
         self.model_comparison_results = self._compare_models()
+
+        # Select the best model based on cv_score
+        best_model_name = max(self.model_comparison_results, key=lambda x: self.model_comparison_results[x]['cv_score'])
+        self.model = self.models[best_model_name]
+        self.model.fit(self.X, self.y)
+        
+        return self
     
     def _compare_models(self):
         from sklearn.model_selection import cross_val_score
