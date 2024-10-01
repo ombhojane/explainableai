@@ -65,8 +65,10 @@ def get_llm_explanation(model, results):
 
 
 def get_prediction_explanation(model, input_data, prediction, probabilities, feature_importance):
-    top_features = dict(sorted(feature_importance.items(), key=lambda x: abs(x[1]), reverse=True)[:5])
-    
+    if feature_importance:
+        top_features = dict(sorted(feature_importance.items(), key=lambda x: abs(x[1]), reverse=True)[:5])
+    else:
+        top_features = {}
     prompt = f"""
     As an AI expert, please provide a clear and concise explanation of the following prediction for a non-technical audience:
 
