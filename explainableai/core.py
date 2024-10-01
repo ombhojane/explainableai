@@ -1,5 +1,5 @@
 # explainableai/core.py
-
+from typing import List
 import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
@@ -141,54 +141,76 @@ class XAIWrapper:
         self.results = results
         return results
     
-    def generate_report(self, filename='xai_report.pdf'):
+    def generate_report(self, filename='xai_report.pdf', section: List): #section=[] , includes _all , model_comparison , model_performance , etc
         if self.results is None:
             raise ValueError("No analysis results available. Please run analyze() first.")
 
         report = ReportGenerator(filename)
         report.add_heading("Explainable AI Report")
 
-        report.add_heading("Model Comparison", level=2)
-        model_comparison_data = [["Model", "CV Score", "Test Score"]]
-        for model, scores in self.results['model_comparison'].items():
-            model_comparison_data.append([model, f"{scores['cv_score']:.4f}", f"{scores['test_score']:.4f}"])
-        report.add_table(model_comparison_data)
+        # Model Comparison
+        def model_comparison():
+            report.add_heading("Model Comparison", level=2)
+            model_comparison_data = [["Model", "CV Score", "Test Score"]]
+            for model, scores in self.results['model_comparison'].items():
+                model_comparison_data.append([model, f"{scores['cv_score']:.4f}", f"{scores['test_score']:.4f}"])
+            report.add_table(model_comparison_data)
 
 
         # Model Performance
-        report.add_heading("Model Performance", level=2)
-        for metric, value in self.results['model_performance'].items():
-            if isinstance(value, (int, float, np.float64)):
-                report.add_paragraph(f"**{metric}:** {value:.4f}")
-            else:
-                report.add_paragraph(f"**{metric}:**\n{value}")
+        def model_performance():
+            report.add_heading("Model Performance", level=2)
+            for metric, value in self.results['model_performance'].items():
+                if isinstance(value, (int, float, np.float64)):
+                    report.add_paragraph(f"**{metric}:** {value:.4f}")
+                else:
+                    report.add_paragraph(f"**{metric}:**\n{value}")
 
         # Feature Importance
-        report.add_heading("Feature Importance", level=2)
-        feature_importance_data = [["Feature", "Importance"]] + [[feature, f"{importance:.4f}"] for feature, importance in self.feature_importance.items()]
-        report.add_table(feature_importance_data)
+        def feature_importance():
+            report.add_heading("Feature Importance", level=2)
+            feature_importance_data = [["Feature", "Importance"]] + [[feature, f"{importance:.4f}"] for feature, importance in self.feature_importance.items()]
+            report.add_table(feature_importance_data)
 
         # Visualizations
-        report.add_heading("Visualizations", level=2)
-        report.add_image('feature_importance.png')
-        report.content.append(PageBreak())
-        report.add_image('partial_dependence.png')
-        report.content.append(PageBreak())
-        report.add_image('learning_curve.png')
-        report.content.append(PageBreak())
-        report.add_image('correlation_heatmap.png')
-        if self.is_classifier:
+        def visualization():
+            report.add_heading("Visualizations", level=2)
+            report.add_image('feature_importance.png')
             report.content.append(PageBreak())
-            report.add_image('roc_curve.png')
+            report.add_image('partial_dependence.png')
             report.content.append(PageBreak())
-            report.add_image('precision_recall_curve.png')
+            report.add_image('learning_curve.png')
+            report.content.append(PageBreak())
+            report.add_image('correlation_heatmap.png')
+            if self.is_classifier:
+                report.content.append(PageBreak())
+                report.add_image('roc_curve.png')
+                report.content.append(PageBreak())
+                report.add_image('precision_recall_curve.png')
 
         # LLM Explanation
-        report.add_heading("LLM Explanation", level=2)
-        report.add_llm_explanation(self.results['llm_explanation'])
+        def llm_explanation():
+            report.add_heading("LLM Explanation", level=2)
+            report.add_llm_explanation(self.results['llm_explanation'])
+    
+            report.generate()
 
-        report.generate()
-
+        if("model_comparison" in section):
+            model_comparison()
+        if("model_performance" in section):
+            model_performance()
+        if("feature_importance" in section):
+            feature_importance()
+        if("visualization" in section):
+            visualization()
+        if("llm_explanation" in section):
+            llm_explanation()
+        if("_all" in section):
+            model_comparison()
+            model_performance()
+            feature_importance()
+            visualization()
+            llm_explanation()
     def predict(self, X):
         if self.model is None:
             raise ValueError("Model has not been fitted. Please run fit() first.")
