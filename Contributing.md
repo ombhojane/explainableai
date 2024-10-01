@@ -21,13 +21,58 @@ Please note we have a [code of conduct](Code_Of_Conduct.md)  please follow it in
 
 ### 2. Setup the Project Locally
 
-- Clone your forked repository to your local machine:
-  ```bash
-  git clone https://github.com/your-username/explainableai.git
+Clone the project
+
+```bash
+  git clone https://github.com/ombhojane/explainableai
+```
+
+Go to the project directory
+
+```bash
   cd explainableai
+```
+
+Install dependencies
+
+```bash
+  pip install -r requirements.txt
+```
+Environment Values: Add Google's Gemini API key in .env as `GOOGLE_API_KEY`
+
+Get Started with data.csv dataset or you can have any dataset
+
+```bash
+  python main.py [dataset] [Target_column]
+```
+
+ ### 3.Create a new branch for your feature or bugfix:
+
+   ```bash
+   git checkout -b my-new-feature
+   ```
+### 4. Make your changes and commit them with a clear message:
+
+   ```bash
+   git add .
+   
+   git commit -am 'Add some feature: X'
+   ```
+
+### 5. Push your branch to your forked repository:
+
+   ```bash
+   git push origin my-new-feature
+   ```
+
+### 6. Open a pull request to the `main` branch of the `explainableai` repository.   
+
+Vola! you just made a contribution.
+
 
 You can refer to the following articles on basics of Git and Github and also contact the Project Mentors,
 in case you are stuck:
+
 
 - [Forking a Repo](https://help.github.com/en/github/getting-started-with-github/fork-a-repo)
 - [Cloning a Repo](https://help.github.com/en/desktop/contributing-to-projects/creating-an-issue-or-pull-request)
