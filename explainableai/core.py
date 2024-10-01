@@ -53,15 +53,8 @@ class XAIWrapper:
         print(f"{Fore.BLUE}Preprocessing data...{Style.RESET_ALL}")
         self._preprocess_data()
 
-        print("Fitting models and analyzing...")
+        print(f"{Fore.BLUE}Fitting models and analyzing...{Style.RESET_ALL}")
         self.model_comparison_results = self._compare_models()
-        
-        # Select the best model based on cv_score
-        best_model_name = max(self.model_comparison_results, key=lambda x: self.model_comparison_results[x]['cv_score'])
-        self.model = self.models[best_model_name]
-        self.model.fit(self.X, self.y)
-        
-        return self
     
     def _compare_models(self):
         from sklearn.model_selection import cross_val_score
@@ -267,6 +260,7 @@ class XAIWrapper:
             print("\nSHAP values calculation failed. Please check the console output for more details.") 
 
 
+    @staticmethod
     def perform_eda(df):
         print(f"{Fore.CYAN}Exploratory Data Analysis:{Style.RESET_ALL}")
         print(f"{Fore.GREEN}Dataset shape: {df.shape}{Style.RESET_ALL}")
