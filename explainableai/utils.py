@@ -58,21 +58,4 @@ def explain_model(model, X_train, y_train, X_test, y_test, feature_names, model_
         "model_type": str(type(model)),
     }
 
-def explain_model(model, X_train, y_train, X_test, y_test, feature_names, model_type='sklearn'):
-    if model_type == 'tensorflow':
-        background = X_train[np.random.choice(X_train.shape[0], 100, replace=False)]
-        explainer = shap.DeepExplainer(model, background)
-        shap_values = explainer.shap_values(X_test)
-        if isinstance(shap_values, list):
-            shap_values = shap_values[0]
-        feature_importance_values = np.mean(np.abs(shap_values), axis=0)
-        feature_importance = {feature: importance for feature, importance in zip(feature_names, feature_importance_values)}
-    else:
-        result = permutation_importance(model, X_test, y_test, n_repeats=10, random_state=42)
-        feature_importance = {feature: importance for feature, importance in zip(feature_names, result.importances_mean)}
-    
-    feature_importance = dict(sorted(feature_importance.items(), key=lambda item: abs(item[1]), reverse=True))
-    return {
-        "feature_importance": feature_importance,
-        "model_type": str(type(model)),
-    }
+
