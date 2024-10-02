@@ -16,7 +16,6 @@ from sklearn.pipeline import Pipeline
 
 # Import TensorFlow
 import tensorflow as tf
-!pip install scikeras
 from scikeras.wrappers import KerasClassifier, KerasRegressor
 
 from .visualizations import (
