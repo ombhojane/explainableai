@@ -16,7 +16,8 @@ from sklearn.pipeline import Pipeline
 
 # Import TensorFlow
 import tensorflow as tf
-from tensorflow.keras.wrappers.scikit_learn import KerasClassifier, KerasRegressor
+!pip install scikeras
+from scikeras.wrappers import KerasClassifier, KerasRegressor
 
 from .visualizations import (
     plot_feature_importance, plot_partial_dependence, plot_learning_curve,
