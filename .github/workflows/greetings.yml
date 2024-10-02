@@ -1,0 +1,31 @@
+name: Greetings
+
+on:
+  issues:
+    types: [opened]
+  pull_request:
+    types: [opened]
+
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Greet user for issues
+        if: github.event_name == 'issues'
+        uses: actions-ecosystem/action-create-comment@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          issue_number: ${{ github.event.issue.number }}
+          body: |
+            Hi there! Thanks for opening this issue. We appreciate your contribution to this open-source project. We aim to respond or assign your issue as soon as possible.
+
+      - name: Greet user for pull requests
+        if: github.event_name == 'pull_request'
+        uses: actions-ecosystem/action-create-comment@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          issue_number: ${{ github.event.pull_request.number }}
+          body: |
+            Hi there! Thanks for submitting this pull request. We appreciate your contribution to this open-source project. We aim to review or assign your PR as soon as possible.
+
