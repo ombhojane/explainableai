@@ -265,7 +265,7 @@ class XAIWrapper:
         explanation = get_prediction_explanation(self.gemini_model, input_data, prediction[0], probabilities[0], self.feature_importance)
         return prediction[0], probabilities[0], explanation
     
-     def _calculate_feature_importance(self):
+    def _calculate_feature_importance(self):
         if self.model_type == 'tensorflow':
             # For TensorFlow models, use SHAP values as feature importance
             shap_values = calculate_shap_values(self.model, self.X, self.feature_names, self.model_type)
