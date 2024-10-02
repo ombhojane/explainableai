@@ -141,7 +141,7 @@ class XAIWrapper:
         self.results = results
         return results
     
-    def generate_report(self, section: List = ["_all"] , filename='xai_report.pdf' ): #section=[] , includes _all , model_comparison , model_performance , etc
+    def generate_report(self,filename='xai_report.pdf' ): #section=[] , includes _all , model_comparison , model_performance , etc
         if self.results is None:
             raise ValueError("No analysis results available. Please run analyze() first.")
 
@@ -195,22 +195,76 @@ class XAIWrapper:
     
             report.generate()
 
-        if("model_comparison" in section):
-            model_comparison()
-        if("model_performance" in section):
-            model_performance()
-        if("feature_importance" in section):
-            feature_importance()
-        if("visualization" in section):
-            visualization()
-        if("llm_explanation" in section):
-            llm_explanation()
-        if("_all" in section):
-            model_comparison()
-            model_performance()
-            feature_importance()
-            visualization()
-            llm_explanation()
+        while True:
+            all_section_perm = input("Do you want all sections in the xia_report? (y/n) ").lower()
+        
+            if all_section_perm in ["yes", "y"]:
+                model_comparison()
+                model_performance()
+                feature_importance()
+                visualization()
+                llm_explanation()
+                break 
+        
+            elif all_section_perm in ["no", "n"]:
+                while True:
+                    model_comp_perm = input("Do you want model_comparison in xia_report? (y/n) ").lower()
+                    if model_comp_perm in ["yes", "y"]:
+                        model_comparison()
+                        break
+                    elif model_comp_perm in ["no", "n"]:
+                        break
+                    else:
+                        print("Invalid input. Please enter 'y' or 'n'.")
+        
+                while True:
+                    model_perf_perm = input("Do you want model_performance in xia_report? (y/n) ").lower()
+                    if model_perf_perm in ["yes", "y"]:
+                        model_performance()
+                        break
+                    elif model_perf_perm in ["no", "n"]:
+                        break
+                    else:
+                        print("Invalid input. Please enter 'y' or 'n'.")
+        
+                while True:
+                    feature_imp_perm = input("Do you want feature_importance in xia_report? (y/n) ").lower()
+                    if feature_imp_perm in ["yes", "y"]:
+                        feature_importance()
+                        break
+                    elif feature_imp_perm in ["no", "n"]:
+                        break
+                    else:
+                        print("Invalid input. Please enter  'y' or 'n'.")
+        
+                while True:
+                    visualization_perm = input("Do you want visualization in xia_report? (y/n) ").lower()
+                    if visualization_perm in ["yes", "y"]:
+                        visualization()
+                        break
+                    elif visualization_perm in ["no", "n"]:
+                        break
+                    else:
+                        print("Invalid input. Please enter 'y' or 'n'.")
+        
+                while True:
+                    llm_expl_perm = input("Do you want llm_explanation in xia_report? (y/n) ").lower()
+                    if llm_expl_perm in ["yes", "y"]:
+                        llm_explanation()
+                        break
+                    elif llm_expl_perm in ["no", "n"]:
+                        break
+                    else:
+                        print("Invalid input. Please enter 'y' or 'n'.")
+                break 
+        
+            else:
+                print("Invalid input. Please enter 'y' or 'n' ")
+        
+
+
+    
+        
     def predict(self, X):
         if self.model is None:
             raise ValueError("Model has not been fitted. Please run fit() first.")
