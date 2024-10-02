@@ -35,14 +35,20 @@
 
 Quick Code Example:
 ```python
-        from explainableAI import ModelExplainer
+        from explainableAI import XAIWrapper
 
         # Load data and train model
-        explainer = ModelExplainer(model, X_train, y_train)
-        # Generate SHAP explanations
-        explainer.explain_model()
+        explainer = XAIWrapper(model, X_train, y_train)
+
+        # Fit the model using the training data
+        explainer.fit()
+
+        # Generate explanations for the model predictions
+        explainer.analyze()
+
         # View LLM-powered explanation of predictions
         explainer.get_llm_explanation(predictions)
+
 ```
 
 ### API Documentation
@@ -51,20 +57,20 @@ This section provides an in-depth look at the available classes and methods with
 
 Key Classes and Methods:
 
-1. ModelExplainer:
-        Purpose: Central class for fitting models and generating explanations.
-        Key Methods:
-        fit_model(self, model, X_train, y_train): Trains the model and prepares it for analysis.
-        explain_model(self): Generates SHAP values and other explainable AI outputs.
+1. XAIWrapper:
+    Purpose: Central class for fitting models and generating explanations.
+    Key Methods:
+        fit(self): Trains the model and prepares it for analysis.
+        analyze(self): Generates SHAP values and other explainable AI outputs.
         get_llm_explanation(self, predictions): Uses LLMs to provide human-readable explanations for individual model predictions.
         generate_report(self, output_path): Automatically generates a report on the model’s performance and explainability results.
 
 Code Example:
 
     ```python
-        explainer = ModelExplainer(model, X_train, y_train)
-        explainer.fit_model()
-        explainer.explain_model()
+        explainer = XAIWrapper(model, X_train, y_train)
+        explainer.fit()
+        explainer.analyze()
     ```
 
         2. EDAExplainer:
@@ -132,8 +138,9 @@ Code Example:
 #   Automated Report Generation
     This feature allows users to generate comprehensive reports detailing model performance and explainability.
     Key Steps for Generating Reports:
-    #python
+```python
     explainer.generate_report(output_path='model_report.pdf')
+```
 
 #   Best Practices and Tips
         To use ExplainableAI effectively, consider the following best practices:
