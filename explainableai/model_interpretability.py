@@ -5,11 +5,21 @@ import lime.lime_tabular
 import matplotlib.pyplot as plt
 import numpy as np
 
-
-def calculate_shap_values(model, X):
-    explainer = shap.Explainer(model, X)
-    shap_values = explainer(X)
-    return shap_values
+def calculate_shap_values(model, X, feature_names, model_type):
+    if model_type == 'tensorflow':
+        # Use DeepExplainer for TensorFlow models
+        background = X[np.random.choice(X.shape[0], 100, replace=False)]
+        explainer = shap.DeepExplainer(model, background)
+        shap_values = explainer.shap_values(X)
+        # For classifiers, shap_values is a list
+        if isinstance(shap_values, list):
+            shap_values = shap_values[0]
+        return shap.Explanation(values=shap_values, data=X, feature_names=feature_names)
+    else:
+        # Original SHAP calculation for scikit-learn models
+        explainer = shap.Explainer(model, X)
+        shap_values = explainer(X)
+        return shap_values
 
 def plot_shap_summary(shap_values, X):
     try:
@@ -30,6 +40,9 @@ def plot_shap_summary(shap_values, X):
         except Exception as e2:
             print(f"Alternative SHAP visualization also failed: {e2}")
             print("Skipping SHAP summary plot.")
+
+
+
 
 def get_lime_explanation(model, X, instance, feature_names):
     explainer = lime.lime_tabular.LimeTabularExplainer(
