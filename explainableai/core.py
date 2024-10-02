@@ -1,3 +1,4 @@
+# core.py
 import colorama
 from colorama import Fore, Style
 
@@ -12,6 +13,11 @@ from sklearn.preprocessing import StandardScaler, LabelEncoder, OneHotEncoder
 from sklearn.impute import SimpleImputer
 from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
+
+# Import TensorFlow
+import tensorflow as tf
+from tensorflow.keras.wrappers.scikit_learn import KerasClassifier, KerasRegressor
+
 from .visualizations import (
     plot_feature_importance, plot_partial_dependence, plot_learning_curve,
     plot_roc_curve, plot_precision_recall_curve, plot_correlation_heatmap
@@ -38,7 +44,8 @@ class XAIWrapper:
         self.numerical_columns = None
         self.gemini_model = initialize_gemini()
         self.feature_importance = None
-        self.results = None  # Add this line to store analysis results
+        self.results = None
+        self.model_type = None  # Add this line to store model type
 
     def fit(self, models, X, y, feature_names=None):
         if isinstance(models, dict):
@@ -48,7 +55,7 @@ class XAIWrapper:
         self.X = X
         self.y = y
         self.feature_names = feature_names if feature_names is not None else X.columns.tolist()
-        self.is_classifier = all(hasattr(model, "predict_proba") for model in self.models.values())
+        self._determine_model_type()
 
         print(f"{Fore.BLUE}Preprocessing data...{Style.RESET_ALL}")
         self._preprocess_data()
@@ -59,19 +66,52 @@ class XAIWrapper:
         # Select the best model based on cv_score
         best_model_name = max(self.model_comparison_results, key=lambda x: self.model_comparison_results[x]['cv_score'])
         self.model = self.models[best_model_name]
-        self.model.fit(self.X, self.y)
+        if self.model_type == 'tensorflow':
+            self.model.fit(self.X, self.y, epochs=10, batch_size=32, verbose=0)
+        else:
+            self.model.fit(self.X, self.y)
         
         return self
-    
+
+    def _determine_model_type(self):
+        # Determine if the models are TensorFlow or scikit-learn
+        model_types = set()
+        for model in self.models.values():
+            if isinstance(model, (tf.keras.Model, KerasClassifier, KerasRegressor)):
+                model_types.add('tensorflow')
+            else:
+                model_types.add('sklearn')
+        if len(model_types) > 1:
+            raise ValueError("All models should be of the same type (either all TensorFlow or all scikit-learn).")
+        self.model_type = model_types.pop()
+        self.is_classifier = all(self._is_classifier_model(model) for model in self.models.values())
+
+    def _is_classifier_model(self, model):
+        if self.model_type == 'tensorflow':
+            # Assume TensorFlow models output probabilities for classifiers
+            return model.output_shape[-1] > 1
+        else:
+            return hasattr(model, "predict_proba")
+
     def _compare_models(self):
-        from sklearn.model_selection import cross_val_score
         results = {}
         for name, model in self.models.items():
-            cv_scores = cross_val_score(model, self.X, self.y, cv=5, scoring='roc_auc' if self.is_classifier else 'r2')
-            model.fit(self.X, self.y)
-            test_score = model.score(self.X, self.y)
+            if self.model_type == 'tensorflow':
+                # Use Keras wrappers for cross-validation
+                if self.is_classifier:
+                    model = KerasClassifier(build_fn=lambda: model, epochs=10, batch_size=32, verbose=0)
+                else:
+                    model = KerasRegressor(build_fn=lambda: model, epochs=10, batch_size=32, verbose=0)
+                cv_scores = cross_validate(model, self.X, self.y, is_classifier=self.is_classifier)
+                test_score = model.score(self.X, self.y)
+            else:
+                from sklearn.model_selection import cross_val_score
+                scoring = 'roc_auc' if self.is_classifier else 'r2'
+                cv_scores = cross_val_score(model, self.X, self.y, cv=5, scoring=scoring)
+                model.fit(self.X, self.y)
+                test_score = model.score(self.X, self.y)
             results[name] = {
-                'cv_score': cv_scores.mean(),
+                'cv_score': np.mean(cv_scores),
                 'test_score': test_score
             }
         return results
@@ -117,7 +157,7 @@ class XAIWrapper:
         results = {}
 
         print("Evaluating model performance...")
-        results['model_performance'] = evaluate_model(self.model, self.X, self.y, self.is_classifier)
+        results['model_performance'] = evaluate_model(self.model, self.X, self.y, self.is_classifier, self.model_type)
 
         print("Calculating feature importance...")
         self.feature_importance = self._calculate_feature_importance()
@@ -127,10 +167,10 @@ class XAIWrapper:
         self._generate_visualizations(self.feature_importance)
 
         print("Calculating SHAP values...")
-        results['shap_values'] = calculate_shap_values(self.model, self.X, self.feature_names)
+        results['shap_values'] = calculate_shap_values(self.model, self.X, self.feature_names, self.model_type)
 
         print("Performing cross-validation...")
-        mean_score, std_score = cross_validate(self.model, self.X, self.y)
+        mean_score, std_score = cross_validate(self.model, self.X, self.y, is_classifier=self.is_classifier, model_type=self.model_type)
         results['cv_scores'] = (mean_score, std_score)
 
         print("Model comparison results:")
@@ -224,20 +264,25 @@ class XAIWrapper:
         explanation = get_prediction_explanation(self.gemini_model, input_data, prediction[0], probabilities[0], self.feature_importance)
         return prediction[0], probabilities[0], explanation
     
-    def _calculate_feature_importance(self):
-        perm_importance = permutation_importance(self.model, self.X, self.y, n_repeats=10, random_state=42)
-        feature_importance = {feature: importance for feature, importance in zip(self.feature_names, perm_importance.importances_mean)}
-        return dict(sorted(feature_importance.items(), key=lambda item: abs(item[1]), reverse=True))
+     def _calculate_feature_importance(self):
+        if self.model_type == 'tensorflow':
+            # For TensorFlow models, use SHAP values as feature importance
+            shap_values = calculate_shap_values(self.model, self.X, self.feature_names, self.model_type)
+            feature_importance = np.mean(np.abs(shap_values.values), axis=0)
+            feature_importance_dict = {feature: importance for feature, importance in zip(self.feature_names, feature_importance)}
+        else:
+            perm_importance = permutation_importance(self.model, self.X, self.y, n_repeats=10, random_state=42)
+            feature_importance_dict = {feature: importance for feature, importance in zip(self.feature_names, perm_importance.importances_mean)}
+        return dict(sorted(feature_importance_dict.items(), key=lambda item: abs(item[1]), reverse=True))
 
     def _generate_visualizations(self, feature_importance):
         plot_feature_importance(feature_importance)
-        plot_partial_dependence(self.model, self.X, feature_importance, self.feature_names)
-        plot_learning_curve(self.model, self.X, self.y)
+        plot_partial_dependence(self.model, self.X, feature_importance, self.feature_names, self.model_type)
+        plot_learning_curve(self.model, self.X, self.y, self.is_classifier, self.model_type)
         plot_correlation_heatmap(pd.DataFrame(self.X, columns=self.feature_names))
         if self.is_classifier:
-            plot_roc_curve(self.model, self.X, self.y)
-            plot_precision_recall_curve(self.model, self.X, self.y)
-
+            plot_roc_curve(self.model, self.X, self.y, self.model_type)
+            plot_precision_recall_curve(self.model, self.X, self.y, self.model_type)
     def _print_results(self, results):
         print("\nModel Performance:")
         for metric, value in results['model_performance'].items():
