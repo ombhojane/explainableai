@@ -1,3 +1,5 @@
+# explainableai/core.py
+from typing import List
 import colorama
 from colorama import Fore, Style
 
@@ -144,54 +146,130 @@ class XAIWrapper:
         self.results = results
         return results
     
-    def generate_report(self, filename='xai_report.pdf'):
+    def generate_report(self,filename='xai_report.pdf' ): #section=[] , includes _all , model_comparison , model_performance , etc
         if self.results is None:
             raise ValueError("No analysis results available. Please run analyze() first.")
 
         report = ReportGenerator(filename)
         report.add_heading("Explainable AI Report")
 
-        report.add_heading("Model Comparison", level=2)
-        model_comparison_data = [["Model", "CV Score", "Test Score"]]
-        for model, scores in self.results['model_comparison'].items():
-            model_comparison_data.append([model, f"{scores['cv_score']:.4f}", f"{scores['test_score']:.4f}"])
-        report.add_table(model_comparison_data)
+        # Model Comparison
+        def model_comparison():
+            report.add_heading("Model Comparison", level=2)
+            model_comparison_data = [["Model", "CV Score", "Test Score"]]
+            for model, scores in self.results['model_comparison'].items():
+                model_comparison_data.append([model, f"{scores['cv_score']:.4f}", f"{scores['test_score']:.4f}"])
+            report.add_table(model_comparison_data)
 
 
         # Model Performance
-        report.add_heading("Model Performance", level=2)
-        for metric, value in self.results['model_performance'].items():
-            if isinstance(value, (int, float, np.float64)):
-                report.add_paragraph(f"**{metric}:** {value:.4f}")
-            else:
-                report.add_paragraph(f"**{metric}:**\n{value}")
+        def model_performance():
+            report.add_heading("Model Performance", level=2)
+            for metric, value in self.results['model_performance'].items():
+                if isinstance(value, (int, float, np.float64)):
+                    report.add_paragraph(f"**{metric}:** {value:.4f}")
+                else:
+                    report.add_paragraph(f"**{metric}:**\n{value}")
 
         # Feature Importance
-        report.add_heading("Feature Importance", level=2)
-        feature_importance_data = [["Feature", "Importance"]] + [[feature, f"{importance:.4f}"] for feature, importance in self.feature_importance.items()]
-        report.add_table(feature_importance_data)
+        def feature_importance():
+            report.add_heading("Feature Importance", level=2)
+            feature_importance_data = [["Feature", "Importance"]] + [[feature, f"{importance:.4f}"] for feature, importance in self.feature_importance.items()]
+            report.add_table(feature_importance_data)
 
         # Visualizations
-        report.add_heading("Visualizations", level=2)
-        report.add_image('feature_importance.png')
-        report.content.append(PageBreak())
-        report.add_image('partial_dependence.png')
-        report.content.append(PageBreak())
-        report.add_image('learning_curve.png')
-        report.content.append(PageBreak())
-        report.add_image('correlation_heatmap.png')
-        if self.is_classifier:
+        def visualization():
+            report.add_heading("Visualizations", level=2)
+            report.add_image('feature_importance.png')
             report.content.append(PageBreak())
-            report.add_image('roc_curve.png')
+            report.add_image('partial_dependence.png')
             report.content.append(PageBreak())
-            report.add_image('precision_recall_curve.png')
+            report.add_image('learning_curve.png')
+            report.content.append(PageBreak())
+            report.add_image('correlation_heatmap.png')
+            if self.is_classifier:
+                report.content.append(PageBreak())
+                report.add_image('roc_curve.png')
+                report.content.append(PageBreak())
+                report.add_image('precision_recall_curve.png')
 
         # LLM Explanation
-        report.add_heading("LLM Explanation", level=2)
-        report.add_llm_explanation(self.results['llm_explanation'])
+        def llm_explanation():
+            report.add_heading("LLM Explanation", level=2)
+            report.add_llm_explanation(self.results['llm_explanation'])
+    
+            report.generate()
 
-        report.generate()
+        while True:
+            all_section_perm = input("Do you want all sections in the xia_report? (y/n) ").lower()
+        
+            if all_section_perm in ["yes", "y"]:
+                model_comparison()
+                model_performance()
+                feature_importance()
+                visualization()
+                llm_explanation()
+                break 
+        
+            elif all_section_perm in ["no", "n"]:
+                while True:
+                    model_comp_perm = input("Do you want model_comparison in xia_report? (y/n) ").lower()
+                    if model_comp_perm in ["yes", "y"]:
+                        model_comparison()
+                        break
+                    elif model_comp_perm in ["no", "n"]:
+                        break
+                    else:
+                        print("Invalid input. Please enter 'y' or 'n'.")
+        
+                while True:
+                    model_perf_perm = input("Do you want model_performance in xia_report? (y/n) ").lower()
+                    if model_perf_perm in ["yes", "y"]:
+                        model_performance()
+                        break
+                    elif model_perf_perm in ["no", "n"]:
+                        break
+                    else:
+                        print("Invalid input. Please enter 'y' or 'n'.")
+        
+                while True:
+                    feature_imp_perm = input("Do you want feature_importance in xia_report? (y/n) ").lower()
+                    if feature_imp_perm in ["yes", "y"]:
+                        feature_importance()
+                        break
+                    elif feature_imp_perm in ["no", "n"]:
+                        break
+                    else:
+                        print("Invalid input. Please enter  'y' or 'n'.")
+        
+                while True:
+                    visualization_perm = input("Do you want visualization in xia_report? (y/n) ").lower()
+                    if visualization_perm in ["yes", "y"]:
+                        visualization()
+                        break
+                    elif visualization_perm in ["no", "n"]:
+                        break
+                    else:
+                        print("Invalid input. Please enter 'y' or 'n'.")
+        
+                while True:
+                    llm_expl_perm = input("Do you want llm_explanation in xia_report? (y/n) ").lower()
+                    if llm_expl_perm in ["yes", "y"]:
+                        llm_explanation()
+                        break
+                    elif llm_expl_perm in ["no", "n"]:
+                        break
+                    else:
+                        print("Invalid input. Please enter 'y' or 'n'.")
+                break 
+        
+            else:
+                print("Invalid input. Please enter 'y' or 'n' ")
+        
 
+
+    
+        
     def predict(self, X):
         if self.model is None:
             raise ValueError("Model has not been fitted. Please run fit() first.")
