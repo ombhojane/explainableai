@@ -3,10 +3,14 @@ import shap
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
+import logging
 
+logger=logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
 def calculate_shap_values(model, X, feature_names):
     try:
         # Convert X to a DataFrame if it's not already
+        logger.debug("Convert X to Dataframe...")
         X = pd.DataFrame(X, columns=feature_names)
         
         if hasattr(model, "predict_proba"):
@@ -23,12 +27,12 @@ def calculate_shap_values(model, X, feature_names):
         plt.tight_layout()
         plt.show()
         plt.close()
-        
+        logger.info("Dataframe Created...")
         return shap_values
     except Exception as e:
-        print(f"Error calculating SHAP values: {e}")
-        print("Model type:", type(model))
-        print("X shape:", X.shape)
-        print("X dtype:", X.dtypes)
-        print("Feature names:", feature_names)
+        logger.error(f"Error calculating SHAP values: {e}")
+        logger.error("Model type:", type(model))
+        logger.error("X shape:", X.shape)
+        logger.error("X dtype:", X.dtypes)
+        logger.error("Feature names:", feature_names)
         return None
