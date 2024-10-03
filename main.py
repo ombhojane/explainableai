@@ -10,22 +10,21 @@ from explainableai import XAIWrapper
 import argparse
 import logging
 
-logger=logging.getLogger(__name__)
-logger.setLevel(logging.DEBUG)
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)  # Changed to INFO to reduce debug logs
+
 def main(file_path, target_column):
     # Import the dataset
     logger.info("Importing dataset...")
     df = pd.read_csv(file_path)
     
-    # Perform EDA
-    logger.debug("Performing EDA...")
+    # Perform EDA (Logging of EDA details might be done in XAIWrapper itself)
     XAIWrapper.perform_eda(df)
     
     X = df.drop(columns=[target_column])
     y = df[target_column]
 
     # Split the data
-    logger.debug("Splitting the data...")
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
     # Create models
@@ -38,11 +37,10 @@ def main(file_path, target_column):
     }
 
     # Create XAIWrapper instance
-    logger.debug("Creating XAIWrapper instance...")
     xai = XAIWrapper()
 
     # Fit the models and run XAI analysis
-    logger.debug("Fitting the models and run the XAI analysis...")
+    logger.info("Fitting the models and running the XAI analysis...")
     xai.fit(models, X_train, y_train)
     results = xai.analyze()
 
@@ -57,7 +55,6 @@ def main(file_path, target_column):
         logger.error(f"An error occurred while generating the report: {str(e)}")
 
     # Example of using the trained model for new predictions
-    logger.debug("Making the prediction...")
     while True:
         logger.info("\nEnter values for prediction (or 'q' to quit):")
         user_input = {}
