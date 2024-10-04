@@ -109,6 +109,16 @@ See `contributing.md` for ways to get started.
 
 Please adhere to this project's `code of conduct`.
 
+## Credits
+
+Explainable AI was created by [Om Bhojane](https://github.com/ombhojane). Special thanks to the following contributors for their support.
+
+<p align="start">
+<a  href="https://github.com/ombhojane/explainableai/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=ombhojane/explainableai"/>
+</a>
+</p>
+
 ## Acknowledgements
 
 - This package uses various open-source libraries including scikit-learn, shap, and matplotlib.
