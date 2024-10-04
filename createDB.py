@@ -2,8 +2,9 @@ import numpy as np
 import pandas as pd
 import logging
 
+# Set up logging
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
-logger.setLevel(logging.INFO)  # Changed to INFO to reduce debug logs
 
 # Set seed for reproducibility
 np.random.seed(42)
@@ -11,24 +12,17 @@ np.random.seed(42)
 # Generate 100 rows of data
 data_size = 100
 
-# Generate 4 features with random values
-# Feature 1: Age (18 to 90)
+# Generate features
+logger.info("Generating random data for features...")
 age = np.random.randint(18, 90, data_size)
-
-# Feature 2: Tumor size (1 to 10 cm)
 tumor_size = np.random.uniform(1, 10, data_size)
-
-# Feature 3: Gene mutation presence (0 or 1)
 gene_mutation = np.random.choice([0, 1], data_size)
-
-# Feature 4: Smoking history (years, 0 to 40)
 smoking_history = np.random.randint(0, 40, data_size)
 
-# Generate target column 'Cancer' based on some logic
-cancer_risk = (age > 50) & (tumor_size > 5) & (gene_mutation == 1) & (smoking_history > 20)
-cancer = np.where(cancer_risk, 1, 0)
+# Vectorized computation of cancer risk
+cancer = np.where((age > 50) & (tumor_size > 5) & (gene_mutation == 1) & (smoking_history > 20), 1, 0)
 
-# Create a DataFrame
+# Create DataFrame
 df = pd.DataFrame({
     'Age': age,
     'Tumor_Size': tumor_size,
@@ -38,6 +32,7 @@ df = pd.DataFrame({
 })
 
 # Save the DataFrame to a CSV file
-logger.info("Saving the CSV file...")
-df.to_csv('cancer.csv', index=False)
-logger.info("CSV file 'cancer.csv' has been created.")
+output_file = 'cancer.csv'
+logger.info(f"Saving the CSV file '{output_file}'...")
+df.to_csv(output_file, index=False)
+logger.info(f"CSV file '{output_file}' has been created.")
