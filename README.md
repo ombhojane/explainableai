@@ -163,6 +163,16 @@ To run ExplainableAI locally:
 
 We welcome contributions to ExplainableAI! Please see our [Contributing Guidelines](CONTRIBUTING.md) for more information on how to get started.
 
+## Credits
+
+Explainable AI was created by [Om Bhojane](https://github.com/ombhojane). Special thanks to the following contributors for their support.
+
+<p align="start">
+<a  href="https://github.com/ombhojane/explainableai/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=ombhojane/explainableai"/>
+</a>
+</p>
+
 ## Acknowledgements
 
 ExplainableAI builds upon several open-source libraries, including:
