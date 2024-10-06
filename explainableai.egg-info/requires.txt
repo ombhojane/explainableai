@@ -12,3 +12,8 @@ google-generativeai
 python-dotenv
 scipy
 pillow
+xgboost
+colorama
+scikeras
+tensorflow
+
