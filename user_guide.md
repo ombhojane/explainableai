@@ -4,93 +4,126 @@ ExplainableAI is a Python package designed to enhance the interpretability of ma
 
 ## Features:
 
-- Automated Exploratory Data Analysis (EDA)
-      This feature helps users automatically explore the structure and relationships within their datasets. It visualizes important statistical summaries, correlations, and         
-      distributions to give a quick understanding of the data.
-      Example:
+- Automated Exploratory Data Analysis (EDA)  
+            ->   This feature helps users automatically explore the structure and relationships within their datasets. It visualizes important statistical summaries, correlations, and   
+                distributions to give a quick understanding of the data.  
+             ->   Example:
 ```python
-        from explainableAI import EDAExplainer
-        eda = EDAExplainer(data)
-        eda.perform_eda()  # Automatically performs EDA
-        eda.visualize_correlations()  # Generates a correlation heatmap
+      from explainableai import automated_eda
+      # Load your dataset
+      df = pd.read_csv('data.csv')
+      # Perform automated EDA
+      report = automated_eda(df)
+      # Display the report
+      report.show()
 ```
-     Key Functions: perform_eda(), visualize_correlations()
+     Key Functions: automated_eda(df)
      Benefit: Saves time and ensures a thorough examination of data without manually writing code for common EDA tasks.
   
-- Model performance evaluation
-          This feature helps users evaluate the performance of machine learning models by calculating common metrics like accuracy, precision, recall, and F1-score. It also includes 
-          confusion matrix plots to show how well the model is performing.
-          Example:
+- Model performance evaluation  
+          ->  This feature helps users evaluate the performance of machine learning models by calculating common metrics like accuracy, precision, recall, and F1-score. It also includes 
+              confusion matrix plots to show how well the model is performing.  
+         ->   Example:
 ```python
-        from explainableAI import ModelEvaluator
-        evaluator = ModelEvaluator(model, X_test, y_test)
-        evaluator.evaluate_model()  # Evaluate model performance
+      from explainableai import evaluate_model_performance
+      # Assuming a trained model and test data
+      evaluation = evaluate_model_performance(model, X_test, y_test)
+      # Show evaluation metrics such as accuracy, precision, recall, etc.
+      evaluation.show_metrics()
+      # Visualize confusion matrix and other evaluation plots
+      evaluation.plot_metrics()
 ```
-        Key Functions: evaluate_model()
+        Key Functions: evaluate_model_performance(model, X_test, y_test)
         Benefit: Provides a comprehensive evaluation of the model's strengths and weaknesses using standard metrics.
-- Feature importance calculation
-          This feature calculates which features contribute most to model predictions, typically using SHAP (SHapley Additive exPlanations) values, which quantify how much each feature 
-          influences the model output.
-          Example:
+- Feature importance calculation  
+         ->   This feature calculates which features contribute most to model predictions, typically using SHAP (SHapley Additive exPlanations) values, which quantify how much each 
+              feature influences the model output.  
+         ->  Example:
 ```python
-        from explainableAI import ModelExplainer
-        explainer = ModelExplainer(model, X_train, y_train)
-        explainer.plot_shap_summary()  # Plot feature importance with SHAP values
+      from explainableai import get_feature_importance
+      # Assuming you have a trained model
+      importance = get_feature_importance(model, X_train)
+      # Display feature importance
+      importance.plot()
 ```
-        Key Functions: plot_shap_summary()
+        Key Functions: get_feature_importance(model, X_train)
         Benefit: Allows users to see the importance of individual features in an interpretable way, helping them understand the model's decision-making process.
         
-- SHAP (SHapley Additive exPlanations) value calculation
-          SHAP values are a powerful method for explaining individual predictions. They decompose a prediction into the contributions of each feature, making it easy to see why a model 
-          made a particular decision.
-          Example:
+- SHAP (SHapley Additive exPlanations) value calculation   
+           ->   SHAP values are a powerful method for explaining individual predictions. They decompose a prediction into the contributions of each feature, making it easy to see why a                  model made a particular decision.  
+           ->   Example:
 ```python
-            explainer.explain_model()  # Automatically computes SHAP values
-            explainer.plot_shap_values()  # Visualize SHAP values for specific instances
+      from explainableai import shap_analysis
+      # SHAP analysis for a single prediction
+      shap_values = shap_analysis(model, X_test[0])
+      # Display SHAP summary plot for global model behavior
+      shap_values.plot_summary()
 ```
-Key Functions: explain_model(), plot_shap_values()
-Benefit: Provides a transparent explanation of model predictions, making it easy to see how changes in feature values affect the output.
+            Key Functions: shap_analysis(model, X_instance)
+            Benefit: Provides a transparent explanation of model predictions, making it easy to see how changes in feature values affect the output.
 
-- Visualization of model insights
-      This feature generates visualizations to help users understand the data and model predictions, such as correlation heatmaps, feature importance plots, and SHAP value summaries.
-      Example:
+- Visualization of model insights  
+       ->   This feature generates visualizations to help users understand the data and model predictions, such as correlation heatmaps, feature importance plots, and SHAP value                     summaries.   
+       ->   Example:
 ```python
-        from explainableAI import DataVisualizer
-        visualizer = DataVisualizer(data)
-        visualizer.plot_shap_summary()  # Visualize SHAP value summary for features
+       from explainableai import interactive_visualizations
+      # Create interactive visualizations of model insights
+      visualizer = interactive_visualizations(model, X_test)
+      # Plot interactive charts for predictions and feature analysis
+      visualizer.plot_interactive()
 ```
-        Key Functions: plot_shap_summary(), visualize_correlations()
+        Key Functions:  interactive_visualizations(model, X_test)
         Benefit: Visual representations of data and model performance make it easier to communicate insights to others.
 
-- LLM-powered explanations of model results and individual predictions
-          ExplainableAI leverages large language models (LLMs) to provide natural language explanations of complex model predictions. This feature translates technical insights into 
-          human-readable summaries.
-          Example:
+- LLM-powered explanations of model results and individual predictions  
+           ->   ExplainableAI leverages large language models (LLMs) to provide natural language explanations of complex model predictions. This feature translates technical insights                    into human-readable summaries.  
+           ->   Example:
 ```python
-        predictions = model.predict(X_test)
-        explainer.get_llm_explanation(predictions)  # LLM provides human-readable explanations
+            from explainableai import llm_explanations
+            # Get an explanation for a prediction using an LLM
+            explanation = llm_explanations(model, X_test[0])
+            print(explanation)
 ```
-        Key Functions: get_llm_explanation()
+        Key Functions: llm_explanations(model, X_instance)
         Benefit: This is particularly useful when explaining model predictions to non-technical stakeholders, making AI decisions more accessible and understandable.
-- Automated report generation
-      This feature automatically generates a comprehensive report, summarizing the model's performance, feature importance, SHAP values, and LLM-generated explanations. The report can 
-      be output in PDF or HTML formats.
-      Example:
+- Automated report generation  
+       ->   This feature automatically generates a comprehensive report, summarizing the model's performance, feature importance, SHAP values, and LLM-generated explanations. The report             can be output in PDF or HTML formats.  
+       ->   Example:
 ```python
-        explainer.generate_report(output_path='report.pdf')  # Generate a report with all insights
+            from explainableai import generate_report
+            # Automatically generate a PDF report
+            report = generate_report(model, X_test, y_test)
+            # Save the report
+            report.save_pdf('model_report.pdf')
 ```
-        Key Functions: generate_report()
+        Key Functions: generate_report(model, X_test, y_test)
         Benefit: Saves time by automating the reporting process and providing detailed insights in a professional format that can be shared with stakeholders.
-- Easy-to-use interface for model fitting, analysis, and prediction
-          Ensures the machine learning model is fair by checking for biases in its predictions and providing a fairness report. This feature is critical for applications where fairness 
-          and bias must be carefully monitored, such as hiring or lending.
-          Example:
+
+-  Multi-Model Support  
+             ->   Document multi-model comparison based on the package's real functionality.  
+             ->   Example:  
 ```python
-            from explainableAI import FairnessAnalyzer
-            fairness_analyzer = FairnessAnalyzer(model, data)
-            fairness_analyzer.generate_fairness_report()  # Evaluate fairness of the model
+            from explainableai import compare_models
+            # Compare multiple models
+            comparison = compare_models([model1, model2], X_test, y_test)
+            # Show comparison results
+            comparison.show_comparison()
 ```
-Key Functions: generate_fairness_report()
+            Key Functions:compare_models(models, X_test, y_test)
+            Benifits: The Multi-Model Support feature allows efficient comparison of multiple models, enabling faster, data-driven decisions on the best-performing model.
+            
+- Easy-to-use interface for model fitting, analysis, and prediction  
+           ->   Ensures the machine learning model is fair by checking for biases in its predictions and providing a fairness report. This feature is critical for applications where                     fairness and bias must be carefully monitored, such as hiring or lending.  
+           ->   Example:
+```python
+            from explainableai import analyze_model
+            # Analyze model with a simple interface
+            analyzer = analyze_model(model)
+            analyzer.fit(X_train, y_train)
+            analyzer.evaluate(X_test, y_test)
+            analyzer.predict(X_new)
+```
+            Key Functions: analyze_model(model)
             Benefit: Helps identify and mitigate potential biases in machine learning models, ensuring more ethical AI applications.
 
 
@@ -105,16 +138,16 @@ Key Functions: generate_fairness_report()
 
 `GEMINI_API_KEY`
 
-### Quick Start Guide for New Users
+### Quick Start Guide for New Users  
 
-    This section helps users quickly set up and start using the ExplainableAI package.
+    This section helps users quickly set up and start using the ExplainableAI package.  
     Key Components:
 
-    1. Introduction to ExplainableAI: A brief overview of the package, highlighting automated EDA, SHAP value calculations, and LLM-powered explanations.
-    2. Installation Instructions: Step-by-step instructions for installing the package using pip or from the source, along with details on handling dependencies.
-    3. Basic Usage Example: Demonstrates how to load data, train a model, and generate explanations with just a few lines of code.
+                1. Introduction to ExplainableAI: A brief overview of the package, highlighting automated EDA, SHAP value calculations, and LLM-powered explanations.  
+                2. Installation Instructions: Step-by-step instructions for installing the package using pip or from the source, along with details on handling dependencies.  
+                3. Basic Usage Example: Demonstrates how to load data, train a model, and generate explanations with just a few lines of code.  
 
-Quick Code Example:
+       ->   Quick Code Example:
 ```python
         from explainableAI import XAIWrapper
 
@@ -134,19 +167,19 @@ Quick Code Example:
 
 ### API Documentation
 
-This section provides an in-depth look at the available classes and methods within ExplainableAI, including example code for each.
+      This section provides an in-depth look at the available classes and methods within ExplainableAI, including example code for each.
 
-Key Classes and Methods:
+       Key Classes and Methods:
 
-1. XAIWrapper:
-    Purpose: Central class for fitting models and generating explanations.
-    Key Methods:
-        fit(self): Trains the model and prepares it for analysis.
-        analyze(self): Generates SHAP values and other explainable AI outputs.
-        get_llm_explanation(self, predictions): Uses LLMs to provide human-readable explanations for individual model predictions.
-        generate_report(self, output_path): Automatically generates a report on the model’s performance and explainability results.
+1. XAIWrapper:  
+      Purpose: Central class for fitting models and generating explanations.  
+      Key Methods:  
+              fit(self): Trains the model and prepares it for analysis.
+              analyze(self): Generates SHAP values and other explainable AI outputs.
+              get_llm_explanation(self, predictions): Uses LLMs to provide human-readable explanations for individual model predictions.
+              generate_report(self, output_path): Automatically generates a report on the model’s performance and explainability results.
 
-Code Example:
+     Code Example:
 
 ```python
         explainer = XAIWrapper(model, X_train, y_train)
@@ -154,13 +187,13 @@ Code Example:
         explainer.analyze()
 ```
 
-        2. EDAExplainer:
+2. EDAExplainer:  
         Purpose: Automates the Exploratory Data Analysis process.
         Key Methods:
         perform_eda(self, data): Runs EDA on the input dataset.
         visualize_correlations(self, data): Generates correlation heatmaps and other visual insights.
 
-Code Example:
+        Code Example:
 
 ```python
     eda_explainer = EDAExplainer(data)
@@ -179,7 +212,7 @@ Code Example:
                     2.   Perform EDA and generate visualizations like correlation heatmaps and distribution plots.
                     3.     Interpret the insights generated.
 
-Code Example:
+        Code Example:
 ```python
         from explainableAI import EDAExplainer
         # Perform EDA
@@ -195,7 +228,8 @@ Code Example:
                         Train a model using the ModelExplainer.
                         Evaluate the model’s performance with metrics such as accuracy or confusion matrix.
                         Calculate SHAP values to understand feature importance.
-Code Example:
+                        
+       Code Example:
 ```python
         from explainableAI import ModelExplainer
 
@@ -211,7 +245,7 @@ Code Example:
             Steps:
                 1. Train a model and make predictions.
                 2. Use the LLM-powered explanation feature to translate predictions into natural language.
-Code Example:
+            Code Example:
 ```bash
       # Get natural language explanation
       explainer.get_llm_explanation(predictions)
@@ -224,13 +258,10 @@ Code Example:
 ```
 
 #   Best Practices and Tips
-        To use ExplainableAI effectively, consider the following best practices:
-    Choosing the Right Model: Select models that balance accuracy and interpretability.
-    SHAP Explanations: Generate SHAP values for explaining feature importance clearly.
-    LLM-Powered Explanations: Utilize natural language explanations in presentations or stakeholder reports for better understanding.
-
-
-
+         To use ExplainableAI effectively, consider the following best practices:
+          Choosing the Right Model: Select models that balance accuracy and interpretability.
+          SHAP Explanations: Generate SHAP values for explaining feature importance clearly.
+          LLM-Powered Explanations: Utilize natural language explanations in presentations or stakeholder reports for better understanding.
 
 # Directory Structure
     Files
@@ -242,7 +273,7 @@ Code Example:
                  from .model_evaluation import ModelEvaluator
 ```    
 
-        anomaly_detection.py: Implements anomaly detection methods.
+       anomaly_detection.py: Implements anomaly detection methods.
             Example Code -
 ``` Python
                 class AnomalyDetector:
