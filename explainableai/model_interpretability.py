@@ -1,5 +1,10 @@
-# Initialize colorama
+# model_interpretability.py
+
+# Import colorama and its components
 import colorama
+from colorama import Fore, Style
+
+# Initialize colorama
 colorama.init(autoreset=True)
 
 import pandas as pd
@@ -64,10 +69,10 @@ class XAIWrapper:
             self.feature_names = feature_names if feature_names is not None else X.columns.tolist()
             self._determine_model_type()
 
-            logger.info(f"{colorama.Fore.BLUE}Preprocessing data...{colorama.Style.RESET_ALL}")
+            logger.info(f"{Fore.BLUE}Preprocessing data...{Style.RESET_ALL}")
             self._preprocess_data()
 
-            logger.info(f"{colorama.Fore.BLUE}Fitting models and analyzing...{colorama.Style.RESET_ALL}")
+            logger.info(f"{Fore.BLUE}Fitting models and analyzing...{Style.RESET_ALL}")
             self.model_comparison_results = self._compare_models()
 
             # Select the best model based on cv_score
@@ -283,12 +288,12 @@ class XAIWrapper:
                 'llm_explanation': self._generate_llm_explanation
             }
 
-            if input("Do you want all sections in the xai_report? (y/n) ").strip().lower() in ['y', 'yes']:
+            if input("Do you want all sections in the XAI report? (y/n) ").strip().lower() in ['y', 'yes']:
                 for section_func in sections.values():
                     section_func(report)
             else:
                 for section, section_func in sections.items():
-                    if input(f"Do you want {section} in xai_report? (y/n) ").strip().lower() in ['y', 'yes']:
+                    if input(f"Do you want {section} in the XAI report? (y/n) ").strip().lower() in ['y', 'yes']:
                         section_func(report)
 
             report.generate()
@@ -501,22 +506,22 @@ class XAIWrapper:
     def perform_eda(df):
         logger.debug("Performing exploratory data analysis...")
         try:
-            logger.info(f"{colorama.Fore.CYAN}Exploratory Data Analysis:{colorama.Style.RESET_ALL}")
-            logger.info(f"{colorama.Fore.GREEN}Dataset shape: {df.shape}{colorama.Style.RESET_ALL}")
-            logger.info(f"{colorama.Fore.CYAN}Dataset info:{colorama.Style.RESET_ALL}")
+            logger.info(f"{Fore.CYAN}Exploratory Data Analysis:{Style.RESET_ALL}")
+            logger.info(f"{Fore.GREEN}Dataset shape: {df.shape}{Style.RESET_ALL}")
+            logger.info(f"{Fore.CYAN}Dataset info:{Style.RESET_ALL}")
             df.info()
-            logger.info(f"{colorama.Fore.CYAN}Summary statistics:{colorama.Style.RESET_ALL}")
+            logger.info(f"{Fore.CYAN}Summary statistics:{Style.RESET_ALL}")
             logger.info(df.describe())
-            logger.info(f"{colorama.Fore.CYAN}Missing values:{colorama.Style.RESET_ALL}")
+            logger.info(f"{Fore.CYAN}Missing values:{Style.RESET_ALL}")
             logger.info(df.isnull().sum())
-            logger.info(f"{colorama.Fore.CYAN}Data types:{colorama.Style.RESET_ALL}")
+            logger.info(f"{Fore.CYAN}Data types:{Style.RESET_ALL}")
             logger.info(df.dtypes)
-            logger.info(f"{colorama.Fore.CYAN}Unique values in each column:{colorama.Style.RESET_ALL}")
+            logger.info(f"{Fore.CYAN}Unique values in each column:{Style.RESET_ALL}")
             for col in df.columns:
-                logger.info(f"{colorama.Fore.GREEN}{col}: {df[col].nunique()}{colorama.Style.RESET_ALL}")
+                logger.info(f"{Fore.GREEN}{col}: {df[col].nunique()}{Style.RESET_ALL}")
 
             # Additional EDA steps
-            logger.info(f"{colorama.Fore.CYAN}Correlation matrix:{colorama.Style.RESET_ALL}")
+            logger.info(f"{Fore.CYAN}Correlation matrix:{Style.RESET_ALL}")
             corr_matrix = df.select_dtypes(include=[np.number]).corr()
             logger.info(corr_matrix)
 
@@ -528,24 +533,25 @@ class XAIWrapper:
                 if x != y and x < y
             ]
             if high_corr_list:
-                logger.info(f"{colorama.Fore.YELLOW}Highly correlated features:{colorama.Style.RESET_ALL}")
+                logger.info(f"{Fore.YELLOW}Highly correlated features:{Style.RESET_ALL}")
                 for feat1, feat2 in high_corr_list:
-                    logger.info(f"{colorama.Fore.GREEN}{feat1} - {feat2}: {corr_matrix.loc[feat1, feat2]:.2f}{colorama.Style.RESET_ALL}")
+                    logger.info(f"{Fore.GREEN}{feat1} - {feat2}: {corr_matrix.loc[feat1, feat2]:.2f}{Style.RESET_ALL}")
 
             # Identify potential outliers
-            logger.info(f"{colorama.Fore.CYAN}Potential outliers (values beyond 3 standard deviations):{colorama.Style.RESET_ALL}")
+            logger.info(f"{Fore.CYAN}Potential outliers (values beyond 3 standard deviations):{Style.RESET_ALL}")
             numeric_cols = df.select_dtypes(include=[np.number]).columns
             for col in numeric_cols:
                 mean = df[col].mean()
                 std = df[col].std()
                 outliers = df[(df[col] < mean - 3 * std) | (df[col] > mean + 3 * std)]
                 if not outliers.empty:
-                    logger.info(f"{colorama.Fore.GREEN}{col}: {len(outliers)} potential outliers{colorama.Style.RESET_ALL}")
+                    logger.info(f"{Fore.GREEN}{col}: {len(outliers)} potential outliers{Style.RESET_ALL}")
 
             # Class distribution for the target variable (assuming last column is target)
             target_col = df.columns[-1]
-            logger.info(f"{colorama.Fore.CYAN}Class distribution for target variable '{target_col}':{colorama.Style.RESET_ALL}")
+            logger.info(f"{Fore.CYAN}Class distribution for target variable '{target_col}':{Style.RESET_ALL}")
             logger.info(df[target_col].value_counts(normalize=True))
         except Exception as e:
             logger.error(f"Error occurred during exploratory data analysis: {str(e)}")
-            raise
+            raise 
+
