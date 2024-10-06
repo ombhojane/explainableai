@@ -1,6 +1,9 @@
+# setup.py
+
 from setuptools import setup, find_packages
 import os
 
+# Read the long description from README.md
 this_directory = os.path.abspath(os.path.dirname(__file__))
 with open(os.path.join(this_directory, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
@@ -23,7 +26,11 @@ setup(
         'google-generativeai',
         'python-dotenv',
         'scipy',
-        'pillow'
+        'pillow',
+        'colorama',         # Added missing dependency
+        'scikeras',         # Added missing dependency
+        'tensorflow',       # Added missing dependency
+        # Removed 'model_interpretability' assuming it's part of this package
     ],
     entry_points={
         'console_scripts': [
@@ -59,5 +66,16 @@ setup(
     include_package_data=True,
     package_data={
         'explainableai': ['data/*.csv', 'templates/*.html'],
+    },
+    # Optional: Add a test suite
+    # test_suite='tests',
+    # Optional: Specify development dependencies
+    extras_require={
+        'dev': [
+            'pytest',
+            'flake8',
+            'black',
+            # Add other development dependencies here
+        ],
     },
 )
