@@ -16,7 +16,7 @@ xgboost
 colorama
 scikeras
 tensorflow
-model_interpretability
+
 pytest
 
 
