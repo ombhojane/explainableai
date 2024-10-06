@@ -8,8 +8,13 @@ from reportlab.lib.units import inch
 import io
 from PIL import Image as PILImage
 import re
+import logging
+
+logger=logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
 
 class ReportGenerator:
+    logger.debug("Report generation...")
     def __init__(self, filename):
         self.filename = filename
         self.doc = SimpleDocTemplate(filename, pagesize=letter, topMargin=0.5*inch, bottomMargin=0.5*inch)
@@ -19,6 +24,7 @@ class ReportGenerator:
         self.content = []
 
     def setup_styles(self):
+        logger.debug("Setting up the styles...")
         self.custom_styles['Heading1'] = ParagraphStyle(
             'CustomHeading1',
             parent=self.styles['Heading1'],
@@ -52,23 +58,27 @@ class ReportGenerator:
         )
 
     def add_heading(self, text, level=1):
+        logger.debug(f"Adding heading: {text}")
         style = self.custom_styles[f'Heading{level}']
         self.content.append(Paragraph(text, style))
         self.content.append(Spacer(1, 12))
 
     def add_paragraph(self, text):
+        logger.debug(f"Adding paragraph: {text}")
         formatted_text = self.format_text(text)
         self.content.append(Paragraph(formatted_text, self.custom_styles['BodyText']))
         self.content.append(Spacer(1, 6))
 
     def format_text(self, text):
         # Convert Markdown-style formatting to ReportLab's XML-like tags
+        logger.debug(f"Fromatting text: {text}")
         text = re.sub(r'\*\*(.*?)\*\*', r'<b>\1</b>', text)  # Bold
         text = re.sub(r'\*(.*?)\*', r'<i>\1</i>', text)      # Italic
         text = re.sub(r'`(.*?)`', r'<code>\1</code>', text)  # Code
         return text
 
     def add_llm_explanation(self, explanation):
+        logger.debug("Adding LLM explanation...")
         lines = explanation.split('\n')
         for line in lines:
             if line.startswith('##'):
@@ -79,6 +89,7 @@ class ReportGenerator:
                 self.add_paragraph(line)
 
     def add_image(self, image_path, width=6*inch, height=4*inch):
+        logger.debug("Adding image...")
         try:
             img = PILImage.open(image_path)
             img.thumbnail((width, height), PILImage.LANCZOS)
@@ -89,9 +100,10 @@ class ReportGenerator:
             self.content.append(img)
             self.content.append(Spacer(1, 12))
         except Exception as e:
-            print(f"Error adding image {image_path}: {str(e)}")
+            logger.error(f"Error adding image {image_path}: {str(e)}")
 
     def add_table(self, data, col_widths=None):
+        logger.debug("Adding table...")
         table = Table(data, colWidths=col_widths)
         table.setStyle(TableStyle([
             ('BACKGROUND', (0, 0), (-1, 0), colors.grey),
@@ -115,6 +127,6 @@ class ReportGenerator:
     def generate(self):
         try:
             self.doc.build(self.content)
-            print(f"Report generated successfully: {self.filename}")
+            logger.info(f"Report generated successfully: {self.filename}")
         except Exception as e:
-            print(f"Error generating report: {str(e)}")
+            logger.error(f"Error generating report: {str(e)}")

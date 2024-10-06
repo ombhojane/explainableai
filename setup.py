@@ -7,7 +7,7 @@ with open(os.path.join(this_directory, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name='explainableai',
-    version='0.1.7',
+    version='0.1.9',
     packages=find_packages(exclude=['tests*']),
     install_requires=[
         'numpy',
