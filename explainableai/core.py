@@ -26,6 +26,8 @@ from .report_generator import ReportGenerator
 from .model_selection import compare_models
 from reportlab.platypus import PageBreak
 import logging
+from sklearn.model_selection import cross_val_score
+
 
 logger=logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
@@ -76,7 +78,6 @@ class XAIWrapper:
     def _compare_models(self):
         logger.debug("Comparing the models...")
         try:
-            from sklearn.model_selection import cross_val_score
             results = {}
             for name, model in self.models.items():
                 cv_scores = cross_val_score(model, self.X, self.y, cv=5, scoring='roc_auc' if self.is_classifier else 'r2')
@@ -167,129 +168,66 @@ class XAIWrapper:
         self.results = results
         return results
     
-    def generate_report(self,filename='xai_report.pdf' ): #section=[] , includes _all , model_comparison , model_performance , etc
+    def generate_report(self, filename='xai_report.pdf'):
         if self.results is None:
             raise ValueError("No analysis results available. Please run analyze() first.")
 
         report = ReportGenerator(filename)
         report.add_heading("Explainable AI Report")
 
-        # Model Comparison
-        def model_comparison():
-            report.add_heading("Model Comparison", level=2)
-            model_comparison_data = [["Model", "CV Score", "Test Score"]]
-            for model, scores in self.results['model_comparison'].items():
-                model_comparison_data.append([model, f"{scores['cv_score']:.4f}", f"{scores['test_score']:.4f}"])
-            report.add_table(model_comparison_data)
+        sections = {
+            'model_comparison': self._generate_model_comparison,
+            'model_performance': self._generate_model_performance,
+            'feature_importance': self._generate_feature_importance,
+            'visualization': self._generate_visualization,
+            'llm_explanation': self._generate_llm_explanation
+        }
 
+        if input("Do you want all sections in the xai_report? (y/n) ").lower() in ['y', 'yes']:
+            for section_func in sections.values():
+                section_func(report)
+        else:
+            for section, section_func in sections.items():
+                if input(f"Do you want {section} in xai_report? (y/n) ").lower() in ['y', 'yes']:
+                    section_func(report)
 
+        report.generate()
 
-        # Model Performance
-        def model_performance():
-            report.add_heading("Model Performance", level=2)
-            for metric, value in self.results['model_performance'].items():
-                if isinstance(value, (int, float, np.float64)):
-                    report.add_paragraph(f"**{metric}:** {value:.4f}")
-                else:
-                    report.add_paragraph(f"**{metric}:**\n{value}")
+    def _generate_model_comparison(self, report):
+        report.add_heading("Model Comparison", level=2)
+        model_comparison_data = [["Model", "CV Score", "Test Score"]] + [
+            [model, f"{scores['cv_score']:.4f}", f"{scores['test_score']:.4f}"]
+            for model, scores in self.results['model_comparison'].items()
+        ]
+        report.add_table(model_comparison_data)
 
-        # Feature Importance
-        def feature_importance():
-            report.add_heading("Feature Importance", level=2)
-            feature_importance_data = [["Feature", "Importance"]] + [[feature, f"{importance:.4f}"] for feature, importance in self.feature_importance.items()]
-            report.add_table(feature_importance_data)
+    def _generate_model_performance(self, report):
+        report.add_heading("Model Performance", level=2)
+        for metric, value in self.results['model_performance'].items():
+            report.add_paragraph(f"**{metric}:** {value:.4f}" if isinstance(value, (int, float, np.float64)) else f"**{metric}:**\n{value}")
 
+    def _generate_feature_importance(self, report):
+        report.add_heading("Feature Importance", level=2)
+        feature_importance_data = [["Feature", "Importance"]] + [
+            [feature, f"{importance:.4f}"] for feature, importance in self.feature_importance.items()
+        ]
+        report.add_table(feature_importance_data)
 
-        # Visualizations
-        def visualization():
-            report.add_heading("Visualizations", level=2)
-            report.add_image('feature_importance.png')
+    def _generate_visualization(self, report):
+        report.add_heading("Visualizations", level=2)
+        for image in ['feature_importance.png', 'partial_dependence.png', 'learning_curve.png', 'correlation_heatmap.png']:
+            report.add_image(image)
             report.content.append(PageBreak())
-            report.add_image('partial_dependence.png')
-            report.content.append(PageBreak())
-            report.add_image('learning_curve.png')
-            report.content.append(PageBreak())
-            report.add_image('correlation_heatmap.png')
-            if self.is_classifier:
+        if self.is_classifier:
+            for image in ['roc_curve.png', 'precision_recall_curve.png']:
+                report.add_image(image)
                 report.content.append(PageBreak())
-                report.add_image('roc_curve.png')
-                report.content.append(PageBreak())
-                report.add_image('precision_recall_curve.png')
 
-        # LLM Explanation
-        def llm_explanation():
-            report.add_heading("LLM Explanation", level=2)
-            report.add_llm_explanation(self.results['llm_explanation'])
-    
-            report.generate()
-
-        while True:
-            all_section_perm = input("Do you want all sections in the xia_report? (y/n) ").lower()
+    def _generate_llm_explanation(self, report):
+        report.add_heading("LLM Explanation", level=2)
+        report.add_llm_explanation(self.results['llm_explanation'])
         
-            if all_section_perm in ["yes", "y"]:
-                model_comparison()
-                model_performance()
-                feature_importance()
-                visualization()
-                llm_explanation()
-                break 
-        
-            elif all_section_perm in ["no", "n"]:
-                while True:
-                    model_comp_perm = input("Do you want model_comparison in xia_report? (y/n) ").lower()
-                    if model_comp_perm in ["yes", "y"]:
-                        model_comparison()
-                        break
-                    elif model_comp_perm in ["no", "n"]:
-                        break
-                    else:
-                        print("Invalid input. Please enter 'y' or 'n'.")
-        
-                while True:
-                    model_perf_perm = input("Do you want model_performance in xia_report? (y/n) ").lower()
-                    if model_perf_perm in ["yes", "y"]:
-                        model_performance()
-                        break
-                    elif model_perf_perm in ["no", "n"]:
-                        break
-                    else:
-                        print("Invalid input. Please enter 'y' or 'n'.")
-        
-                while True:
-                    feature_imp_perm = input("Do you want feature_importance in xia_report? (y/n) ").lower()
-                    if feature_imp_perm in ["yes", "y"]:
-                        feature_importance()
-                        break
-                    elif feature_imp_perm in ["no", "n"]:
-                        break
-                    else:
-                        print("Invalid input. Please enter  'y' or 'n'.")
-        
-                while True:
-                    visualization_perm = input("Do you want visualization in xia_report? (y/n) ").lower()
-                    if visualization_perm in ["yes", "y"]:
-                        visualization()
-                        break
-                    elif visualization_perm in ["no", "n"]:
-                        break
-                    else:
-                        print("Invalid input. Please enter 'y' or 'n'.")
-        
-                while True:
-                    llm_expl_perm = input("Do you want llm_explanation in xia_report? (y/n) ").lower()
-                    if llm_expl_perm in ["yes", "y"]:
-                        llm_explanation()
-                        break
-                    elif llm_expl_perm in ["no", "n"]:
-                        break
-                    else:
-                        print("Invalid input. Please enter 'y' or 'n'.")
-                break 
-        
-            else:
-                print("Invalid input. Please enter 'y' or 'n' ")
             
-        
     def predict(self, X):
         logger.debug("Prediction...")
         try:
