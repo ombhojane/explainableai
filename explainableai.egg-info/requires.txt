@@ -12,3 +12,5 @@ google-generativeai
 python-dotenv
 scipy
 pillow
+
+

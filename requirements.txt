@@ -14,3 +14,9 @@ scipy
 pillow
 xgboost
 colorama
+scikeras
+tensorflow
+
+pytest
+
+

@@ -1,10 +1,19 @@
+# tests/test_utils.py
+
+import sys
+import os
 import pytest
 from sklearn.linear_model import LinearRegression, LogisticRegression
 from sklearn.datasets import make_classification, make_regression
 from sklearn.model_selection import train_test_split
-from explainableai.utils import explain_model, calculate_metrics
 from dotenv import load_dotenv
-import os 
+
+# Add the project root directory to sys.path
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+from explainableai.utils import explain_model, calculate_metrics
+
+# Load environment variables
 load_dotenv()
 
 def test_explain_model_regression():
