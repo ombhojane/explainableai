@@ -24,6 +24,7 @@ from .report_generator import ReportGenerator
 from .model_selection import compare_models
 from reportlab.platypus import PageBreak
 
+import dask.dataframe as dd
 
 class XAIWrapper:
     def __init__(self):
@@ -112,6 +113,47 @@ class XAIWrapper:
         if self.is_classifier and pd.api.types.is_categorical_dtype(self.y):
             self.label_encoder = LabelEncoder()
             self.y = self.label_encoder.fit_transform(self.y)
+    def _preprocess_data_dask(self, X, y):
+        # Convert pandas DataFrames to Dask DataFrames
+        X = dd.from_pandas(X, npartitions=4)  # Adjust npartitions based on your dataset size
+        y = dd.from_pandas(y, npartitions=4)
+
+        # Identify categorical and numerical columns
+        self.categorical_columns = X.select_dtypes(include=['object', 'category']).columns
+        self.numerical_columns = X.select_dtypes(include=['int64', 'float64']).columns
+
+        # Create preprocessing steps
+        numeric_transformer = Pipeline(steps=[
+            ('imputer', SimpleImputer(strategy='mean')),
+            ('scaler', StandardScaler())
+        ])
+
+        categorical_transformer = Pipeline(steps=[
+            ('imputer', SimpleImputer(strategy='constant', fill_value='missing')),
+            ('onehot', OneHotEncoder(handle_unknown='ignore', sparse_output=False))
+        ])
+
+        self.preprocessor = ColumnTransformer(
+            transformers=[
+                ('num', numeric_transformer, self.numerical_columns),
+                ('cat', categorical_transformer, self.categorical_columns)
+            ]
+        )
+
+        # Fit and transform the data in parallel
+        self.X = self.preprocessor.fit_transform(X).compute()
+
+        # Update feature names after preprocessing
+        num_feature_names = self.numerical_columns.tolist()
+        cat_feature_names = []
+        if self.categorical_columns.size > 0:
+            cat_feature_names = self.preprocessor.named_transformers_['cat'].named_steps['onehot'].get_feature_names_out(self.categorical_columns).tolist()
+        self.feature_names = num_feature_names + cat_feature_names
+
+        # Encode target variable if it's categorical
+        if self.is_classifier and pd.api.types.is_categorical_dtype(y):
+            self.label_encoder = LabelEncoder()
+            self.y = self.label_encoder.fit_transform(y.compute())
 
     def analyze(self):
         results = {}
