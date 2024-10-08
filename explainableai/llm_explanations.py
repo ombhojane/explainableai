@@ -3,10 +3,14 @@
 import google.generativeai as genai
 import os
 from dotenv import load_dotenv
+from tensorflow import keras
+from tensorflow.keras.models import Sequential # type: ignore
+from tensorflow.keras.layers import Dense # type: ignore
 
 load_dotenv()
 
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
+
 def initialize_gemini():
     genai.configure(api_key=GOOGLE_API_KEY)
     generation_config = {
@@ -22,6 +26,24 @@ def initialize_gemini():
         {"category": "HARM_CATEGORY_DANGEROUS_CONTENT", "threshold": "BLOCK_MEDIUM_AND_ABOVE"},
     ]
     return genai.GenerativeModel(model_name="gemini-1.5-pro", generation_config=generation_config, safety_settings=safety_settings)
+
+def create_keras_model(input_dim):
+    # Create a Keras model for binary classification
+    model = Sequential()
+    model.add(Dense(64, activation='relu', input_dim=input_dim))
+    model.add(Dense(64, activation='relu'))
+    model.add(Dense(1, activation='sigmoid'))  # Output layer for binary classification
+    model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
+    return model
+
+def train_keras_model(X, y):
+    model = create_keras_model(X.shape[1])
+    model.fit(X, y, epochs=10, batch_size=32, verbose=0)
+    return model
+
+def predict_with_keras(model, X):
+    predictions = model.predict(X)
+    return (predictions > 0.5).astype(int)  # Convert probabilities to binary predictions
 
 def get_llm_explanation(model, results):
     prompt = f"""
@@ -62,7 +84,6 @@ def get_llm_explanation(model, results):
 
     response = model.generate_content(prompt)
     return response.text
-
 
 def get_prediction_explanation(model, input_data, prediction, probabilities, feature_importance):
     if feature_importance:
@@ -107,3 +128,10 @@ def get_prediction_explanation(model, input_data, prediction, probabilities, fea
 
     response = model.generate_content(prompt)
     return response.text
+
+# Example usage:
+# X_train = ...  # your training feature data as a numpy array
+# y_train = ...  # your training labels as a numpy array
+
+# keras_model = train_keras_model(X_train, y_train)  # Train the Keras model
+# predictions = predict_with_keras(keras_model, X_train)  # Make predictions

@@ -1,5 +1,6 @@
 # explainableai/report_generation.py
 
+import numpy as np
 from reportlab.lib.pagesizes import letter
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image, Table, TableStyle, PageBreak
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
@@ -8,6 +9,9 @@ from reportlab.lib.units import inch
 import io
 from PIL import Image as PILImage
 import re
+from tensorflow import keras
+from tensorflow.keras.models import Sequential # type: ignore
+from tensorflow.keras.layers import Dense # type: ignore
 
 class ReportGenerator:
     def __init__(self, filename):
@@ -118,3 +122,33 @@ class ReportGenerator:
             print(f"Report generated successfully: {self.filename}")
         except Exception as e:
             print(f"Error generating report: {str(e)}")
+
+    def create_keras_model(self, input_dim):
+        # Create a Keras model for binary classification
+        model = Sequential()
+        model.add(Dense(64, activation='relu', input_dim=input_dim))
+        model.add(Dense(64, activation='relu'))
+        model.add(Dense(1, activation='sigmoid'))  # Output layer for binary classification
+        model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
+        return model
+
+    def train_keras_model(self, X, y):
+        model = self.create_keras_model(X.shape[1])
+        model.fit(X, y, epochs=10, batch_size=32, verbose=0)
+        return model
+
+    def evaluate_keras_model(self, model, X, y):
+        y_pred = (model.predict(X) > 0.5).astype(int)
+        accuracy = np.mean(y_pred.flatten() == y)
+        return accuracy
+
+# Example usage:
+# X_train = ...  # your training feature data as a numpy array
+# y_train = ...  # your training labels as a numpy array
+
+# report = ReportGenerator("report.pdf")
+# keras_model = report.train_keras_model(X_train, y_train)  # Train the Keras model
+# accuracy = report.evaluate_keras_model(keras_model, X_train, y_train)  # Evaluate the model
+# report.add_heading("Keras Model Evaluation", level=1)
+# report.add_paragraph(f"Model Accuracy: {accuracy:.2f}")
+# report.generate()  # Generate the report

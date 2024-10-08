@@ -8,6 +8,23 @@ from sklearn.model_selection import learning_curve
 from sklearn.metrics import roc_curve, auc, precision_recall_curve, average_precision_score
 import plotly.graph_objs as go
 from plotly.subplots import make_subplots
+from tensorflow import keras
+from tensorflow.keras.models import Sequential # type: ignore
+from tensorflow.keras.layers import Dense # type: ignore
+
+def create_keras_model(input_dim):
+    # Create a Keras model for binary classification
+    model = Sequential()
+    model.add(Dense(64, activation='relu', input_dim=input_dim))
+    model.add(Dense(64, activation='relu'))
+    model.add(Dense(1, activation='sigmoid'))  # Output layer for binary classification
+    model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
+    return model
+
+def train_keras_model(X_train, y_train):
+    model = create_keras_model(X_train.shape[1])
+    model.fit(X_train, y_train, epochs=10, batch_size=32, verbose=0)
+    return model
 
 def plot_feature_importance(feature_importance):
     plt.figure(figsize=(12, 8))
@@ -72,7 +89,11 @@ def plot_learning_curve(model, X, y, cv=5):
     plt.close()
 
 def plot_roc_curve(model, X_test, y_test):
-    y_pred_proba = model.predict_proba(X_test)[:, 1]
+    if isinstance(model, keras.Model):  # Check if the model is a Keras model
+        y_pred_proba = model.predict(X_test).flatten()  # Flatten to get 1D array
+    else:
+        y_pred_proba = model.predict_proba(X_test)[:, 1]
+    
     fpr, tpr, _ = roc_curve(y_test, y_pred_proba)
     roc_auc = auc(fpr, tpr)
 
@@ -89,7 +110,11 @@ def plot_roc_curve(model, X_test, y_test):
     plt.close()
 
 def plot_precision_recall_curve(model, X_test, y_test):
-    y_pred_proba = model.predict_proba(X_test)[:, 1]
+    if isinstance(model, keras.Model):  # Check if the model is a Keras model
+        y_pred_proba = model.predict(X_test).flatten()  # Flatten to get 1D array
+    else:
+        y_pred_proba = model.predict_proba(X_test)[:, 1]
+    
     precision, recall, _ = precision_recall_curve(y_test, y_pred_proba)
     average_precision = average_precision_score(y_test, y_pred_proba)
 
@@ -127,3 +152,13 @@ def plot_correlation_heatmap(X):
     plt.tight_layout()
     plt.savefig('correlation_heatmap.png')
     plt.close()
+
+# Example usage:
+# X_train = ...  # your training feature data as a numpy array
+# y_train = ...  # your training labels as a numpy array
+# X_test = ...   # your testing feature data as a numpy array
+# y_test = ...   # your testing labels as a numpy array
+
+# keras_model = train_keras_model(X_train, y_train)  # Train the Keras model
+# plot_roc_curve(keras_model, X_test, y_test)  # Plot ROC curve for Keras model
+# plot_precision_recall_curve(keras_model, X_test, y_test)  # Plot Precision-Recall curve for Keras model
