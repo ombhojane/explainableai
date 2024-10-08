@@ -177,6 +177,10 @@ class XAIWrapper:
         logger.info("Generating LLM explanation...")
         results['llm_explanation'] = get_llm_explanation(self.gemini_model, results)
 
+        # Generate XAI report after analysis
+        logger.info("Generating XAI report")
+        self.generate_report()
+
         self.results = results
         return results
     
@@ -218,13 +222,15 @@ class XAIWrapper:
         return {'mean_score': mean_score, 'std_score': std_score}
 
     def _aggregate_results(self, results):
-        # Example aggregation logic, modify based on the structure of the results
         aggregated_result = {}
         for result in results:
-            for key, value in result.items():
-                if key not in aggregated_result:
-                    aggregated_result[key] = []
-                aggregated_result[key].append(value)
+            if isinstance(result, dict):
+                for key, value in result.items():
+                    if key not in aggregated_result:
+                        aggregated_result[key] = []
+                    aggregated_result[key].append(value)
+            else:
+                logger.error("Expected result to be a dictionary, but got: {}".format(type(result)))
         return aggregated_result
 
 
