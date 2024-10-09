@@ -1,5 +1,10 @@
 # 🚦 Traffic Accident Prediction Model 🚗
 
+<p align="center">
+    <img src="https://raw.githubusercontent.com/alo7lika/explainableai/refs/heads/main/examples/Traffic%20Accident%20Prediction%20Model/TrafficVision%20-%20Accident%20Prediction%20Model.png" width="600" />
+</p>
+
+
 ## 📚 Table of Contents
 1. [Introduction](#introduction)
 2. [Objective](#objective)
