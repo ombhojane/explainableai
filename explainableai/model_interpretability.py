@@ -4,14 +4,23 @@ import lime
 import lime.lime_tabular
 import matplotlib.pyplot as plt
 import numpy as np
+import logging
 
+logger=logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
 
 def calculate_shap_values(model, X):
-    explainer = shap.Explainer(model, X)
-    shap_values = explainer(X)
-    return shap_values
+    logger.debug("Calculating values...")
+    try:
+        explainer = shap.Explainer(model, X)
+        shap_values = explainer(X)
+        logger.info("Values caluated...")
+        return shap_values
+    except Exception as e:
+        logger.error(f"Some error occurred in calculating values...{str(e)}")
 
 def plot_shap_summary(shap_values, X):
+    logger.debug("Summary...")
     try:
         plt.figure(figsize=(10, 8))
         shap.summary_plot(shap_values, X, plot_type="bar", show=False)
@@ -19,8 +28,8 @@ def plot_shap_summary(shap_values, X):
         plt.savefig('shap_summary.png')
         plt.close()
     except TypeError as e:
-        print(f"Error in generating SHAP summary plot: {e}")
-        print("Attempting alternative SHAP visualization...")
+        logger.error(f"Error in generating SHAP summary plot: {str(e)}")
+        logger.error("Attempting alternative SHAP visualization...")
         try:
             plt.figure(figsize=(10, 8))
             shap.summary_plot(shap_values.values, X.values, feature_names=X.columns.tolist(), plot_type="bar", show=False)
@@ -28,18 +37,23 @@ def plot_shap_summary(shap_values, X):
             plt.savefig('shap_summary.png')
             plt.close()
         except Exception as e2:
-            print(f"Alternative SHAP visualization also failed: {e2}")
-            print("Skipping SHAP summary plot.")
+            logger.error(f"Alternative SHAP visualization also failed: {str(e2)}")
+            logger.error("Skipping SHAP summary plot.")
 
 def get_lime_explanation(model, X, instance, feature_names):
-    explainer = lime.lime_tabular.LimeTabularExplainer(
-        X,
-        feature_names=feature_names,
-        class_names=['Negative', 'Positive'],
-        mode='classification'
-    )
-    exp = explainer.explain_instance(instance, model.predict_proba)
-    return exp
+    logger.debug("Explaining model...")
+    try:
+        explainer = lime.lime_tabular.LimeTabularExplainer(
+            X,
+            feature_names=feature_names,
+            class_names=['Negative', 'Positive'],
+            mode='classification'
+        )
+        exp = explainer.explain_instance(instance, model.predict_proba)
+        logger.info("Model explained...")
+        return exp
+    except Exception as e:
+        logger.error(f"Some error occurred in explaining model...{str(e)}")
 
 def plot_lime_explanation(exp):
     exp.as_pyplot_figure()

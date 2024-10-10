@@ -133,7 +133,7 @@ GEMINI_API_KEY=your_api_key_here
 
 ## API Reference
 
-For detailed API documentation, please refer to our [API Reference](https://explainableai.readthedocs.io/en/latest/api.html).
+For detailed API documentation, please refer to our [API Reference](https://pypi.org/project/explainableai/).
 
 ## Running Locally
 
@@ -162,6 +162,16 @@ To run ExplainableAI locally:
 ## Contributing
 
 We welcome contributions to ExplainableAI! Please see our [Contributing Guidelines](CONTRIBUTING.md) for more information on how to get started.
+
+## Credits
+
+Explainable AI was created by [Om Bhojane](https://github.com/ombhojane). Special thanks to the following contributors for their support.
+
+<p align="start">
+<a  href="https://github.com/ombhojane/explainableai/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=ombhojane/explainableai"/>
+</a>
+</p>
 
 ## Acknowledgements
 

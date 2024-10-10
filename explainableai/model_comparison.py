@@ -4,16 +4,24 @@ from sklearn.metrics import roc_auc_score, roc_curve
 import matplotlib.pyplot as plt
 import numpy as np
 from scipy import stats
+import logging
 
+logger=logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
 def compare_models(models, X, y, cv=5):
-    results = {}
-    for name, model in models.items():
-        scores = cross_val_score(model, X, y, cv=cv, scoring='roc_auc')
-        results[name] = {
-            'mean_score': np.mean(scores),
-            'std_score': np.std(scores)
-        }
-    return results
+    logger.debug("Comparing models...")
+    try:
+        results = {}
+        for name, model in models.items():
+            scores = cross_val_score(model, X, y, cv=cv, scoring='roc_auc')
+            results[name] = {
+                'mean_score': np.mean(scores),
+                'std_score': np.std(scores)
+            }
+        logger.info("Comparision successfull")
+        return results
+    except Exception as e:
+        logger.error(f"Some error occurred in comparision...{str(e)}")
 
 def plot_roc_curves(models, X, y):
     plt.figure(figsize=(10, 8))
@@ -34,6 +42,7 @@ def plot_roc_curves(models, X, y):
     plt.close()
 
 def mcnemar_test(model1, model2, X, y):
+    logger.debug("Testing...")
     y_pred1 = model1.predict(X)
     y_pred2 = model2.predict(X)
     
