@@ -1,5 +1,9 @@
 # ExplainableAI 🚀
 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/alo7lika/explainableai/refs/heads/main/ExplainableAI%20-%20Model%20Insights.png" alt="Explainable AI Insights" width="70%">
+</p>
+
 [![PyPI version](https://img.shields.io/pypi/v/explainableai.svg)](https://pypi.org/project/explainableai/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python Versions](https://img.shields.io/pypi/pyversions/explainableai.svg)](https://pypi.org/project/explainableai/)
