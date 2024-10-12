@@ -136,12 +136,16 @@ class XAIWrapper:
         except Exception as e:
             logger.error(f"Some error occur while updating...{str(e)}")
 
-    def analyze(self):
+    def analyze(self, batch_size=None, parallel=False):
         logger.debug("Analysing...")
         results = {}
 
         logger.info("Evaluating model performance...")
-        results['model_performance'] = evaluate_model(self.model, self.X, self.y, self.is_classifier)
+        # Evaluate model performance (batch processing if batch_size is provided)
+        if batch_size:
+            results['model_performance'] = self._process_in_batches(self._evaluate_model_in_batches, batch_size, parallel)
+        else:
+            results['model_performance'] = evaluate_model(self.model, self.X, self.y, self.is_classifier)
 
         logger.info("Calculating feature importance...")
         self.feature_importance = self._calculate_feature_importance()
@@ -149,13 +153,21 @@ class XAIWrapper:
 
         logger.info("Generating visualizations...")
         self._generate_visualizations(self.feature_importance)
-
+        
+        # Calculate SHAP values (batch processing if batch_size is provided)
         logger.info("Calculating SHAP values...")
-        results['shap_values'] = calculate_shap_values(self.model, self.X, self.feature_names)
+        if batch_size:
+            results['shap_values'] = self._process_in_batches(self._calculate_shap_in_batches, batch_size, parallel)
+        else:
+            results['shap_values'] = calculate_shap_values(self.model, self.X, self.feature_names)
 
+        # Perform cross-validation (batch processing if batch_size is provided)
         logger.info("Performing cross-validation...")
-        mean_score, std_score = cross_validate(self.model, self.X, self.y)
-        results['cv_scores'] = (mean_score, std_score)
+        if batch_size:
+            results['cv_scores'] = self._process_in_batches(self._cross_validate_in_batches, batch_size, parallel)
+        else:
+            mean_score, std_score = cross_validate(self.model, self.X, self.y)
+            results['cv_scores'] = (mean_score, std_score)
 
         logger.info("Model comparison results:")
         results['model_comparison'] = self.model_comparison_results
@@ -165,9 +177,79 @@ class XAIWrapper:
         logger.info("Generating LLM explanation...")
         results['llm_explanation'] = get_llm_explanation(self.gemini_model, results)
 
+        # Generate XAI report after analysis
+        logger.info("Generating XAI report")
+        self.generate_report()
+
         self.results = results
         return results
     
+    def _process_in_batches(self, batch_func, batch_size, parallel=False):
+        results = []
+        num_batches = (len(self.X) + batch_size - 1) // batch_size  # Calculate number of batches
+
+        if parallel:
+            from multiprocessing import Pool
+            with Pool() as pool:
+                batch_results = pool.starmap(
+                    batch_func, 
+                    [(self.X[i:i + batch_size], self.y[i:i + batch_size]) for i in range(0, len(self.X), batch_size)]
+                )
+            results.extend(batch_results)
+        else:
+            for i in range(0, len(self.X), batch_size):
+                X_batch = self.X[i:i + batch_size]
+                y_batch = self.y[i:i + batch_size]
+                batch_result = batch_func(X_batch, y_batch)
+                results.append(batch_result)
+
+                # Log progress
+                batch_num = i // batch_size + 1
+                logger.info(f"Processing batch {batch_num}/{num_batches}")
+
+        # Aggregate results after batch processing
+        return self._aggregate_results(results)
+        
+    # private helper functions    
+    def _evaluate_model_in_batches(self, X_batch, y_batch):
+        return evaluate_model(self.model, X_batch, y_batch, self.is_classifier)
+
+    def _calculate_shap_in_batches(self, X_batch, _):
+        return calculate_shap_values(self.model, X_batch, self.feature_names)
+    
+    def _cross_validate_in_batches(self, X_batch, y_batch):
+        mean_score, std_score = cross_validate(self.model, X_batch, y_batch)
+        return {'mean_score': mean_score, 'std_score': std_score}
+
+    def _aggregate_results(self, results):
+        if isinstance(results[0], np.ndarray):  # Check if the result is a NumPy array (SHAP values)
+            return np.mean(results, axis=0)  # Average SHAP values across batches
+        
+        aggregated_result = {}
+        for result in results:
+            if isinstance(result, dict):
+                for key, value in result.items():
+                    if key not in aggregated_result:
+                        aggregated_result[key] = []
+                    aggregated_result[key].append(value)
+            else:
+                logger.error(f"Unexpected result type: {type(result)}")
+        
+        # Aggregate the results
+        for key in aggregated_result:
+            if key == 'confusion_matrix':
+                aggregated_result[key] = sum(aggregated_result[key])
+            elif isinstance(aggregated_result[key][0], (int, float, np.float64)):
+                aggregated_result[key] = np.mean(aggregated_result[key])
+            elif key in ['roc_curve', 'precision_recall_curve']:
+                # For these, we'll just take the first one as an example
+                aggregated_result[key] = aggregated_result[key][0]
+            else:
+                aggregated_result[key] = aggregated_result[key][0]  # Just take the first value for non-numeric results
+        
+        return aggregated_result
+
+
     def generate_report(self, filename='xai_report.pdf'):
         if self.results is None:
             raise ValueError("No analysis results available. Please run analyze() first.")
