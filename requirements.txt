@@ -14,3 +14,4 @@ scipy
 pillow
 xgboost
 colorama
+dask
