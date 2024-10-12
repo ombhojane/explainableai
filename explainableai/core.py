@@ -216,12 +216,15 @@ class XAIWrapper:
 
     def _calculate_shap_in_batches(self, X_batch, _):
         return calculate_shap_values(self.model, X_batch, self.feature_names)
-
+    
     def _cross_validate_in_batches(self, X_batch, y_batch):
         mean_score, std_score = cross_validate(self.model, X_batch, y_batch)
         return {'mean_score': mean_score, 'std_score': std_score}
 
     def _aggregate_results(self, results):
+        if isinstance(results[0], np.ndarray):  # Check if the result is a NumPy array (SHAP values)
+            return np.mean(results, axis=0)  # Average SHAP values across batches
+        
         aggregated_result = {}
         for result in results:
             if isinstance(result, dict):
@@ -230,7 +233,20 @@ class XAIWrapper:
                         aggregated_result[key] = []
                     aggregated_result[key].append(value)
             else:
-                logger.error("Expected result to be a dictionary, but got: {}".format(type(result)))
+                logger.error(f"Unexpected result type: {type(result)}")
+        
+        # Aggregate the results
+        for key in aggregated_result:
+            if key == 'confusion_matrix':
+                aggregated_result[key] = sum(aggregated_result[key])
+            elif isinstance(aggregated_result[key][0], (int, float, np.float64)):
+                aggregated_result[key] = np.mean(aggregated_result[key])
+            elif key in ['roc_curve', 'precision_recall_curve']:
+                # For these, we'll just take the first one as an example
+                aggregated_result[key] = aggregated_result[key][0]
+            else:
+                aggregated_result[key] = aggregated_result[key][0]  # Just take the first value for non-numeric results
+        
         return aggregated_result
 
 
