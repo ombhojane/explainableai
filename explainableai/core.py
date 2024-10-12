@@ -3,6 +3,8 @@ from typing import List
 import colorama
 from colorama import Fore, Style
 
+from explainableai.exceptions import ExplainableAIError
+
 # Initialize colorama
 colorama.init(autoreset=True)
 
@@ -27,6 +29,8 @@ from .model_selection import compare_models
 from reportlab.platypus import PageBreak
 import logging
 from sklearn.model_selection import cross_val_score
+from .model_interpretability import interpret_model
+from .logging_config import logger
 
 
 logger=logging.getLogger(__name__)
@@ -136,12 +140,12 @@ class XAIWrapper:
         except Exception as e:
             logger.error(f"Some error occur while updating...{str(e)}")
 
-    def analyze(self, batch_size=None, parallel=False):
+
+    def analyze(self, batch_size=None, parallel=False, instance_index=0):
         logger.debug("Analysing...")
         results = {}
 
         logger.info("Evaluating model performance...")
-        # Evaluate model performance (batch processing if batch_size is provided)
         if batch_size:
             results['model_performance'] = self._process_in_batches(self._evaluate_model_in_batches, batch_size, parallel)
         else:
@@ -153,18 +157,18 @@ class XAIWrapper:
 
         logger.info("Generating visualizations...")
         self._generate_visualizations(self.feature_importance)
-        
-        # Calculate SHAP values (batch processing if batch_size is provided)
+
         logger.info("Calculating SHAP values...")
         if batch_size:
-            results['shap_values'] = self._process_in_batches(self._calculate_shap_in_batches, batch_size, parallel)
+            shap_values = self._process_in_batches(self._calculate_shap_in_batches, batch_size, parallel)
+            results['shap_values'] = shap_values
         else:
             results['shap_values'] = calculate_shap_values(self.model, self.X, self.feature_names)
 
-        # Perform cross-validation (batch processing if batch_size is provided)
         logger.info("Performing cross-validation...")
         if batch_size:
-            results['cv_scores'] = self._process_in_batches(self._cross_validate_in_batches, batch_size, parallel)
+            cv_results = self._process_in_batches(self._cross_validate_in_batches, batch_size, parallel)
+            results['cv_scores'] = (np.mean(cv_results['mean_score']), np.mean(cv_results['std_score']))
         else:
             mean_score, std_score = cross_validate(self.model, self.X, self.y)
             results['cv_scores'] = (mean_score, std_score)
@@ -172,18 +176,22 @@ class XAIWrapper:
         logger.info("Model comparison results:")
         results['model_comparison'] = self.model_comparison_results
 
+        logger.info("Performing model interpretation (SHAP and LIME)...")
+        try:
+            interpretation_results = interpret_model(self.model, self.X, self.feature_names, instance_index)
+            results.update(interpretation_results)
+        except ExplainableAIError as e:
+            logger.warning(f"Model interpretation failed: {str(e)}")
+            results['interpretation_error'] = str(e)
+
         self._print_results(results)
 
         logger.info("Generating LLM explanation...")
         results['llm_explanation'] = get_llm_explanation(self.gemini_model, results)
 
-        # Generate XAI report after analysis
-        logger.info("Generating XAI report")
-        self.generate_report()
-
         self.results = results
         return results
-    
+
     def _process_in_batches(self, batch_func, batch_size, parallel=False):
         results = []
         num_batches = (len(self.X) + batch_size - 1) // batch_size  # Calculate number of batches
@@ -209,7 +217,7 @@ class XAIWrapper:
 
         # Aggregate results after batch processing
         return self._aggregate_results(results)
-        
+
     # private helper functions    
     def _evaluate_model_in_batches(self, X_batch, y_batch):
         return evaluate_model(self.model, X_batch, y_batch, self.is_classifier)
@@ -249,7 +257,6 @@ class XAIWrapper:
         
         return aggregated_result
 
-
     def generate_report(self, filename='xai_report.pdf'):
         if self.results is None:
             raise ValueError("No analysis results available. Please run analyze() first.")
@@ -272,8 +279,16 @@ class XAIWrapper:
             for section, section_func in sections.items():
                 if input(f"Do you want {section} in xai_report? (y/n) ").lower() in ['y', 'yes']:
                     section_func(report)
+        self._generate_shap_lime_visualizations(report)
 
         report.generate()
+
+    def _generate_shap_lime_visualizations(self, report):
+        report.add_heading("SHAP and LIME Visualizations", level=2)
+        report.add_image('shap_summary.png')
+        report.content.append(PageBreak())
+        report.add_image('lime_explanation.png')
+        report.content.append(PageBreak())        
 
     def _generate_model_comparison(self, report):
         report.add_heading("Model Comparison", level=2)
@@ -286,7 +301,12 @@ class XAIWrapper:
     def _generate_model_performance(self, report):
         report.add_heading("Model Performance", level=2)
         for metric, value in self.results['model_performance'].items():
-            report.add_paragraph(f"**{metric}:** {value:.4f}" if isinstance(value, (int, float, np.float64)) else f"**{metric}:**\n{value}")
+            if isinstance(value, np.ndarray):
+                report.add_paragraph(f"**{metric}:**\n{value}")
+            elif isinstance(value, (int, float, np.float64)):
+                report.add_paragraph(f"**{metric}:** {value:.4f}")
+            else:
+                report.add_paragraph(f"**{metric}:** {value}")
 
     def _generate_feature_importance(self, report):
         report.add_heading("Feature Importance", level=2)
@@ -401,10 +421,14 @@ class XAIWrapper:
                 logger.info("- ROC Curve: roc_curve.png")
                 logger.info("- Precision-Recall Curve: precision_recall_curve.png")
 
-            if results['shap_values'] is not None:
-                logger.info("\nSHAP values calculated successfully. See 'shap_summary.png' for visualization.")
-            else:
-                logger.info("\nSHAP values calculation failed. Please check the console output for more details.")
+            if 'shap_plot_url' in results:
+                logger.info("\nSHAP summary plot saved as 'shap_summary.png'")
+                logger.info("SHAP plot URL (base64 encoded) available in results['shap_plot_url']")
+            
+            if 'lime_plot_url' in results:
+                logger.info("\nLIME explanation plot saved as 'lime_explanation.png'")
+                logger.info("LIME plot URL (base64 encoded) available in results['lime_plot_url']")
+
         except Exception as e:
             logger.error(f"Error occur in printing results...{str(e)}") 
 
