@@ -8,7 +8,7 @@
 
 **ExplainableAI** is a powerful Python package that combines state-of-the-art machine learning techniques with advanced explainable AI methods and LLM-powered explanations. 🌟
 <p align="center">
-  <img src="https://raw.githubusercontent.com/alo7lika/explainableai/refs/heads/main/ExplainableAI%20-%20Model%20Insights.png" alt="Explainable AI Insights" width="70%">
+  <img src="https://raw.githubusercontent.com/alo7lika/explainableai/refs/heads/main/Screenshot%202024-10-14%20005155.png" alt="Explainable AI Insights" width="70%">
 </p>
 
 ---
