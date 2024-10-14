@@ -74,42 +74,77 @@ GEMINI_API_KEY=your_api_key_here
 ```
 # 🖥️ Usage Examples
 
-## 🔀 Multi-Model Comparison
+## Multimodal Example Usage for ExplainableAI
 
-This example demonstrates how to compare multiple machine learning models using the ExplainableAI package.
+To create a **multimodal example usage** for your ExplainableAI project, we can incorporate various modes of interaction and output that enhance user engagement and understanding. This includes:
+
+1. **Text Explanations**: Providing clear and concise explanations for model predictions.
+2. **Dynamic Visualizations**: Integrating libraries to create real-time visualizations of model performance metrics and feature importance.
+3. **Interactive Elements**: Utilizing libraries to create an interactive interface where users can input data for real-time predictions and view explanations.
+
+### Implementation Steps
+
+### Example Code
+
+Here’s a sample implementation that incorporates these multimodal elements:
 
 ```python
 from explainableai import XAIWrapper
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.linear_model import LogisticRegression
-from xgboost import XGBClassifier
 import pandas as pd
+import streamlit as st
 
-# Load your dataset
+# Load your dataset (Replace 'your_dataset.csv' with the actual file)
 df = pd.read_csv('your_dataset.csv')
 X = df.drop(columns=['target_column'])
 y = df['target_column']
 
-# Create models
-models = {
-    'Random Forest': RandomForestClassifier(n_estimators=100, random_state=42),
-    'Logistic Regression': LogisticRegression(max_iter=1000),
-    'XGBoost': XGBClassifier(n_estimators=100, random_state=42)
-}
+# Initialize the model
+model = RandomForestClassifier(n_estimators=100, random_state=42)
 
 # Initialize XAIWrapper
 xai = XAIWrapper()
+xai.fit(model, X, y)
 
-# Fit and analyze models
-xai.fit(models, X, y)
-results = xai.analyze()
+# Streamlit UI
+st.title("Explainable AI Model Prediction")
+st.write("This application provides explanations for model predictions and visualizations.")
 
-# Print LLM explanation of results
-print(results['llm_explanation'])
+# User Input for Prediction
+user_input = {}
+for feature in X.columns:
+    user_input[feature] = st.number_input(feature, value=0.0)
 
-# Generate a comprehensive report
-xai.generate_report('multi_model_comparison.pdf')
+# Make prediction
+if st.button("Predict"):
+    new_data = pd.DataFrame(user_input, index=[0])
+    prediction, probabilities, explanation = xai.explain_prediction(new_data)
+    
+    st.write(f"**Prediction:** {prediction}")
+    st.write(f"**Probabilities:** {probabilities}")
+    st.write(f"**Explanation:** {explanation}")
+
+    # Dynamic Visualization
+    st.subheader("Feature Importance")
+    st.pyplot(xai.plot_feature_importance(model))
+
+    st.subheader("SHAP Values")
+    st.pyplot(xai.plot_shap_values(model))
+
+# Generate report button
+if st.button("Generate Report"):
+    xai.generate_report('model_analysis_report.pdf')
+    st.write("Report generated!")
 ```
+### Additional Resources
+For further details on implementing these features, consider checking out the following resources:
+
+- [Streamlit Documentation](https://docs.streamlit.io/) - Official documentation for Streamlit, a powerful framework for building interactive web applications in Python.
+  
+- [Matplotlib Documentation](https://matplotlib.org/stable/users/index.html) - Comprehensive guide for Matplotlib, a widely used library for creating static, animated, and interactive visualizations in Python.
+
+- [SHAP Documentation](https://shap.readthedocs.io/en/latest/index.html) - Detailed documentation on SHAP (SHapley Additive exPlanations), which provides insights into the contributions of each feature in your model's predictions.
+
 ### 🤖 Explaining Individual Predictions
 
 ```python
