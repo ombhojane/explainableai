@@ -12,3 +12,11 @@ google-generativeai
 python-dotenv
 scipy
 pillow
+colorama
+dask
+
+[dev]
+pytest
+flake8
+black
+mypy
