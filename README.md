@@ -136,14 +136,6 @@ if st.button("Generate Report"):
     xai.generate_report('model_analysis_report.pdf')
     st.write("Report generated!")
 ```
-### Additional Resources
-For further details on implementing these features, consider checking out the following resources:
-
-- [Streamlit Documentation](https://docs.streamlit.io/) - Official documentation for Streamlit, a powerful framework for building interactive web applications in Python.
-  
-- [Matplotlib Documentation](https://matplotlib.org/stable/users/index.html) - Comprehensive guide for Matplotlib, a widely used library for creating static, animated, and interactive visualizations in Python.
-
-- [SHAP Documentation](https://shap.readthedocs.io/en/latest/index.html) - Detailed documentation on SHAP (SHapley Additive exPlanations), which provides insights into the contributions of each feature in your model's predictions.
 
 ### 🤖 Explaining Individual Predictions
 
@@ -196,11 +188,6 @@ pip install -r requirements.txt
    ```bash
    GEMINI_API_KEY=your_api_key_here
 ```
-### 🎥 Demo (Optional GIF)
-**See ExplainableAI in action!** 
-
-![Demo GIF](https://path-to-your-demo-gif.com/demo.gif) <!-- Replace with your actual GIF link -->
-
 ---
 
 ### 🤝 Contributing
