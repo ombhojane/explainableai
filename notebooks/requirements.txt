@@ -1,0 +1,17 @@
+numpy
+pandas
+scikit-learn
+shap
+matplotlib
+seaborn
+plotly
+ipywidgets
+lime
+reportlab
+google-generativeai
+python-dotenv
+scipy
+pillow
+xgboost
+colorama
+dask
