@@ -4,12 +4,14 @@ setup.py
 explainableai/__init__.py
 explainableai/anomaly_detection.py
 explainableai/core.py
+explainableai/exceptions.py
 explainableai/fairness.py
 explainableai/feature_analysis.py
 explainableai/feature_engineering.py
 explainableai/feature_interaction.py
 explainableai/feature_selection.py
 explainableai/llm_explanations.py
+explainableai/logging_config.py
 explainableai/model_comparison.py
 explainableai/model_evaluation.py
 explainableai/model_interpretability.py

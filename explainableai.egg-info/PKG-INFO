@@ -1,13 +1,13 @@
 Metadata-Version: 2.1
 Name: explainableai
-Version: 0.1.9
+Version: 0.10
 Summary: A comprehensive package for Explainable AI and model interpretation
 Home-page: https://github.com/ombhojane/explainableai
 Author: Om Bhojane, Palak Boricha
 Author-email: ombhojane05@gmail.com
 Project-URL: Bug Tracker, https://github.com/ombhojane/explainableai/issues
 Project-URL: Source Code, https://github.com/ombhojane/explainableai
-Keywords: explainable ai,machine learning,model interpretation,data science
+Keywords: explainableai,explainable ai,interpretable ml,model interpretability,feature importance,shap,lime,model explanation,ai transparency,machine learning,deep learning,artificial intelligence,data science,model insights,feature analysis,model debugging,ai ethics,responsible ai,xai,model visualization
 Classifier: Development Status :: 3 - Alpha
 Classifier: Intended Audience :: Developers
 Classifier: Intended Audience :: Science/Research
@@ -18,6 +18,8 @@ Classifier: Programming Language :: Python :: 3.7
 Classifier: Programming Language :: Python :: 3.8
 Classifier: Programming Language :: Python :: 3.9
 Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
 Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
 Classifier: Topic :: Software Development :: Libraries :: Python Modules
 Requires-Python: >=3.7
@@ -37,6 +39,13 @@ Requires-Dist: google-generativeai
 Requires-Dist: python-dotenv
 Requires-Dist: scipy
 Requires-Dist: pillow
+Requires-Dist: colorama
+Requires-Dist: dask
+Provides-Extra: dev
+Requires-Dist: pytest; extra == "dev"
+Requires-Dist: flake8; extra == "dev"
+Requires-Dist: black; extra == "dev"
+Requires-Dist: mypy; extra == "dev"
 
 # ExplainableAI
 
@@ -202,6 +211,16 @@ To run ExplainableAI locally:
 ## Contributing
 
 We welcome contributions to ExplainableAI! Please see our [Contributing Guidelines](CONTRIBUTING.md) for more information on how to get started.
+
+## Credits
+
+Explainable AI was created by [Om Bhojane](https://github.com/ombhojane). Special thanks to the following contributors for their support.
+
+<p align="start">
+<a  href="https://github.com/ombhojane/explainableai/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=ombhojane/explainableai"/>
+</a>
+</p>
 
 ## Acknowledgements
 

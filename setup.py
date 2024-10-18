@@ -7,7 +7,7 @@ with open(os.path.join(this_directory, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name='explainableai',
-    version='0.1.9',
+    version='0.10',
     packages=find_packages(exclude=['tests*']),
     install_requires=[
         'numpy',
@@ -23,8 +23,18 @@ setup(
         'google-generativeai',
         'python-dotenv',
         'scipy',
-        'pillow'
+        'pillow',
+        'colorama',
+        'dask'
     ],
+        extras_require={
+        'dev': [
+            'pytest',
+            'flake8',
+            'black',
+            'mypy',
+        ],
+    },
     entry_points={
         'console_scripts': [
             'explainableai=explainableai.main:main',
@@ -51,10 +61,16 @@ setup(
         'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
         'Programming Language :: Python :: 3.10',
+        'Programming Language :: Python :: 3.11',
+        'Programming Language :: Python :: 3.12',
         'Topic :: Scientific/Engineering :: Artificial Intelligence',
         'Topic :: Software Development :: Libraries :: Python Modules',
     ],
-    keywords='explainable ai, machine learning, model interpretation, data science',
+    keywords='explainableai, explainable ai, interpretable ml, model interpretability, '
+              'feature importance, shap, lime, model explanation, ai transparency, '
+              'machine learning, deep learning, artificial intelligence, data science, '
+              'model insights, feature analysis, model debugging, ai ethics, '
+              'responsible ai, xai, model visualization',
     python_requires='>=3.7',
     include_package_data=True,
     package_data={
