@@ -12,6 +12,6 @@ google-generativeai
 python-dotenv
 scipy
 pillow
-xgboost
+xgboost==1.5.1
 colorama
 dask
