@@ -49,38 +49,36 @@
             }
         ],
         "plans": [
-            [
-                {
-                    "guid": "feature-supporter",
-                    "status": "active",
-                    "name": "Feature Supporter",
-                    "description": "Your one-time donation will help fund the development of new features in ExplainableAI. Every contribution supports our efforts to improve AI transparency.",
-                    "amount": 0,
-                    "currency": "USD",
-                    "frequency": "one-time",
-                    "channels": ["github-sponsors", "buymeacoffee", "upi"]
-                },
-                {
-                    "guid": "monthly-contributor",
-                    "status": "active",
-                    "name": "Monthly Contributor",
-                    "description": "Become a monthly contributor to support ongoing development and maintenance of ExplainableAI. Your regular support helps us provide continuous improvements and community assistance.",
-                    "amount": 0,
-                    "currency": "USD",
-                    "frequency": "monthly",
-                    "channels": ["github-sponsors", "buymeacoffee", "upi"]
-                },
-                {
-                    "guid": "monthly-essentials",
-                    "status": "active",
-                    "name": "Monthly Essentials",
-                    "description": "69 bucks a month to keep the commits flowing and the coffee brewing!",
-                    "amount": 69,
-                    "currency": "USD",
-                    "frequency": "monthly",
-                    "channels": ["github-sponsors", "buymeacoffee", "upi"]
-                }
-            ]
+            {
+                "guid": "feature-supporter",
+                "status": "active",
+                "name": "Feature Supporter",
+                "description": "Your one-time donation will help fund the development of new features in ExplainableAI. Every contribution supports our efforts to improve AI transparency.",
+                "amount": 0,
+                "currency": "USD",
+                "frequency": "one-time",
+                "channels": ["github-sponsors", "buymeacoffee", "upi"]
+            },
+            {
+                "guid": "monthly-contributor",
+                "status": "active",
+                "name": "Monthly Contributor",
+                "description": "Become a monthly contributor to support ongoing development and maintenance of ExplainableAI. Your regular support helps us provide continuous improvements and community assistance.",
+                "amount": 0,
+                "currency": "USD",
+                "frequency": "monthly",
+                "channels": ["github-sponsors", "buymeacoffee", "upi"]
+            },
+            {
+                "guid": "monthly-essentials",
+                "status": "active",
+                "name": "Monthly Essentials",
+                "description": "69 bucks a month to keep the commits flowing and the coffee brewing!",
+                "amount": 69,
+                "currency": "USD",
+                "frequency": "monthly",
+                "channels": ["github-sponsors", "buymeacoffee", "upi"]
+            }
         ]
     }
 }
