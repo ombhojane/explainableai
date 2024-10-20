@@ -1,4 +1,4 @@
-# ExplainableAI
+# ExplainableAI 🚀
 
 [![PyPI version](https://img.shields.io/pypi/v/explainableai.svg)](https://pypi.org/project/explainableai/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -6,42 +6,36 @@
 [![Downloads](https://pepy.tech/badge/explainableai)](https://pepy.tech/project/explainableai)
 [![GitHub stars](https://img.shields.io/github/stars/ombhojane/explainableai.svg)](https://github.com/ombhojane/explainableai/stargazers)
 
-ExplainableAI is a powerful Python package that combines state-of-the-art machine learning techniques with advanced explainable AI methods and LLM-powered explanations.
+**ExplainableAI** is a powerful Python package that combines state-of-the-art machine learning techniques with advanced explainable AI methods and LLM-powered explanations. 🌟
 
-## Table of Contents
+---
 
-- [Features](#features)
-- [Installation](#installation)
-- [Quick Start](#quick-start)
-- [Usage Examples](#usage-examples)
-- [Environment Variables](#environment-variables)
-- [API Reference](#api-reference)
-- [Running Locally](#running-locally)
-- [Contributing](#contributing)
-- [Acknowledgements](#acknowledgements)
-- [License](#license)
+## 🌟 Key Features
 
-## Features
+| Feature                              | Description                                                                                          |
+|--------------------------------------|------------------------------------------------------------------------------------------------------|
+| 📊 **Automated EDA**                 | Gain quick insights into your dataset.                                                               |
+| 🧠 **Model Performance Evaluation**   | Comprehensive metrics for model assessment.                                                          |
+| 📈 **Feature Importance Analysis**    | Understand which features drive your model's decisions.                                               |
+| 🔍 **SHAP Integration**              | Deep insights into model behavior using SHAP (SHapley Additive exPlanations).                         |
+| 📊 **Interactive Visualizations**     | Explore model insights through intuitive charts and graphs.                                           |
+| 🤖 **LLM-Powered Explanations**       | Get human-readable explanations for model results and individual predictions.                         |
+| 📑 **Automated Report Generation**    | Create professional PDF reports with a single command.                                                |
+| 🔀 **Multi-Model Support**            | Compare and analyze multiple ML models simultaneously.                                                |
+| ⚙️ **Easy-to-Use Interface**          | Simple API for model fitting, analysis, and prediction.                                               |
 
-- **Automated Exploratory Data Analysis (EDA)**: Gain quick insights into your dataset.
-- **Model Performance Evaluation**: Comprehensive metrics for model assessment.
-- **Feature Importance Analysis**: Understand which features drive your model's decisions.
-- **SHAP (SHapley Additive exPlanations) Integration**: Deep insights into model behavior.
-- **Interactive Visualizations**: Explore model insights through intuitive charts and graphs.
-- **LLM-Powered Explanations**: Get human-readable explanations for model results and individual predictions.
-- **Automated Report Generation**: Create professional PDF reports with a single command.
-- **Multi-Model Support**: Compare and analyze multiple ML models simultaneously.
-- **Easy-to-Use Interface**: Simple API for model fitting, analysis, and prediction.
+---
 
-## Installation
-
-Install ExplainableAI using pip:
+## 🚀 Quick Start
 
 ```bash
 pip install explainableai
 ```
+# ExplainableAI Example: Iris Dataset with Random Forest
 
-## Quick Start
+## 📝 Code Overview
+
+This example demonstrates how to use the `ExplainableAI` package to fit a Random Forest model on the Iris dataset, analyze model behavior, and generate an LLM-powered explanation and PDF report.
 
 ```python
 from explainableai import XAIWrapper
@@ -49,132 +43,164 @@ from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 
-# Load sample dataset
+# Load dataset
 X, y = load_iris(return_X_y=True, as_frame=True)
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-# Initialize XAIWrapper
+# Initialize and fit model
 xai = XAIWrapper()
-
-# Fit and analyze model
 model = RandomForestClassifier(n_estimators=100, random_state=42)
 xai.fit(model, X_train, y_train)
-results = xai.analyze(X_test, y_test)
 
-# Print LLM explanation
+# Analyze and explain results
+results = xai.analyze(X_test, y_test)
 print(results['llm_explanation'])
 
 # Generate report
 xai.generate_report('iris_analysis.pdf')
 ```
 
-## Usage Examples
+## 🛠️ Installation & Setup
 
-### Multi-Model Comparison
+Install ExplainableAI via pip:
+
+```bash
+pip install explainableai
+```
+To use LLM-powered explanations, you need to set up the following environment variable:
+
+```makefile
+GEMINI_API_KEY=your_api_key_here
+```
+# 🖥️ Usage Examples
+
+## Multimodal Example Usage for ExplainableAI
+
+To create a **multimodal example usage** for your ExplainableAI project, we can incorporate various modes of interaction and output that enhance user engagement and understanding. This includes:
+
+1. **Text Explanations**: Providing clear and concise explanations for model predictions.
+2. **Dynamic Visualizations**: Integrating libraries to create real-time visualizations of model performance metrics and feature importance.
+3. **Interactive Elements**: Utilizing libraries to create an interactive interface where users can input data for real-time predictions and view explanations.
+
+### Implementation Steps
+
+### Example Code
+
+Here’s a sample implementation that incorporates these multimodal elements:
 
 ```python
 from explainableai import XAIWrapper
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.linear_model import LogisticRegression
-from xgboost import XGBClassifier
 import pandas as pd
+import streamlit as st
 
-# Load your dataset
+# Load your dataset (Replace 'your_dataset.csv' with the actual file)
 df = pd.read_csv('your_dataset.csv')
 X = df.drop(columns=['target_column'])
 y = df['target_column']
 
-# Create models
-models = {
-    'Random Forest': RandomForestClassifier(n_estimators=100, random_state=42),
-    'Logistic Regression': LogisticRegression(max_iter=1000),
-    'XGBoost': XGBClassifier(n_estimators=100, random_state=42)
-}
+# Initialize the model
+model = RandomForestClassifier(n_estimators=100, random_state=42)
 
 # Initialize XAIWrapper
 xai = XAIWrapper()
+xai.fit(model, X, y)
 
-# Fit and analyze models
-xai.fit(models, X, y)
-results = xai.analyze()
+# Streamlit UI
+st.title("Explainable AI Model Prediction")
+st.write("This application provides explanations for model predictions and visualizations.")
 
-# Print LLM explanation of results
-print(results['llm_explanation'])
+# User Input for Prediction
+user_input = {}
+for feature in X.columns:
+    user_input[feature] = st.number_input(feature, value=0.0)
 
-# Generate a comprehensive report
-xai.generate_report('multi_model_comparison.pdf')
+# Make prediction
+if st.button("Predict"):
+    new_data = pd.DataFrame(user_input, index=[0])
+    prediction, probabilities, explanation = xai.explain_prediction(new_data)
+    
+    st.write(f"**Prediction:** {prediction}")
+    st.write(f"**Probabilities:** {probabilities}")
+    st.write(f"**Explanation:** {explanation}")
+
+    # Dynamic Visualization
+    st.subheader("Feature Importance")
+    st.pyplot(xai.plot_feature_importance(model))
+
+    st.subheader("SHAP Values")
+    st.pyplot(xai.plot_shap_values(model))
+
+# Generate report button
+if st.button("Generate Report"):
+    xai.generate_report('model_analysis_report.pdf')
+    st.write("Report generated!")
 ```
 
-### Explaining Individual Predictions
+### 🤖 Explaining Individual Predictions
 
 ```python
-# ... (after fitting the model)
+# After fitting the model
+
+# New data to be explained
+new_data = {'feature_1': value1, 'feature_2': value2, ...}  # Dictionary of feature values
 
 # Make a prediction with explanation
-new_data = {...}  # Dictionary of feature values
 prediction, probabilities, explanation = xai.explain_prediction(new_data)
 
 print(f"Prediction: {prediction}")
 print(f"Probabilities: {probabilities}")
 print(f"Explanation: {explanation}")
 ```
+## 📊 Feature Overview
 
-## Environment Variables
+| Module                | Description                                                                                     |
+|-----------------------|-------------------------------------------------------------------------------------------------|
+| `explore()`           | Automated exploratory data analysis (EDA) to uncover hidden insights.                         |
+| `fit()`               | Train and analyze models with a simple API. Supports multiple models.                         |
+| `analyze()`           | Evaluate model performance with SHAP and LLM-based explanations.                               |
+| `explain_prediction()` | Explain individual predictions in plain English using LLMs.                                    |
+| `generate_report()`    | Create professional PDF reports with visuals, explanations, and analysis.                     |
 
-To use the LLM-powered explanations, you need to set up the following environment variable:
+---
 
-- `GEMINI_API_KEY`: Your [Google Gemini API key](https://ai.google.dev/gemini-api/docs/api-key)
-
-Add this to your `.env` file:
-
-```
-GEMINI_API_KEY=your_api_key_here
-```
-
-## API Reference
-
-For detailed API documentation, please refer to our [API Reference](https://pypi.org/project/explainableai/).
-
-## Running Locally
+## 🌍 Running Locally
 
 To run ExplainableAI locally:
 
-1. Clone the repository:
+1. **Clone the repository**:
 
    ```bash
    git clone https://github.com/ombhojane/explainableai.git
    cd explainableai
    ```
+2.**Install Dependencies**:
 
-2. Install dependencies:
+To install the required dependencies, run the following command:
+
+```bash
+pip install -r requirements.txt
+```
+3.**Set up your environment variables**:
+
+   Add your `GEMINI_API_KEY` to the `.env` file.
 
    ```bash
-   pip install -r requirements.txt
-   ```
+   GEMINI_API_KEY=your_api_key_here
+```
+---
 
-3. Set up your environment variables (see [Environment Variables](#environment-variables)).
+### 🤝 Contributing
+We welcome contributions to ExplainableAI! Please check out our [Contributing Guidelines](CONTRIBUTING.md) to get started. Contributions are what make the open-source community an incredible place to learn, inspire, and create.
 
-4. Run the example script:
-   ```bash
-   python main.py [dataset] [target_column]
-   ```
+---
 
-## Contributing
+### 📄 License
+ExplainableAI is licensed under the [MIT License](https://opensource.org/licenses/MIT).
 
-We welcome contributions to ExplainableAI! Please see our [Contributing Guidelines](CONTRIBUTING.md) for more information on how to get started.
+---
 
-## Credits
-
-Explainable AI was created by [Om Bhojane](https://github.com/ombhojane). Special thanks to the following contributors for their support.
-
-<p align="start">
-<a  href="https://github.com/ombhojane/explainableai/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=ombhojane/explainableai"/>
-</a>
-</p>
-
-## Acknowledgements
-
+### 🙌 Acknowledgements
 ExplainableAI builds upon several open-source libraries, including:
 
 - [scikit-learn](https://scikit-learn.org/)
@@ -182,8 +208,14 @@ ExplainableAI builds upon several open-source libraries, including:
 - [Matplotlib](https://matplotlib.org/)
 - [XGBoost](https://xgboost.readthedocs.io/)
 
-We are grateful to the maintainers and contributors of these projects.
+Special thanks to all the contributors who have made this project possible!
 
-## License
+<p align="center">
+<a href="https://github.com/ombhojane/explainableai/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=ombhojane/explainableai" alt="Contributors"/>
+</a>
+</p>
 
-ExplainableAI is released under the [MIT License](LICENSE).
+
+
+
