@@ -17,7 +17,7 @@
         "name": "explainableai",
         "description": "ExplainableAI is a tool that helps people understand how AI makes decisions. It uses machine learning techniques and clear explanations to show what's happening inside AI systems. Our package offers features like automated data analysis and interactive visuals to make AI more transparent. We hope ExplainableAI will be useful for developing responsible AI in various industries. Our goal is to create AI that's easier to understand and trust, potentially benefiting many users and businesses.",
         "webpageUrl": {
-            "url": "https://pypi.org/project/explainableai",
+            "url": "https://github.com/ombhojane",
             "wellKnown": ""
         },
         "repositoryUrl": {
