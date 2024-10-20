@@ -8,7 +8,7 @@
         "phone": "",
         "description": "I'm the creator of explainableai, a Python package that helps interpret complex 'black box' models. It focuses on 'how predictions are made' by ML models and offers easy-to-understand explanations of AI decisions. My aim is to make AI more transparent and accessible to millions of data scientists, researchers, and businesses around the world.",
         "webpageUrl": {
-            "url": "https://pypi.org/project/explainableai",
+            "url": "https://github.com/ombhojane",
             "wellKnown": ""
         }
     },
