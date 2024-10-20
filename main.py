@@ -20,7 +20,7 @@ def load_dataset(file_path):
         return df
     except Exception as e:
         logger.error(f"Error loading dataset: {str(e)}")
-        exit(1)
+        raise
 
 def split_data(df, target_column):
     """Split dataset into training and testing sets."""
