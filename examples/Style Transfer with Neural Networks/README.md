@@ -7,13 +7,12 @@ Welcome to the **Style Transfer with Neural Networks** project! In this project,
 1. [Project Overview](#-project-overview)
 2. [Setup & Installation](#-setup--installation)
 3. [File Structure](#-file-structure)
-4. [How to Run](#-how-to-run)
-5. [Sample Run](#-sample-run)
-6. [Concepts Behind the Project](#-concepts-behind-the-project)
-7. [Technologies Used](#-technologies-used)
-8. [Parameters & Tuning](#-parameters--tuning)
-9. [License](#-license)
-10. [Contact](#-contact)
+4. [Sample Run](#-sample-run)
+5. [Concepts Behind the Project](#-concepts-behind-the-project)
+6. [Technologies Used](#-technologies-used)
+7. [Parameters & Tuning](#-parameters--tuning)
+8. [License](#-license)
+9. [Contact](#-contact)
 
 ## 📚 Project Overview
 
@@ -39,19 +38,6 @@ pip install torch torchvision matplotlib Pillow
 | `images/`                                | Directory containing sample content and style images               |
 | `output/`                                | Folder to store the generated images                               |
 | `requirements.txt`                       | List of dependencies                                               |
-
-## 🚀 How to Run
-1. Clone the repository and navigate to the project folder:
-    ```bash
-    git clone https://github.com/yourusername/style-transfer-project.git
-    cd style-transfer-project
-    ```
-
-2. Run the Jupyter Notebook to perform style transfer on your images. You can upload your custom content and style images in the notebook.
-
-3. Adjust parameters like `content_weight`, `style_weight`, and `num_steps` for different results.
-
-4. View and save the generated images in the `output/` folder.
 
 ## 📸 Sample Run
 
