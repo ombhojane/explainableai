@@ -207,7 +207,30 @@ pip install -r requirements.txt
 ### 🤝 Contributing
 We welcome contributions to ExplainableAI! Please check out our [Contributing Guidelines](CONTRIBUTING.md) to get started. Contributions are what make the open-source community an incredible place to learn, inspire, and create.
 
----
+<!--line-->
+<img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
+
+
+## Stargazers ❤️
+
+<div align='left'>
+
+[![Stargazers repo roster for @ombhojane/explainableai](https://reporoster.com/stars/dark/ombhojane/explainableai)](https://github.com/ombhojane/explainableai/stargazers)
+
+
+</div>
+
+## Forkers ❤️
+
+[![Forkers repo roster for @ombhojane/explainableai](https://reporoster.com/forks/dark/ombhojane/explainableai)](https://github.com/ombhojane/explainableai/network/members)
+
+
+<!--line-->
+<img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
+
+
+
+
 
 ### 📄 License
 ExplainableAI is licensed under the [MIT License](https://opensource.org/licenses/MIT).
