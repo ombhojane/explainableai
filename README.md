@@ -226,7 +226,7 @@ ExplainableAI builds upon several open-source libraries, including:
 
 <p align="center">
       <a href="https://github.com/ombhojane/explainableai/graphs/contributors">
-        <img src="https://github.com/ombhojane/explainableai/graphs/contributors" width="700" height="250" />
+         <img src="https://api.vaunt.dev/v1/github/entities/ombhojane/repositories/explainableai/contributors?format=svg&limit=54" width="700" height="250" />
       </a>
 </p>
 
