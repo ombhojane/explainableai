@@ -222,14 +222,20 @@ ExplainableAI builds upon several open-source libraries, including:
 - [Matplotlib](https://matplotlib.org/)
 - [XGBoost](https://xgboost.readthedocs.io/)
 
-Special thanks to all the contributors who have made this project possible!
+## 🌍 Our Valuable Contributors
 
 <p align="center">
-<a href="https://github.com/ombhojane/explainableai/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=ombhojane/explainableai" alt="Contributors"/>
-</a>
+      <a href="https://github.com/ombhojane/explainableai/graphs/contributors">
+         <img src="https://api.vaunt.dev/v1/github/entities/ombhojane/repositories/explainableai/contributors?format=svg&limit=54" width="700" height="250" />
+      </a>
 </p>
 
+<br>
 
+### 🎉 Thank You to All Our Amazing Contributors! 🎉
+
+We are incredibly grateful for your dedication and hard work. Your contributions have been invaluable in making this project a success. Thank you for being a part of our journey!
+
+**Let's continue to build great things together! 🚀**
 
 
