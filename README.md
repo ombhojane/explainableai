@@ -208,7 +208,7 @@ pip install -r requirements.txt
 We welcome contributions to ExplainableAI! Please check out our [Contributing Guidelines](CONTRIBUTING.md) to get started. Contributions are what make the open-source community an incredible place to learn, inspire, and create.
 
 <!--line-->
-<img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
+<img src="https://raw.githubusercontent.com/alo7lika/explainableai/refs/heads/main/Images/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
 
 
 ## Stargazers ❤️
@@ -226,7 +226,7 @@ We welcome contributions to ExplainableAI! Please check out our [Contributing Gu
 
 
 <!--line-->
-<img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
+<img src="https://raw.githubusercontent.com/alo7lika/explainableai/refs/heads/main/Images/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
 
 
 
