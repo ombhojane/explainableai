@@ -3,6 +3,8 @@ from typing import List
 import colorama
 from colorama import Fore, Style
 
+from explainableai.exceptions import ExplainableAIError
+
 # Initialize colorama
 colorama.init(autoreset=True)
 
@@ -27,7 +29,10 @@ from .model_selection import compare_models
 from reportlab.platypus import PageBreak
 import logging
 from sklearn.model_selection import cross_val_score
+from .model_interpretability import interpret_model
+from .logging_config import logger
 
+import dask.dataframe as dd
 
 logger=logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
@@ -121,6 +126,58 @@ class XAIWrapper:
         self.X = self.preprocessor.fit_transform(self.X)
 
         # Update feature names after preprocessing
+        num_feature_names = self.numerical_columns.tolist()
+        cat_feature_names = []
+        if self.categorical_columns.size > 0:
+            cat_feature_names = self.preprocessor.named_transformers_['cat'].named_steps['onehot'].get_feature_names_out(self.categorical_columns).tolist()
+        self.feature_names = num_feature_names + cat_feature_names
+
+        # Encode target variable if it's categorical
+        if self.is_classifier and pd.api.types.is_categorical_dtype(self.y):
+            self.label_encoder = LabelEncoder()
+            self.y = self.label_encoder.fit_transform(self.y)
+    def _preprocess_data_dask(self, X, y):
+        # Convert pandas DataFrames to Dask DataFrames
+        X = dd.from_pandas(X, npartitions=4)  # Adjust npartitions based on your dataset size
+        y = dd.from_pandas(y, npartitions=4)
+
+        # Identify categorical and numerical columns
+        self.categorical_columns = X.select_dtypes(include=['object', 'category']).columns
+        self.numerical_columns = X.select_dtypes(include=['int64', 'float64']).columns
+
+        # Create preprocessing steps
+        numeric_transformer = Pipeline(steps=[
+            ('imputer', SimpleImputer(strategy='mean')),
+            ('scaler', StandardScaler())
+        ])
+
+        categorical_transformer = Pipeline(steps=[
+            ('imputer', SimpleImputer(strategy='constant', fill_value='missing')),
+            ('onehot', OneHotEncoder(handle_unknown='ignore', sparse_output=False))
+        ])
+
+        self.preprocessor = ColumnTransformer(
+            transformers=[
+                ('num', numeric_transformer, self.numerical_columns),
+                ('cat', categorical_transformer, self.categorical_columns)
+            ]
+        )
+
+        # Fit and transform the data in parallel
+        self.X = self.preprocessor.fit_transform(X).compute()
+
+        # Update feature names after preprocessing
+        num_feature_names = self.numerical_columns.tolist()
+        cat_feature_names = []
+        if self.categorical_columns.size > 0:
+            cat_feature_names = self.preprocessor.named_transformers_['cat'].named_steps['onehot'].get_feature_names_out(self.categorical_columns).tolist()
+        self.feature_names = num_feature_names + cat_feature_names
+
+        # Encode target variable if it's categorical
+        if self.is_classifier and pd.api.types.is_categorical_dtype(y):
+            self.label_encoder = LabelEncoder()
+            self.y = self.label_encoder.fit_transform(y.compute())
+
         logger.debug("Updating feature names...")
         try:
             num_feature_names = self.numerical_columns.tolist()
@@ -134,14 +191,19 @@ class XAIWrapper:
                 self.label_encoder = LabelEncoder()
                 self.y = self.label_encoder.fit_transform(self.y)
         except Exception as e:
-            logger.error(f"Some error occur while updating...{str(e)}")
+            logger.error(f"Some error occurred while updating... {str(e)}")
 
-    def analyze(self):
+
+
+    def analyze(self, batch_size=None, parallel=False, instance_index=0):
         logger.debug("Analysing...")
         results = {}
 
         logger.info("Evaluating model performance...")
-        results['model_performance'] = evaluate_model(self.model, self.X, self.y, self.is_classifier)
+        if batch_size:
+            results['model_performance'] = self._process_in_batches(self._evaluate_model_in_batches, batch_size, parallel)
+        else:
+            results['model_performance'] = evaluate_model(self.model, self.X, self.y, self.is_classifier)
 
         logger.info("Calculating feature importance...")
         self.feature_importance = self._calculate_feature_importance()
@@ -151,14 +213,30 @@ class XAIWrapper:
         self._generate_visualizations(self.feature_importance)
 
         logger.info("Calculating SHAP values...")
-        results['shap_values'] = calculate_shap_values(self.model, self.X, self.feature_names)
+        if batch_size:
+            shap_values = self._process_in_batches(self._calculate_shap_in_batches, batch_size, parallel)
+            results['shap_values'] = shap_values
+        else:
+            results['shap_values'] = calculate_shap_values(self.model, self.X, self.feature_names)
 
         logger.info("Performing cross-validation...")
-        mean_score, std_score = cross_validate(self.model, self.X, self.y)
-        results['cv_scores'] = (mean_score, std_score)
+        if batch_size:
+            cv_results = self._process_in_batches(self._cross_validate_in_batches, batch_size, parallel)
+            results['cv_scores'] = (np.mean(cv_results['mean_score']), np.mean(cv_results['std_score']))
+        else:
+            mean_score, std_score = cross_validate(self.model, self.X, self.y)
+            results['cv_scores'] = (mean_score, std_score)
 
         logger.info("Model comparison results:")
         results['model_comparison'] = self.model_comparison_results
+
+        logger.info("Performing model interpretation (SHAP and LIME)...")
+        try:
+            interpretation_results = interpret_model(self.model, self.X, self.feature_names, instance_index)
+            results.update(interpretation_results)
+        except ExplainableAIError as e:
+            logger.warning(f"Model interpretation failed: {str(e)}")
+            results['interpretation_error'] = str(e)
 
         self._print_results(results)
 
@@ -167,7 +245,72 @@ class XAIWrapper:
 
         self.results = results
         return results
+
+    def _process_in_batches(self, batch_func, batch_size, parallel=False):
+        results = []
+        num_batches = (len(self.X) + batch_size - 1) // batch_size  # Calculate number of batches
+
+        if parallel:
+            from multiprocessing import Pool
+            with Pool() as pool:
+                batch_results = pool.starmap(
+                    batch_func, 
+                    [(self.X[i:i + batch_size], self.y[i:i + batch_size]) for i in range(0, len(self.X), batch_size)]
+                )
+            results.extend(batch_results)
+        else:
+            for i in range(0, len(self.X), batch_size):
+                X_batch = self.X[i:i + batch_size]
+                y_batch = self.y[i:i + batch_size]
+                batch_result = batch_func(X_batch, y_batch)
+                results.append(batch_result)
+
+                # Log progress
+                batch_num = i // batch_size + 1
+                logger.info(f"Processing batch {batch_num}/{num_batches}")
+
+        # Aggregate results after batch processing
+        return self._aggregate_results(results)
+
+    # private helper functions    
+    def _evaluate_model_in_batches(self, X_batch, y_batch):
+        return evaluate_model(self.model, X_batch, y_batch, self.is_classifier)
+
+    def _calculate_shap_in_batches(self, X_batch, _):
+        return calculate_shap_values(self.model, X_batch, self.feature_names)
     
+    def _cross_validate_in_batches(self, X_batch, y_batch):
+        mean_score, std_score = cross_validate(self.model, X_batch, y_batch)
+        return {'mean_score': mean_score, 'std_score': std_score}
+
+    def _aggregate_results(self, results):
+        if isinstance(results[0], np.ndarray):  # Check if the result is a NumPy array (SHAP values)
+            return np.mean(results, axis=0)  # Average SHAP values across batches
+        
+        aggregated_result = {}
+        for result in results:
+            if isinstance(result, dict):
+                for key, value in result.items():
+                    if key not in aggregated_result:
+                        aggregated_result[key] = []
+                    aggregated_result[key].append(value)
+            else:
+                logger.error(f"Unexpected result type: {type(result)}")
+        
+        # Aggregate the results
+        for key in aggregated_result:
+            if key == 'confusion_matrix':
+                aggregated_result[key] = sum(aggregated_result[key])
+            elif isinstance(aggregated_result[key][0], (int, float, np.float64)):
+                aggregated_result[key] = np.mean(aggregated_result[key])
+            elif key in ['roc_curve', 'precision_recall_curve']:
+                # For these, we'll just take the first one as an example
+                aggregated_result[key] = aggregated_result[key][0]
+            else:
+                aggregated_result[key] = aggregated_result[key][0]  # Just take the first value for non-numeric results
+        
+        return aggregated_result
+
     def generate_report(self, filename='xai_report.pdf'):
         if self.results is None:
             raise ValueError("No analysis results available. Please run analyze() first.")
@@ -190,8 +333,16 @@ class XAIWrapper:
             for section, section_func in sections.items():
                 if input(f"Do you want {section} in xai_report? (y/n) ").lower() in ['y', 'yes']:
                     section_func(report)
+        self._generate_shap_lime_visualizations(report)
 
         report.generate()
+
+    def _generate_shap_lime_visualizations(self, report):
+        report.add_heading("SHAP and LIME Visualizations", level=2)
+        report.add_image('shap_summary.png')
+        report.content.append(PageBreak())
+        report.add_image('lime_explanation.png')
+        report.content.append(PageBreak())        
 
     def _generate_model_comparison(self, report):
         report.add_heading("Model Comparison", level=2)
@@ -204,7 +355,12 @@ class XAIWrapper:
     def _generate_model_performance(self, report):
         report.add_heading("Model Performance", level=2)
         for metric, value in self.results['model_performance'].items():
-            report.add_paragraph(f"**{metric}:** {value:.4f}" if isinstance(value, (int, float, np.float64)) else f"**{metric}:**\n{value}")
+            if isinstance(value, np.ndarray):
+                report.add_paragraph(f"**{metric}:**\n{value}")
+            elif isinstance(value, (int, float, np.float64)):
+                report.add_paragraph(f"**{metric}:** {value:.4f}")
+            else:
+                report.add_paragraph(f"**{metric}:** {value}")
 
     def _generate_feature_importance(self, report):
         report.add_heading("Feature Importance", level=2)
@@ -319,10 +475,14 @@ class XAIWrapper:
                 logger.info("- ROC Curve: roc_curve.png")
                 logger.info("- Precision-Recall Curve: precision_recall_curve.png")
 
-            if results['shap_values'] is not None:
-                logger.info("\nSHAP values calculated successfully. See 'shap_summary.png' for visualization.")
-            else:
-                logger.info("\nSHAP values calculation failed. Please check the console output for more details.")
+            if 'shap_plot_url' in results:
+                logger.info("\nSHAP summary plot saved as 'shap_summary.png'")
+                logger.info("SHAP plot URL (base64 encoded) available in results['shap_plot_url']")
+            
+            if 'lime_plot_url' in results:
+                logger.info("\nLIME explanation plot saved as 'lime_explanation.png'")
+                logger.info("LIME plot URL (base64 encoded) available in results['lime_plot_url']")
+
         except Exception as e:
             logger.error(f"Error occur in printing results...{str(e)}") 
 

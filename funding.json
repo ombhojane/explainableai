@@ -1,0 +1,84 @@
+{
+    "version": "v1.0.0",
+    "entity": {
+        "type": "individual",
+        "role": "owner",
+        "name": "Om Bhojane",
+        "email": "ombhojane05@gmail.com",
+        "phone": "",
+        "description": "I'm the creator of explainableai, a Python package that helps interpret complex 'black box' models. It focuses on 'how predictions are made' by ML models and offers easy-to-understand explanations of AI decisions. My aim is to make AI more transparent and accessible to millions of data scientists, researchers, and businesses around the world.",
+        "webpageUrl": {
+            "url": "https://github.com/ombhojane",
+            "wellKnown": ""
+        }
+    },
+    "projects": [{
+        "guid": "explainableai",
+        "name": "explainableai",
+        "description": "ExplainableAI is a tool that helps people understand how AI makes decisions. It uses machine learning techniques and clear explanations to show what's happening inside AI systems. Our package offers features like automated data analysis and interactive visuals to make AI more transparent. We hope ExplainableAI will be useful for developing responsible AI in various industries. Our goal is to create AI that's easier to understand and trust, potentially benefiting many users and businesses.",
+        "webpageUrl": {
+            "url": "https://github.com/ombhojane",
+            "wellKnown": ""
+        },
+        "repositoryUrl": {
+            "url": "https://github.com/ombhojane/explainableai",
+            "wellKnown": ""
+        },
+        "licenses": ["spdx:MIT"],
+        "tags": ["ai", "machine-learning", "explainable-ai", "data-science", "python", "visualization", "ethical-ai", "ai-transparency", "model-interpretability"]
+    }],
+    "funding": {
+        "channels": [
+            {
+                "guid": "github-sponsors",
+                "type": "payment-provider",
+                "address": "https://github.com/sponsors/ombhojane",
+                "description": "Become a GitHub Sponsor and support the future of transparent AI"
+            },
+            {
+                "guid": "upi",
+                "type": "payment-provider",
+                "address": "upi://pay?pa=ombhojane05@okaxis",
+                "description": "For our Indian supporters: Direct UPI transfer to boost local innovation"
+            },
+            {
+                "guid": "buymeacoffee",
+                "type": "payment-provider",
+                "address": "https://buymeacoffee.com/ombhojane",
+                "description": "Fuel our development with a coffee (or many!)"
+            }
+        ],
+        "plans": [
+            {
+                "guid": "feature-supporter",
+                "status": "active",
+                "name": "Feature Supporter",
+                "description": "Your one-time donation will help fund the development of new features in ExplainableAI. Every contribution supports our efforts to improve AI transparency.",
+                "amount": 0,
+                "currency": "USD",
+                "frequency": "one-time",
+                "channels": ["github-sponsors", "buymeacoffee", "upi"]
+            },
+            {
+                "guid": "monthly-contributor",
+                "status": "active",
+                "name": "Monthly Contributor",
+                "description": "Become a monthly contributor to support ongoing development and maintenance of ExplainableAI. Your regular support helps us provide continuous improvements and community assistance.",
+                "amount": 0,
+                "currency": "USD",
+                "frequency": "monthly",
+                "channels": ["github-sponsors", "buymeacoffee", "upi"]
+            },
+            {
+                "guid": "monthly-essentials",
+                "status": "active",
+                "name": "Monthly Essentials",
+                "description": "69 bucks a month to keep the commits flowing and the coffee brewing!",
+                "amount": 69,
+                "currency": "USD",
+                "frequency": "monthly",
+                "channels": ["github-sponsors", "buymeacoffee", "upi"]
+            }
+        ]
+    }
+}
