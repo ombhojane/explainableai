@@ -225,8 +225,12 @@ ExplainableAI builds upon several open-source libraries, including:
 ## 🌍 Our Valuable Contributors
 
 <p align="center">
-    <img src="https://github.com/ombhojane/explainableai/graphs/contributors" width="700" height="250" />
+      <a href="https://github.com/ombhojane/explainableai/graphs/contributors">
+        <img src="https://github.com/ombhojane/explainableai/graphs/contributors" width="700" height="250" />
+      </a>
 </p>
+
+<br>
 
 ### 🎉 Thank You to All Our Amazing Contributors! 🎉
 
