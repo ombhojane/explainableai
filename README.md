@@ -230,6 +230,16 @@ Special thanks to all the contributors who have made this project possible!
 </a>
 </p>
 
+## 🌍 Our Valuable Contributors
 
+<p align="center">
+    <img src="https://github.com/ombhojane/explainableai/graphs/contributors" width="700" height="250" />
+</p>
+
+### 🎉 Thank You to All Our Amazing Contributors! 🎉
+
+We are incredibly grateful for your dedication and hard work. Your contributions have been invaluable in making this project a success. Thank you for being a part of our journey!
+
+**Let's continue to build great things together! 🚀**
 
 
