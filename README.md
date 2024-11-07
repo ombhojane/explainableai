@@ -207,31 +207,6 @@ pip install -r requirements.txt
 ### 🤝 Contributing
 We welcome contributions to ExplainableAI! Please check out our [Contributing Guidelines](CONTRIBUTING.md) to get started. Contributions are what make the open-source community an incredible place to learn, inspire, and create.
 
-<!--line-->
-<img src="https://raw.githubusercontent.com/alo7lika/explainableai/refs/heads/main/Images/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
-
-
-## Stargazers ❤️
-
-<div align='left'>
-
-[![Stargazers repo roster for @ombhojane/explainableai](https://reporoster.com/stars/dark/ombhojane/explainableai)](https://github.com/ombhojane/explainableai/stargazers)
-
-
-</div>
-
-## Forkers ❤️
-
-[![Forkers repo roster for @ombhojane/explainableai](https://reporoster.com/forks/dark/ombhojane/explainableai)](https://github.com/ombhojane/explainableai/network/members)
-
-
-<!--line-->
-<img src="https://raw.githubusercontent.com/alo7lika/explainableai/refs/heads/main/Images/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
-
-
-
-
-
 ### 📄 License
 ExplainableAI is licensed under the [MIT License](https://opensource.org/licenses/MIT).
 
@@ -245,17 +220,9 @@ ExplainableAI builds upon several open-source libraries, including:
 - [Matplotlib](https://matplotlib.org/)
 - [XGBoost](https://xgboost.readthedocs.io/)
 
-## 🌍 Our Valuable Contributors
+## 🎉 Thank You to All Our Amazing Contributors! 🎉
 
-<p align="center">
-      <a href="https://github.com/ombhojane/explainableai/graphs/contributors">
-         <img src="https://api.vaunt.dev/v1/github/entities/ombhojane/repositories/explainableai/contributors?format=svg&limit=54" width="700" height="250" />
-      </a>
-</p>
-
-<br>
-
-### 🎉 Thank You to All Our Amazing Contributors! 🎉
+<img src="https://contrib.rocks/image?repo=ombhojane/explainableai" alt="Contributors"/>
 
 We are incredibly grateful for your dedication and hard work. Your contributions have been invaluable in making this project a success. Thank you for being a part of our journey!
 
